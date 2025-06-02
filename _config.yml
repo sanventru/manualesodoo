@@ -2,6 +2,8 @@ title: Manuales Odoo 16 Ecuador
 description: Documentación y manuales para Odoo 16 en Ecuador
 theme: jekyll-theme-cayman
 markdown: kramdown
+baseurl: "/manualesodoo"
+url: "https://sanventru.github.io"
 plugins:
   - jekyll-relative-links
 relative_links:
@@ -10,3 +12,9 @@ relative_links:
 include:
   - "*.md"
   - "*.markdown"
+exclude:
+  - "Manual_Odoo16_Ecuador_Completo.docx"
+  - "Manual_Odoo16_Ecuador_Completo_backup.md"
+  - "odoo 16 módulos"
+  - "odoo16 ajustes y funciones estandar"
+  - ".git"
