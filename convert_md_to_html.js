@@ -121,10 +121,10 @@ const htmlTemplate = (title, content) => `
     <div class="main-content-nav">
       <a href="index.html">Inicio</a>
       <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
-      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
-      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
-      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
-      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+      <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html">Manual Técnico</a>
+      <a href="Extension_RRHH_Parte1.html">Recursos Humanos</a>
+      <a href="Extension_Procesos_SRI.html">Procesos SRI</a>
+      <a href="Extension_Cajas_Reportes.html">Cajas y Reportes</a>
     </div>
 
     <div class="markdown-body">
