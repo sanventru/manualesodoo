@@ -1,0 +1,12 @@
+title: Manuales Odoo 16 Ecuador
+description: Documentación y manuales para Odoo 16 en Ecuador
+theme: jekyll-theme-cayman
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - "*.md"
+  - "*.markdown"
