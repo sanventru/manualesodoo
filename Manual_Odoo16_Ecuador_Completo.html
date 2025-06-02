@@ -95,7 +95,6 @@
     <a href="index.html" class="btn">Inicio</a>
     <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
     <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
-    <a href="Manual_Tecnico_Facturacion_Parte1.html" class="btn">Facturación</a>
   </header>
 
   <div class="main-content">
@@ -103,8 +102,9 @@
       <a href="index.html">Inicio</a>
       <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
       <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html">Manual Técnico</a>
-      <a href="Manual_Odoo16_Ecuador_Tecnico_Parte2.html">Manual Técnico Parte 2</a>
-      <a href="Manual_Tecnico_Facturacion_Parte1.html">Facturación</a>
+      <a href="Extension_RRHH_Parte1.html">Recursos Humanos</a>
+      <a href="Extension_Procesos_SRI.html">Procesos SRI</a>
+      <a href="Extension_Cajas_Reportes.html">Cajas y Reportes</a>
     </div>
 
     <div class="markdown-body">
@@ -290,6 +290,27 @@ en Odoo: es donde se realizan las parametrizaciones iniciales después de la ins
 <ul>
 <li>Configuración de conexión con servicios web del SRI</li>
 </ul>
+<h3>Instrucciones detalladas</h3>
+<p><strong>Configuración esencial antes de empezar a operar:</strong></p>
+<ol>
+<li><p><strong>Definir datos de la compañía</strong><br><em>Ajustes → Compañías → Editar</em>: ingrese razón social, RUC, régimen de contabilidad y logo corporativo.</p>
+</li>
+<li><p><strong>Zona horaria e idioma</strong><br><em>Ajustes → Preferencias de usuario</em>: seleccione <em>America/Guayaquil</em> y «Español (Ecuador)».</p>
+</li>
+<li><p><strong>Moneda principal y secundarias</strong><br><em>Ajustes → Moneda</em>: active USD y configure su cotización automática (Diario → Tipo de cambio del BCE).</p>
+</li>
+<li><p><strong>Plan de cuentas ecuatoriano</strong><br><em>Contabilidad → Configuración → Plan contable</em>: instale el plan PYMES NIIF o utilice el plan personalizable SRI.</p>
+</li>
+<li><p><strong>Impuestos de IVA</strong><br>Cree los impuestos 12 %, 0 %, 8 % (Impuesto ICE) y 15 % (IVA servicios), marcando su tipo SRI correspondiente.</p>
+</li>
+<li><p><strong>Usuarios y perfiles de acceso</strong><br>Cree grupos (Administrador, Contador, Vendedor) y asigne permisos según la política de <em>Seguridad basada en registros</em>.</p>
+</li>
+<li><p><strong>Secuencias de documentos electrónicos</strong><br><em>Contabilidad → Configuración → Documentos electrónicos</em>: defina los establecimientos y secuenciales autorizados por el SRI.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Tip:</strong> active el <em>Modo desarrollador</em> (<code>?debug=1</code>) para ver todos los parámetros avanzados y campos técnicos.</p>
+</blockquote>
 <h2>3. VENTAS</h2>
 <h3>3.1. Menú de Ventas</h3>
 <p>El módulo de ventas permite gestionar todo el ciclo comercial, desde cotizaciones hasta facturación.</p>
@@ -353,6 +374,30 @@ El módulo CRM (Customer Relationship Management) se enfoca en la gestión del c
 . Cierre y conversión a ventas: Cuando una oportunidad se concreta (ganada), el usuario puede marcarla como Ganada en el pipeline de CRM. En ese punto, gracias a la integración, es posible crear directamente un presupuesto de venta (cotización) enlazado a esa oportunidad, saltando al módulo de Ventas con la información ya cargada del cliente potencial. Si la oportunidad no prospera, también es posible marcarla como Perdida indicando un motivo, lo que alimenta posteriormente informes de tasa de éxito y razones de pérdida para análisis comerciales
 . El CRM de Odoo incluye además reportes para pronosticar ventas (forecast), análisis de pipeline por etapa, por vendedor, duración de ciclo de venta, etc., dando a la gerencia herramientas para un pronóstico preciso (“obtener pronósticos precisos”
 ) del desempeño comercial. En conjunto, CRM y Ventas cubren el ciclo completo de ventas: CRM gestiona la relación y la oportunidad antes del pedido, y Ventas gestiona la cotización, el pedido y la facturación una vez se cierra el trato. Esta integración garantiza un flujo continuo de información sin reingreso de datos, aumentando la eficiencia del proceso comercial en Odoo 16 Community.</p>
+<h3>Instrucciones detalladas</h3>
+<p><strong>Ciclo de ventas estándar:</strong></p>
+<ol>
+<li><p><strong>Crear cotización</strong><br>Ventas → Cotizaciones → <em>Nuevo</em> → seleccione el cliente, productos y condiciones de pago.</p>
+</li>
+<li><p><strong>Enviar cotización</strong><br>Pulse <em>Enviar por correo</em> para abrir la plantilla PDF y editar el mensaje. El envío queda registrado en el <em>Chatter</em>.</p>
+</li>
+<li><p><strong>Confirmar pedido de venta</strong><br>Botón <em>Confirmar</em> → se generan los documentos de entrega y un borrador de factura (según la política de facturación).</p>
+</li>
+<li><p><strong>Gestionar entrega</strong><br>Inventario → Transferencias → abra la operación, verifique cantidades y haga clic en <em>Validar</em> para descontar stock.</p>
+</li>
+<li><p><strong>Emitir factura</strong><br>Desde el pedido → <em>Crear factura</em> → revise impuestos, añada retenciones si aplica y valide el documento.</p>
+</li>
+<li><p><strong>Registrar pago</strong><br>En la factura → <em>Registrar pago</em> → seleccione el diario (Bancos, Efectivo) y confirme.</p>
+</li>
+</ol>
+<p><strong>Configuraciones clave del módulo:</strong></p>
+<ul>
+<li>Políticas de facturación: <em>Al ordenar</em> o <em>A la entrega</em>.  </li>
+<li>Incoterms y términos de pago.  </li>
+<li>Lista de precios por cliente o segmento.  </li>
+<li>Plantillas de cotización y firma electrónica.  </li>
+<li>Equipos de venta y comisiones por usuario.</li>
+</ul>
 <h2>4. COMPRAS</h2>
 <h3>4.1. Requisiciones de Compra</h3>
 <p>Las requisiciones de compra son solicitudes internas para adquirir productos o servicios.</p>
@@ -400,6 +445,29 @@ El módulo CRM (Customer Relationship Management) se enfoca en la gestión del c
 , así como la gestión de múltiples cotizaciones a diferentes proveedores para un mismo requerimiento, pudiendo comparar precios y elegir la mejor oferta. Recepciones y control de calidad: Tras confirmar una compra, la integración con Inventario se encarga de la recepción. Los encargados de almacén verán un albarán de entrada pendiente por la cantidad ordenada. Cuando el proveedor entrega los productos, el usuario de inventario procede a validar la recepción registrando las cantidades recibidas. Odoo permite manejar cantidades recibidas parciales, backorders (pedidos pendientes), e incluso flujo de aprobaciones o controles de calidad si se configuran (por ejemplo, inspeccionar productos al recibir). Solo después de recibir físicamente, se suele procesar la factura del proveedor (según política: Odoo puede manejar facturación al pedir o al recibir mercancía
 ). En resumen, el módulo Compras de Odoo 16 Community brinda un control completo sobre el ciclo de abastecimiento de la empresa, integrándose con Inventario y Contabilidad. Desde la negociación con proveedores hasta la entrada de stock y pago de facturas, todo el proceso queda centralizado: “Aprenda cómo monitorear una licitación de compra, automatizar el reabastecimiento y darle seguimiento a sus órdenes.”
 . Esto mejora la eficiencia en compras y la visibilidad de las obligaciones con proveedores en la organización.</p>
+<h3>Instrucciones detalladas</h3>
+<p><strong>Flujo de abastecimiento:</strong></p>
+<ol>
+<li><p><strong>Solicitud interna</strong><br>Compras → <em>Solicitudes de aprovisionamiento</em> → <em>Nuevo</em> → defina producto y cantidad.</p>
+</li>
+<li><p><strong>Solicitud de cotización (RFQ)</strong><br>Para proveedores externos: <em>RFQ</em> → envíe por email o imprima PDF.</p>
+</li>
+<li><p><strong>Confirmar orden de compra</strong><br>Botón <em>Confirmar</em> crea el <em>Pedido de compra</em> y planifica la recepción.</p>
+</li>
+<li><p><strong>Recepción de productos</strong><br>Inventario → Transferencias → seleccione la operación, ingrese cantidades recibidas, <em>Validar</em>.</p>
+</li>
+<li><p><strong>Recepción de factura de proveedor</strong><br>En la orden → <em>Crear factura</em> → verifique precios, impuestos (IVA 12 %, retención) y valide.</p>
+</li>
+<li><p><strong>Pagos</strong><br>Contabilidad → Pagos → <em>Registrar pago</em> para conciliar la factura.</p>
+</li>
+</ol>
+<p><strong>Ajustes importantes:</strong></p>
+<ul>
+<li>Rutas de reabastecimiento (Make to Order, Dropshipping).  </li>
+<li>Niveles de aprobación por monto.  </li>
+<li>Descuentos por proveedor y condiciones de pago.  </li>
+<li>Integración con Inventario para controlar existencias.</li>
+</ul>
 <h2>5. INVENTARIO</h2>
 <h3>5.1. Gestión de Inventario</h3>
 <p>El módulo de inventario permite controlar existencias, movimientos y valoración de productos.</p>
@@ -477,6 +545,28 @@ A continuación se completan los campos de dirección (país, estado, ciudad, ca
 , lo que permite a Odoo elegir automáticamente la dirección correcta en documentos de ventas o compras (por ejemplo usar la dirección de entrega del contacto cuando se genera una orden de entrega). Usos en otras aplicaciones: El módulo de Contactos sirve de base de datos para todo Odoo. Cuando en Ventas seleccionamos un cliente para una cotización, estamos eligiendo un registro de Contactos. Lo mismo ocurre al asignar un proveedor en una orden de compra, o un empleado en una hoja de horas. Por ello, mantener actualizada la información en Contactos es importante. Desde Contactos también se puede: otorgar acceso al portal a un contacto (por ejemplo, invitar a un cliente a que acceda a su portal de cliente para ver sus pedidos y facturas)
 , registrar miembros (en caso de usar módulo de Membresías), entre otras acciones. En síntesis, Contactos funciona como una libreta de direcciones centralizada y compartida entre todos los módulos. Dado que viene instalada por defecto, es uno de los primeros lugares donde ingresaremos datos maestros (clientes, proveedores, etc.) al iniciar con Odoo 16. La interfaz es sencilla pero poderosa, permitiendo filtrar y buscar fácilmente contactos por cualquier criterio, y ampliable con campos personalizados si se requiere información adicional. Es la base para poder “comunicarse y facilitar las transacciones empresariales”
 en todas las aplicaciones de Odoo.</p>
+<h3>Instrucciones detalladas</h3>
+<p><strong>Operaciones principales:</strong></p>
+<ol>
+<li><p><strong>Recepciones (Entradas)</strong><br>Inventario → Operaciones → Entradas → <em>Validar</em> llegada.</p>
+</li>
+<li><p><strong>Despachos (Salidas)</strong><br>Inventario → Operaciones → Salidas → <em>Validar</em> entrega.</p>
+</li>
+<li><p><strong>Transferencias internas</strong><br>Entre ubicaciones: <em>Nueva transferencia</em> → seleccione origen y destino.</p>
+</li>
+<li><p><strong>Recuentos cíclicos / Ajustes</strong><br>Inventario → Ajustes de inventario → <em>Nuevo</em> → ingrese conteo real → <em>Validar</em>.</p>
+</li>
+<li><p><strong>Trazabilidad</strong><br>Pestaña <em>Lotes/Números de serie</em> en el formulario de producto → seguimiento completo.</p>
+</li>
+<li><p><strong>Kardex</strong><br>Reporte de movimientos valorados para auditoría fiscal.</p>
+</li>
+</ol>
+<p><strong>Configuración fundamental:</strong></p>
+<ul>
+<li>Almacenes y ubicaciones lógicas.  </li>
+<li>Métodos FIFO, UEPS o promedio.  </li>
+<li>Reglas de reabastecimiento automáticas conectadas a Compras.</li>
+</ul>
 <h2>6. FACTURACIÓN</h2>
 <h3>6.1. Módulo de Facturación</h3>
 <p>El módulo de facturación centraliza todas las operaciones relacionadas con documentos fiscales.</p>
@@ -632,6 +722,29 @@ en todas las aplicaciones de Odoo.</p>
 – aunque la generación de asientos detallados es más propia de la Contabilidad completa, conceptualmente Community también refleja ese estado pagado al conciliar. Facturas de proveedor y pagos: De forma análoga, Odoo permite gestionar las Facturas de proveedor (o cuentas por pagar). Estas pueden capturarse manualmente o a partir de órdenes de compra. Se registra el proveedor, los productos o servicios que nos está facturando, importes, impuestos y fecha de vencimiento. Al validar, queda pendiente de pago. Cuando realizamos el pago (por transferencia, cheque, etc.), registramos ese pago en Odoo y marcamos la factura como pagada. Odoo puede manejar distintos métodos de pago y cuentas bancarias. En Community, la conciliación bancaria (igualar extractos del banco con las facturas pagadas) se realiza de forma semiautomática: el usuario carga los extractos (por importación de CSV, OFX) y luego empareja transacciones con facturas; la versión Enterprise añade herramientas de conciliación automática con inteligencia artificial y sincronización bancaria
 . No obstante, Community brinda lo básico para llevar un control de qué facturas están pagadas o pendientes, tanto de clientes como de proveedores. Funciones contables básicas: Aunque la contabilidad completa (módulo “Contabilidad”) es limitada en Community, aún se puede llevar cierta contabilidad general: Odoo Community permite definir un Plan de Cuentas local (por ejemplo, cuentas contables para activos, pasivos, ingresos, gastos) y genera asientos contables básicos de facturas y pagos. Así, uno podría extraer un libro mayor o balance simple. Sin embargo, características como informes financieros avanzados, partidas analíticas, activos fijos, etc., pueden requerir módulos adicionales o la versión Enterprise. Aún así, Odoo Community cubre aspectos esenciales: manejo de múltiples monedas (con sus tipos de cambio), aplicación de retenciones impositivas simples, y reportes como edad de deuda (Antigüedad de saldos de clientes). En localizaciones como la de Ecuador, existen módulos comunitarios adicionales para cumplir requisitos fiscales (ejemplo: emisión de comprobantes electrónicos, retenciones de IVA e ISR, etc.), integrándose con el núcleo de facturación. En conclusión, con Facturación Odoo 16 Community permite administrar toda la cuenta por cobrar (facturación y cobro a clientes) y cuenta por pagar (facturas y pagos a proveedores) de forma eficiente. Es una aplicación amigable e independiente: “Facturación de Odoo es una aplicación autónoma para crear facturas... y gestionar pagos.”
 . Para empresas pequeñas, estas funciones son suficientes para llevar un control financiero básico integrado con las ventas y compras. Para necesidades contables más complejas (como conciliaciones bancarias automáticas, informes legales avanzados, etc.), se puede considerar la instalación de módulos comunitarios adicionales o la migración a Enterprise. No obstante, el corazón del flujo financiero –facturar, registrar pagos, y obtener reportes esenciales de ingresos/gastos– está disponible en Odoo 16 Community de manera totalmente integrada con el resto de módulos.</p>
+<h3>Instrucciones detalladas</h3>
+<p><strong>Proceso de facturación:</strong></p>
+<ol>
+<li><p><strong>Generar factura de cliente</strong><br>Contabilidad → Clientes → Facturas → <em>Nuevo</em> → seleccione el pedido o cree líneas manuales.</p>
+</li>
+<li><p><strong>Validar y firmar electrónicamente</strong><br>Botón <em>Validar</em> → el sistema firma XML y envía al SRI.</p>
+</li>
+<li><p><strong>Enviar al cliente</strong><br><em>Enviar por correo</em> adjunta PDF y XML autorizados.</p>
+</li>
+<li><p><strong>Registrar pagos</strong><br>Botón <em>Registrar pago</em> → conciliación automática.</p>
+</li>
+<li><p><strong>Notas de crédito</strong><br>Desde la factura → <em>Agregar nota de crédito</em> → especifique motivo y cantidades a revertir.</p>
+</li>
+<li><p><strong>Retenciones</strong><br>Agregar líneas de retención (fuente, IVA) antes de validar para cumplir con normativa ecuatoriana.</p>
+</li>
+</ol>
+<p><strong>Diarios y configuraciones:</strong></p>
+<ul>
+<li>Diarios de ventas, compras, bancos y caja chica.  </li>
+<li>Secuenciales autorizados (establecimiento + punto de emisión).  </li>
+<li>Impuestos con sus códigos SRI (IVA 12 %, IVA 0 %, ICE, IR).  </li>
+<li>Impresión de RIDE para clientes.</li>
+</ul>
 <h2>7. CONTABILIDAD</h2>
 <h3>7.1. Asientos Contables</h3>
 <p>El módulo de contabilidad permite gestionar todas las operaciones contables de la empresa:</p>
@@ -850,6 +963,30 @@ en todas las aplicaciones de Odoo.</p>
 , sirviendo como punto de partida para cualquier funcionalidad relacionada con RR.HH.</p>
 <ul>
 <li>Afectación automática en nómina</li>
+</ul>
+<h3>Instrucciones detalladas</h3>
+<p><strong>Flujo de Talento Humano y Nómina:</strong></p>
+<ol>
+<li><p><strong>Crear empleado</strong><br>Empleados → <em>Nuevo</em> → complete datos personales, contrato y código interno.</p>
+</li>
+<li><p><strong>Definir contrato</strong><br>Empleados → Contratos → <em>Nuevo</em> → indique salario, tipo de jornada y fecha de inicio.</p>
+</li>
+<li><p><strong>Marcar asistencias</strong><br>Odoo asistencias o importación desde reloj biométrico.</p>
+</li>
+<li><p><strong>Procesar nómina mensual</strong><br>Nómina → <em>Nuevo periodo</em> → seleccione empleados → botón <em>Calcular</em> → revise liquidaciones.</p>
+</li>
+<li><p><strong>Generar archivos bancarios</strong><br>Reporte de pagos para banca electrónica.</p>
+</li>
+<li><p><strong>Décimos y utilidades</strong><br>Asistentes de Odoo para pago de décimo tercero, cuarto y participación de utilidades.</p>
+</li>
+<li><p><strong>Exportar IESS y SRI</strong><br>Generación de archivos CSV/XML para carga masiva.</p>
+</li>
+</ol>
+<p><strong>Parámetros claves:</strong></p>
+<ul>
+<li>Estructura salarial (sueldos, horas extras, comisiones).  </li>
+<li>Reglas salariales de ley ecuatoriana (IESS 9,45 %, fondos de reserva, impuesto a la renta).  </li>
+<li>Calendarios de vacaciones y ausencias.</li>
 </ul>
 <h2>10. PROCESOS SRI</h2>
 <h3>10.1. Menú SRI</h3>
