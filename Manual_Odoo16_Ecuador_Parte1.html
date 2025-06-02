@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANUAL DE USUARIO: SISTEMA ODOO 16 COMMUNITY ADAPTADO A LA LEGISLACIÓN ECUATORIANA</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h1>MANUAL DE USUARIO: SISTEMA ODOO 16 COMMUNITY ADAPTADO A LA LEGISLACIÓN ECUATORIANA</h1>
+<p><strong>Versión 1.0</strong><br><strong>Mayo 2025</strong></p>
+<h2>ÍNDICE DE CONTENIDOS</h2>
+<ol>
+<li><p><strong>INTRODUCCIÓN</strong>
+1.1. Sobre este Manual<br>1.2. Requisitos del Sistema<br>1.3. Acceso al Sistema</p>
+</li>
+<li><p><strong>CONFIGURACIÓN INICIAL</strong><br>2.1. Ajustes Generales<br>2.2. Gestión de Usuarios y Permisos<br>2.3. Configuración de Compañías<br>2.4. Configuración de Documentos Electrónicos<br>2.5. Configuración SRI</p>
+</li>
+<li><p><strong>VENTAS</strong><br>3.1. Menú de Ventas<br>3.2. Creación de Cotizaciones<br>3.3. Gestión de Pedidos<br>3.4. Configuración de Ventas</p>
+</li>
+<li><p><strong>COMPRAS</strong><br>4.1. Requisiciones de Compra<br>4.2. Solicitudes de Presupuesto<br>4.3. Órdenes de Compra<br>4.4. Recepción de Productos</p>
+</li>
+<li><p><strong>INVENTARIO</strong><br>5.1. Gestión de Productos<br>5.2. Movimientos de Inventario<br>5.3. Operaciones de Inventario<br>5.4. Kardex de Productos</p>
+</li>
+<li><p><strong>FACTURACIÓN</strong><br>6.1. Facturas de Clientes<br>6.2. Notas de Crédito<br>6.3. Reembolsos<br>6.4. Gestión de Pagos<br>6.5. Facturas de Proveedores<br>6.6. Liquidaciones de Compra<br>6.7. Recibos de Proveedores<br>6.8. Gastos de Empleados</p>
+</li>
+<li><p><strong>CONTABILIDAD</strong><br>7.1. Asientos Contables<br>7.2. Apuntes Contables<br>7.3. Apuntes Analíticos<br>7.4. Presupuestos<br>7.5. Conciliación Bancaria<br>7.6. Histórico de Movimientos<br>7.7. Chequeras y Gestión de Cheques</p>
+</li>
+<li><p><strong>ACTIVOS</strong><br>8.1. Gestión de Activos<br>8.2. Depreciaciones<br>8.3. Gastos Diferidos</p>
+</li>
+<li><p><strong>TALENTO HUMANO Y NÓMINA</strong><br>9.1. Gestión de Empleados<br>9.2. Contratos<br>9.3. Nómina<br>9.4. Configuración de Nómina<br>9.5. Gestión de Ausencias</p>
+</li>
+<li><p><strong>PROCESOS SRI</strong><br>10.1. Carga de Documentos Electrónicos<br>10.2. XML Enviados al SRI<br>10.3. Retenciones de Compra<br>10.4. Retenciones de Venta<br>10.5. Anexo Transaccional Simplificado (ATS)</p>
+</li>
+<li><p><strong>CAJAS CHICAS</strong><br>11.1. Configuración de Cajas Chicas<br>11.2. Reposiciones de Caja Chica</p>
+</li>
+<li><p><strong>REPORTES FINANCIEROS</strong><br>12.1. Balance de Situación<br>12.2. Estado de Pérdidas y Ganancias<br>12.3. Estado de Flujos de Efectivo<br>12.4. Resumen Ejecutivo<br>12.5. Informes de Impuestos<br>12.6. Libro Mayor<br>12.7. Reportes por Cobrar/Pagar<br>12.8. Reportes Financieros Ecuador<br>12.9. Estados de Cuenta Cliente</p>
+</li>
+<li><p><strong>GLOSARIO</strong></p>
+</li>
+</ol>
+<hr>
+<h2>1. INTRODUCCIÓN</h2>
+<h3>1.1. Sobre este Manual</h3>
+<p>Este manual describe el sistema Odoo 16 Community personalizado para cumplir con los requerimientos fiscales y contables establecidos por la legislación ecuatoriana. El sistema incorpora módulos específicos para Ecuador, como facturación electrónica, ATS, retenciones y reportes financieros adaptados a la normativa local.</p>
+<h3>1.2. Requisitos del Sistema</h3>
+<p>Para un funcionamiento óptimo del sistema, se recomienda:</p>
+<ul>
+<li>Navegador web actualizado (Chrome, Firefox, Edge)</li>
+<li>Conexión a internet estable</li>
+<li>Certificado digital válido para firma electrónica (para documentos electrónicos)</li>
+</ul>
+<h3>1.3. Acceso al Sistema</h3>
+<p>El acceso al sistema se realiza a través de la pantalla de inicio de sesión donde debe ingresar sus credenciales de usuario.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/1_login.png" alt="Pantalla de login"></p>
+<p>Una vez autenticado, accederá a la bandeja principal del sistema.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/2_bandeja.png" alt="Bandeja principal"></p>
+<p>Desde la bandeja principal, podrá acceder a todos los módulos del sistema a través del menú principal.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/3_men%C3%BAs.png" alt="Menús"></p>
+<hr>
+<h2>2. CONFIGURACIÓN INICIAL</h2>
+<h3>2.1. Ajustes Generales</h3>
+<p>Los ajustes generales permiten configurar parámetros básicos del sistema. Acceda desde el menú principal seleccionando &quot;Ajustes&quot;.</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/1%20ajustes%20standar%20ajustes.png" alt="Ajustes estándar"></p>
+<p>En esta sección podrá configurar:</p>
+<ul>
+<li>Parámetros técnicos</li>
+<li>Idiomas del sistema</li>
+<li>Formatos de fecha y hora</li>
+<li>Unidades de medida</li>
+<li>Moneda y formato de números</li>
+</ul>
+<h3>2.2. Gestión de Usuarios y Permisos</h3>
+<p>Esta sección permite crear y modificar usuarios, asignar permisos y definir roles dentro del sistema.</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/2%20gestion%20de%20usuarios%20standar%20ajustes.png" alt="Gestión de usuarios"></p>
+<p>Los usuarios pueden tener diferentes niveles de acceso según sus responsabilidades:</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/menu%20acciones%20en%20usuarios%20standar%20ajustes.png" alt="Acciones en usuarios"></p>
+<p>Cada usuario puede tener una configuración personalizada:</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/usuario%20standar%20ajustes.png" alt="Usuario"></p>
+<p>Para crear un nuevo usuario:</p>
+<ol>
+<li>Vaya a Ajustes &gt; Usuarios y compañías &gt; Usuarios</li>
+<li>Haga clic en &quot;Crear&quot;</li>
+<li>Complete la información del usuario: nombre, correo electrónico, contraseña</li>
+<li>Asigne grupos de acceso según las responsabilidades del usuario</li>
+<li>Guarde los cambios</li>
+</ol>
+<h3>2.3. Configuración de Compañías</h3>
+<p>El sistema permite la gestión multicompañía, facilitando el manejo de varias empresas desde la misma plataforma.</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/5%20companias%20standar%20ajustes.png" alt="Compañías"></p>
+<p>Puede configurar información detallada para cada compañía:</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/6%20companias%20detalle%20standar%20ajustes.png" alt="Detalle de compañías"></p>
+<p>Para cada compañía puede configurar:</p>
+<ul>
+<li>Información legal (RUC, razón social, nombre comercial)</li>
+<li>Dirección y contacto</li>
+<li>Logotipo e imagen corporativa</li>
+<li>Parámetros contables y fiscales específicos</li>
+<li>Información de compañía matriz/subsidiaria</li>
+</ul>
+<h3>2.4. Configuración de Documentos Electrónicos</h3>
+<p>La facturación electrónica es obligatoria en Ecuador. Esta sección permite configurar los parámetros necesarios para la emisión de documentos electrónicos.</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/7%20configuracion%20de%20documentos%20electronicos%20standar%20ajustes.png" alt="Configuración de documentos electrónicos"></p>
+<p>Los ajustes incluyen configuraciones para diferentes tipos de documentos:</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/docs%20electronicos%20settings%201%20standar%20ajustes.png" alt="Configuración documentos electrónicos 1"></p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/9%20docs%20electronicos%20settings%202%20standar%20ajustes.png" alt="Configuración documentos electrónicos 2"></p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/10%20docs%20electronicos%20settings%203%20standar%20ajustes.png" alt="Configuración documentos electrónicos 3"></p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/11%20docs%20electronicos%20settings%204%20standar%20ajustes.png" alt="Configuración documentos electrónicos 4"></p>
+<p>Los elementos principales de configuración incluyen:</p>
+<ul>
+<li>Certificado digital para firma electrónica</li>
+<li>Ambiente de trabajo (pruebas o producción)</li>
+<li>Configuración de correo para envío de documentos</li>
+<li>Secuencias de numeración para cada tipo de documento</li>
+<li>Plantillas de documentos electrónicos</li>
+</ul>
+<h3>2.5. Configuración SRI</h3>
+<p>Esta sección permite configurar los parámetros relacionados con el Servicio de Rentas Internas (SRI) de Ecuador.</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/12%20settings%20sri%20standar%20ajustes.png" alt="Configuración SRI"></p>
+<p>Incluye configuraciones adicionales para cumplimiento tributario:</p>
+<p><img src="odoo16%20ajustes%20y%20funciones%20estandar/13%20settings%20sri%202%20standar%20ajustes.png" alt="Configuración SRI 2"></p>
+<p>En esta sección puede configurar:</p>
+<ul>
+<li>Códigos de impuestos según normativa SRI</li>
+<li>Porcentajes de retención vigentes</li>
+<li>Parámetros para generación del ATS</li>
+<li>Configuración de conexión con servicios web del SRI</li>
+</ul>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>

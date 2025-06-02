@@ -1,10 +1,30 @@
+const fs = require('fs');
+const path = require('path');
+const marked = require('marked');
 
+// Configuración de marked para que genere HTML adecuado
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  highlight: function(code, lang) {
+    return code;
+  },
+  pedantic: false,
+  gfm: true,
+  breaks: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  xhtml: false
+});
+
+// Plantilla HTML
+const htmlTemplate = (title, content) => `
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manuales Odoo 16 Ecuador</title>
+  <title>${title}</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     body {
@@ -108,38 +128,7 @@
     </div>
 
     <div class="markdown-body">
-      <hr>
-<h2>layout: default
-title: Manuales Odoo 16 Ecuador</h2>
-<h1>Manuales Odoo 16 Ecuador</h1>
-<p>Bienvenido a la documentación de Odoo 16 para Ecuador. Aquí encontrarás manuales completos sobre la implementación y uso de Odoo 16 adaptado para Ecuador.</p>
-<h2>Manuales Disponibles</h2>
-<h3>Manual Completo</h3>
-<ul>
-<li><a href="./Manual_Odoo16_Ecuador_Completo.html">Manual Odoo 16 Ecuador Completo</a></li>
-</ul>
-<h3>Manuales por Secciones</h3>
-<ul>
-<li><a href="./Manual_Odoo16_Ecuador_Parte1.html">Manual Odoo 16 Ecuador - Parte 1</a></li>
-<li><a href="./Manual_Odoo16_Ecuador_Parte2.html">Manual Odoo 16 Ecuador - Parte 2</a></li>
-<li><a href="./Manual_Odoo16_Ecuador_Parte3.html">Manual Odoo 16 Ecuador - Parte 3</a></li>
-<li><a href="./Manual_Odoo16_Ecuador_Parte4.html">Manual Odoo 16 Ecuador - Parte 4</a></li>
-</ul>
-<h3>Manuales Técnicos</h3>
-<ul>
-<li><a href="./Manual_Odoo16_Ecuador_Tecnico_Parte1.html">Manual Técnico - Parte 1</a></li>
-<li><a href="./Manual_Odoo16_Ecuador_Tecnico_Parte2.html">Manual Técnico - Parte 2</a></li>
-<li><a href="./Manual_Tecnico_Facturacion_Parte1.html">Manual Técnico de Facturación - Parte 1</a></li>
-</ul>
-<h3>Extensiones</h3>
-<ul>
-<li><a href="./Extension_RRHH_Parte1.html">Extensión RRHH - Parte 1</a></li>
-<li><a href="./Extension_RRHH_Parte2.html">Extensión RRHH - Parte 2</a></li>
-<li><a href="./Extension_Cajas_Reportes.html">Extensión Cajas y Reportes</a></li>
-<li><a href="./Extension_Procesos_SRI.html">Extensión Procesos SRI</a></li>
-<li><a href="./Extension_Reportes_Adicionales.html">Extensión Reportes Adicionales</a></li>
-</ul>
-
+      ${content}
     </div>
 
     <footer class="site-footer">
@@ -148,3 +137,70 @@ title: Manuales Odoo 16 Ecuador</h2>
   </div>
 </body>
 </html>
+`;
+
+// Función para extraer el título del contenido Markdown
+function extractTitle(content) {
+  const lines = content.split('\n');
+  for (const line of lines) {
+    if (line.startsWith('# ')) {
+      return line.substring(2).trim();
+    }
+  }
+  return 'Manual Odoo 16 Ecuador';
+}
+
+// Función para convertir un archivo Markdown a HTML
+function convertMdToHtml(mdFilePath) {
+  try {
+    const mdContent = fs.readFileSync(mdFilePath, 'utf8');
+    const title = extractTitle(mdContent);
+    const htmlContent = marked.parse(mdContent);
+    
+    const htmlFilePath = mdFilePath.replace('.md', '.html');
+    const fullHtml = htmlTemplate(title, htmlContent);
+    
+    fs.writeFileSync(htmlFilePath, fullHtml);
+    console.log(`Convertido: ${mdFilePath} -> ${htmlFilePath}`);
+  } catch (error) {
+    console.error(`Error al convertir ${mdFilePath}:`, error);
+  }
+}
+
+// Función para actualizar los enlaces en el archivo index.html
+function updateIndexLinks() {
+  try {
+    const indexPath = path.join(__dirname, 'index.html');
+    let indexContent = fs.readFileSync(indexPath, 'utf8');
+    
+    // Reemplazar enlaces .md por .html
+    indexContent = indexContent.replace(/href="([^"]+)\.md"/g, 'href="$1.html"');
+    
+    fs.writeFileSync(indexPath, indexContent);
+    console.log('Enlaces actualizados en index.html');
+  } catch (error) {
+    console.error('Error al actualizar index.html:', error);
+  }
+}
+
+// Procesar todos los archivos Markdown en el directorio
+const directoryPath = __dirname;
+fs.readdir(directoryPath, (err, files) => {
+  if (err) {
+    return console.error('Error al leer el directorio:', err);
+  }
+  
+  // Filtrar solo archivos Markdown
+  const mdFiles = files.filter(file => file.endsWith('.md') && file !== 'README.md');
+  
+  // Convertir cada archivo
+  mdFiles.forEach(file => {
+    const filePath = path.join(directoryPath, file);
+    convertMdToHtml(filePath);
+  });
+  
+  // Actualizar enlaces en index.html
+  updateIndexLinks();
+  
+  console.log('Conversión completada.');
+});

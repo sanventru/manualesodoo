@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANUAL TÉCNICO: SISTEMA ODOO 16 COMMUNITY ADAPTADO A LA LEGISLACIÓN ECUATORIANA</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h1>MANUAL TÉCNICO: SISTEMA ODOO 16 COMMUNITY ADAPTADO A LA LEGISLACIÓN ECUATORIANA</h1>
+<h2>ÍNDICE DE CONTENIDOS (CONTINUACIÓN)</h2>
+<ol start="5">
+<li><p><strong>ANEXO TRANSACCIONAL SIMPLIFICADO (ec_ats)</strong><br>5.1. Arquitectura y Componentes<br>5.2. Proceso de Recopilación de Datos<br>5.3. Validaciones y Cálculos<br>5.4. Generación del XML<br>5.5. Consideraciones de Precisión en Cálculos</p>
+</li>
+<li><p><strong>RETENCIONES (ec_withholding)</strong><br>6.1. Modelo de Datos<br>6.2. Configuración de Porcentajes<br>6.3. Proceso de Emisión Electrónica<br>6.4. Validaciones Especiales</p>
+</li>
+<li><p><strong>REPORTES FINANCIEROS (ec_financial_reports)</strong><br>7.1. Estructura Técnica<br>7.2. Implementación de Reportes<br>7.3. Fórmulas y Cálculos<br>7.4. Exportación de Datos</p>
+</li>
+<li><p><strong>AUTORIZACIONES SRI (ec_sri_authorizathions)</strong><br>8.1. Gestión de Puntos de Emisión<br>8.2. Control de Secuencias<br>8.3. Validación de Autorizaciones<br>8.4. Integración con Documentos</p>
+</li>
+</ol>
+<hr>
+<h2>5. ANEXO TRANSACCIONAL SIMPLIFICADO (ec_ats)</h2>
+<h3>5.1. Arquitectura y Componentes</h3>
+<p>El módulo de Anexo Transaccional Simplificado (ATS) está diseñado para generar el reporte obligatorio mensual que debe presentarse al SRI. Su arquitectura se compone de:</p>
+<ol>
+<li><p><strong>Estructura de directorios</strong>:</p>
+<pre><code>/ec_ats
+  /wizard/           # Asistentes para generación de ATS
+    /ats.py          # Clase principal para generación
+    /ats_view.xml    # Interfaz de usuario
+  /models/           # Modelos de datos
+  /data/             # Datos precargados (códigos, catálogos)
+  /views/            # Vistas adicionales
+  /report/           # Reportes complementarios
+</code></pre>
+</li>
+<li><p><strong>Clases principales</strong>:</p>
+<ul>
+<li><code>SriAts</code>: Clase principal para generación del anexo (wizard)</li>
+<li><code>SriAtsLine</code>: Modelo para registro de errores y validaciones</li>
+</ul>
+</li>
+<li><p><strong>Dependencias</strong>:</p>
+<ul>
+<li><code>ec_account_base</code>: Para estructura contable</li>
+<li><code>ec_account_edi</code>: Para documentos electrónicos</li>
+<li><code>ec_withholding</code>: Para información de retenciones</li>
+</ul>
+</li>
+<li><p><strong>Puntos de extensión</strong>:</p>
+<ul>
+<li>Hooks para personalización de recopilación de datos</li>
+<li>Opciones de configuración para casos especiales</li>
+<li>Posibilidad de exportación personalizada</li>
+</ul>
+</li>
+</ol>
+<p>La implementación sigue el patrón de diseño asistente (wizard) para facilitar la generación y validación del anexo.</p>
+<h3>5.2. Proceso de Recopilación de Datos</h3>
+<p>El módulo implementa un proceso exhaustivo de recopilación de datos para el ATS:</p>
+<ol>
+<li><p><strong>Fuentes de información</strong>:</p>
+<ul>
+<li>Facturas de venta (<code>account.move</code> tipo <code>out_invoice</code>)</li>
+<li>Facturas de compra (<code>account.move</code> tipo <code>in_invoice</code>)</li>
+<li>Notas de crédito (<code>account.move</code> tipos <code>out_refund</code> y <code>in_refund</code>)</li>
+<li>Notas de débito (<code>account.move</code> con flag <code>debit_note</code> activado)</li>
+<li>Retenciones emitidas y recibidas</li>
+</ul>
+</li>
+<li><p><strong>Proceso de recopilación</strong>:</p>
+<pre><code class="language-python"># Implementado en ats.py
+def _get_invoice_values(self, invoice_ids):
+    # Extracción y cálculo de valores fiscales
+    result = {
+        &#39;base_iva&#39;: 0.0,
+        &#39;base_iva_0&#39;: 0.0,
+        &#39;total_ice&#39;: 0.0,
+        &#39;amount_untaxed&#39;: 0.0,
+        &#39;base_no_iva&#39;: 0.0
+    }
+    for invoice_id in invoice_ids:
+        # Procesamiento por factura
+        # Clasificación de bases imponibles
+        # Acumulación de totales
+</code></pre>
+</li>
+<li><p><strong>Agrupación por contribuyente</strong>:</p>
+<pre><code class="language-python">def _get_invoice_values_per_partner(self, invoice_ids):
+    # Generación de consulta SQL para agrupar por contribuyente
+    # Clasificación por tipo de documento
+    # Totales acumulados por contribuyente
+</code></pre>
+</li>
+<li><p><strong>Información adicional</strong>:</p>
+<ul>
+<li>Formas de pago</li>
+<li>Tipos de comprobante</li>
+<li>Información de establecimiento y punto de emisión</li>
+<li>Documentos anulados</li>
+</ul>
+</li>
+</ol>
+<p>Este proceso garantiza la recolección precisa de todos los datos requeridos por el SRI para el anexo transaccional.</p>
+<h3>5.3. Validaciones y Cálculos</h3>
+<p>El módulo implementa un conjunto completo de validaciones para garantizar la integridad de la información:</p>
+<ol>
+<li><p><strong>Validaciones de estructura</strong>:</p>
+<ul>
+<li>Completitud de datos obligatorios</li>
+<li>Formato de identificaciones (RUC, cédula)</li>
+<li>Estructura de números de documento</li>
+<li>Consistencia de fechas</li>
+</ul>
+</li>
+<li><p><strong>Validaciones fiscales</strong>:</p>
+<pre><code class="language-python">def check_ced(self, ced_ruc, foreign=False, l10n_latam_identification_type_id=False):
+    # Validación de RUC/Cédula según algoritmo
+    # Validación de identificaciones extranjeras
+    # Verificación de tipo de identificación vs. formato
+</code></pre>
+</li>
+<li><p><strong>Cálculos fiscales</strong>:</p>
+<ul>
+<li>Agrupación por tipo de impuesto</li>
+<li>Cálculo de bases imponibles</li>
+<li>Validación de retenciones aplicadas</li>
+<li>Verificación de totales y cuadre</li>
+</ul>
+</li>
+<li><p><strong>Validaciones específicas</strong>:</p>
+<pre><code class="language-python">def check_invoice_supplier_data(self, wizard, invoice):
+    # Validación específica para facturas de proveedor
+    # Verificación de autorizaciones
+    # Validación de fechas de emisión y registro
+</code></pre>
+</li>
+</ol>
+<p>El sistema registra todas las inconsistencias detectadas, permitiendo su corrección antes del envío definitivo al SRI.</p>
+<h3>5.4. Generación del XML</h3>
+<p>El proceso de generación del XML del ATS sigue un flujo estructurado:</p>
+<ol>
+<li><p><strong>Estructura principal</strong>:</p>
+<pre><code class="language-python">def generate_xml(self):
+    # Creación de estructura base
+    node_root = Element(&#39;iva&#39;)
+    # Información del contribuyente
+    # Período fiscal
+    # Secciones principales:
+    # - compras
+    # - ventas
+    # - anulados
+    return tostring(node_root)
+</code></pre>
+</li>
+<li><p><strong>Sección de compras</strong>:</p>
+<pre><code class="language-python">def generate_info_invoice_supplier(self, node_root, node_name, inv, ...):
+    # Generación de nodo para cada proveedor
+    # Inclusión de información fiscal
+    # Desglose de impuestos
+    # Información de retenciones
+</code></pre>
+</li>
+<li><p><strong>Sección de ventas</strong>:</p>
+<pre><code class="language-python">def generate_info_invoice_sale(self, node_root, node_name, ...):
+    # Generación de nodo para cada cliente
+    # Agrupación por tipo de documento
+    # Totales por cliente y tipo
+    # Información de formas de pago
+</code></pre>
+</li>
+<li><p><strong>Sección de anulados</strong>:</p>
+<pre><code class="language-python">def generate_info_document_cancel(self, node_root, node_name, ...):
+    # Lista de documentos anulados
+    # Clasificación por tipo
+    # Inclusión de datos requeridos
+</code></pre>
+</li>
+</ol>
+<p>El XML generado cumple con las especificaciones establecidas por el SRI para el Anexo Transaccional Simplificado.</p>
+<h3>5.5. Consideraciones de Precisión en Cálculos</h3>
+<p>Un aspecto crítico en la generación del ATS es la precisión en los cálculos de valores monetarios:</p>
+<ol>
+<li><p><strong>Problema de precisión decimal</strong>:</p>
+<ul>
+<li>Los cálculos de IVA pueden presentar problemas de redondeo</li>
+<li>Diferencias en el tercer decimal pueden acumularse en transacciones masivas</li>
+<li>El SRI requiere cuadre exacto entre bases imponibles e impuestos</li>
+</ul>
+</li>
+<li><p><strong>Solución implementada</strong>:</p>
+<pre><code class="language-python"># Implementado en ats.py
+def _get_invoice_values(self, invoice_ids):
+    # Uso de float_round para controlar precisión
+    # Aplicación de redondeo según normativa SRI
+    # Validación de totales después de redondeo
+</code></pre>
+</li>
+<li><p><strong>Validación cruzada</strong>:</p>
+<ul>
+<li>Comparación entre suma individual y agrupada</li>
+<li>Ajustes automáticos de diferencias mínimas</li>
+<li>Logs detallados de valores pre y post redondeo</li>
+</ul>
+</li>
+<li><p><strong>Herramientas de diagnóstico</strong>:</p>
+<ul>
+<li>Script auxiliar <code>sum_iva_ats.py</code> para validación</li>
+<li>Verificación de <code>montoIva</code> para documentos tipo <code>tipoComprobante=&#39;18&#39;</code></li>
+<li>Comparación con cálculos manuales</li>
+</ul>
+</li>
+</ol>
+<p>Estas consideraciones garantizan la exactitud en los reportes presentados al SRI, evitando inconsistencias que podrían generar notificaciones o sanciones.</p>
+<hr>
+<h2>6. RETENCIONES (ec_withholding)</h2>
+<h3>6.1. Modelo de Datos</h3>
+<p>El módulo de retenciones implementa una estructura de datos completa para la gestión de retenciones según la normativa ecuatoriana:</p>
+<ol>
+<li><p><strong>Modelos principales</strong>:</p>
+<ul>
+<li><code>account.retention</code>: Documento de retención</li>
+<li><code>account.retention.line</code>: Líneas de retención (impuestos)</li>
+<li><code>account.retention.tax</code>: Configuración de impuestos retenibles</li>
+</ul>
+</li>
+<li><p><strong>Relaciones clave</strong>:</p>
+<pre><code class="language-python">class AccountRetention(models.Model):
+    _name = &#39;account.retention&#39;
+    
+    # Relaciones principales
+    invoice_id = fields.Many2one(&#39;account.move&#39;, &#39;Factura&#39;)
+    partner_id = fields.Many2one(&#39;res.partner&#39;, &#39;Contribuyente&#39;)
+    tax_line_ids = fields.One2many(&#39;account.retention.line&#39;, &#39;retention_id&#39;, &#39;Impuestos&#39;)
+    move_id = fields.Many2one(&#39;account.move&#39;, &#39;Asiento contable&#39;)
+</code></pre>
+</li>
+<li><p><strong>Extensiones de modelos estándar</strong>:</p>
+<ul>
+<li>Extensión de <code>account.move</code> para vincular retenciones</li>
+<li>Extensión de <code>account.tax</code> para información específica de retención</li>
+<li>Extensión de <code>res.partner</code> para configuración de retención por contribuyente</li>
+</ul>
+</li>
+<li><p><strong>Campos técnicos</strong>:</p>
+<ul>
+<li>Estado de documento electrónico</li>
+<li>Numeración y secuencias</li>
+<li>Autorizaciones SRI</li>
+<li>Fechas de emisión y autorización</li>
+</ul>
+</li>
+</ol>
+<p>Este modelo de datos proporciona la base para toda la funcionalidad de gestión de retenciones en el sistema.</p>
+<h3>6.2. Configuración de Porcentajes</h3>
+<p>El sistema implementa un mecanismo flexible para la configuración de porcentajes de retención:</p>
+<ol>
+<li><p><strong>Estructura de impuestos</strong>:</p>
+<pre><code class="language-python"># Configuración en account.tax
+retention_percentage = fields.Float(&#39;Porcentaje de Retención&#39;)
+retention_code = fields.Char(&#39;Código SRI&#39;)
+retention_type = fields.Selection([
+    (&#39;rent&#39;, &#39;Renta&#39;),
+    (&#39;vat&#39;, &#39;IVA&#39;)
+], &#39;Tipo de Retención&#39;)
+</code></pre>
+</li>
+<li><p><strong>Reglas de aplicación</strong>:</p>
+<ul>
+<li>Por tipo de contribuyente (especial, RISE, obligado a llevar contabilidad)</li>
+<li>Por tipo de bien o servicio</li>
+<li>Por monto de transacción</li>
+<li>Por tipo de comprobante</li>
+</ul>
+</li>
+<li><p><strong>Actualización dinámica</strong>:</p>
+<ul>
+<li>Porcentajes configurables sin modificar código</li>
+<li>Histórico de cambios para períodos fiscales</li>
+<li>Validación de combinaciones válidas</li>
+</ul>
+</li>
+<li><p><strong>Automatización</strong>:</p>
+<pre><code class="language-python">def _compute_applicable_retentions(self, invoice):
+    # Determinación de retenciones aplicables
+    # Cálculo de porcentajes según normativa
+    # Validación de montos mínimos
+</code></pre>
+</li>
+</ol>
+<p>Esta configuración flexible permite mantener el sistema actualizado ante cambios en la normativa tributaria sin necesidad de modificaciones en el código.</p>
+<h3>6.3. Proceso de Emisión Electrónica</h3>
+<p>El proceso de emisión electrónica de retenciones sigue un flujo similar al de otros documentos electrónicos:</p>
+<ol>
+<li><p><strong>Generación del documento</strong>:</p>
+<pre><code class="language-python">def action_generate_retention(self, invoice):
+    # Creación del documento de retención
+    # Cálculo de impuestos retenidos
+    # Asignación de secuencia y numeración
+</code></pre>
+</li>
+<li><p><strong>Generación del XML</strong>:</p>
+<ul>
+<li>Estructura según esquema XSD del SRI</li>
+<li>Inclusión de información obligatoria</li>
+<li>Vinculación con factura relacionada</li>
+</ul>
+</li>
+<li><p><strong>Firmado y autorización</strong>:</p>
+<ul>
+<li>Firma electrónica con certificado digital</li>
+<li>Envío al SRI para autorización</li>
+<li>Procesamiento de respuesta</li>
+</ul>
+</li>
+<li><p><strong>Notificación</strong>:</p>
+<ul>
+<li>Envío al contribuyente</li>
+<li>Almacenamiento de evidencias</li>
+<li>Registro de estado de entrega</li>
+</ul>
+</li>
+</ol>
+<p>El sistema garantiza el cumplimiento de los plazos legales para la emisión y entrega de comprobantes de retención.</p>
+<h3>6.4. Validaciones Especiales</h3>
+<p>El módulo implementa validaciones específicas para el proceso de retención:</p>
+<ol>
+<li><p><strong>Validaciones temporales</strong>:</p>
+<ul>
+<li>Control de plazos máximos para emisión (5 días en Ecuador)</li>
+<li>Verificación de fecha de emisión vs. fecha de factura</li>
+<li>Alertas por vencimiento de plazos</li>
+</ul>
+</li>
+<li><p><strong>Validaciones fiscales</strong>:</p>
+<pre><code class="language-python">def _validate_retention_taxes(self, retention):
+    # Verificación de porcentajes según normativa vigente
+    # Validación de base imponible
+    # Control de máximos y mínimos
+</code></pre>
+</li>
+<li><p><strong>Validaciones de consistencia</strong>:</p>
+<ul>
+<li>Correspondencia entre factura y retención</li>
+<li>Cuadre de bases imponibles</li>
+<li>Coherencia entre tipo de contribuyente y retenciones aplicadas</li>
+</ul>
+</li>
+<li><p><strong>Controles especiales</strong>:</p>
+<ul>
+<li>Retenciones presuntivas</li>
+<li>Casos de contribuyentes especiales</li>
+<li>Situaciones de convenio de doble tributación</li>
+</ul>
+</li>
+</ol>
+<p>Estas validaciones garantizan el cumplimiento de la normativa tributaria y minimizan el riesgo de observaciones por parte de la autoridad fiscal.</p>
+<hr>
+<h2>7. REPORTES FINANCIEROS (ec_financial_reports)</h2>
+<h3>7.1. Estructura Técnica</h3>
+<p>El módulo de reportes financieros implementa una arquitectura flexible para la generación de informes adaptados a la normativa ecuatoriana:</p>
+<ol>
+<li><p><strong>Estructura de directorios</strong>:</p>
+<pre><code>/ec_financial_reports
+  /wizard/                       # Asistentes para generación de reportes
+    /wizard_reportes_financieros.py  # Clase principal
+    /wizard_reportes_financieros.xml # Interfaz de usuario
+  /report/                       # Plantillas de reportes
+  /models/                       # Modelos de datos
+  /security/                     # Control de acceso
+</code></pre>
+</li>
+<li><p><strong>Arquitectura MVC</strong>:</p>
+<ul>
+<li><strong>Modelo</strong>: Clases Python para lógica de negocio y cálculos</li>
+<li><strong>Vista</strong>: Plantillas QWeb y XML para presentación</li>
+<li><strong>Controlador</strong>: Wizards para parametrización y generación</li>
+</ul>
+</li>
+<li><p><strong>Tecnologías utilizadas</strong>:</p>
+<ul>
+<li>Motor de reportes QWeb</li>
+<li>Estilos CSS personalizados</li>
+<li>Integración con módulos de exportación</li>
+</ul>
+</li>
+<li><p><strong>Puntos de extensión</strong>:</p>
+<ul>
+<li>Hooks para fórmulas personalizadas</li>
+<li>Plantillas heredables</li>
+<li>Parámetros configurables</li>
+</ul>
+</li>
+</ol>
+<p>Esta estructura técnica proporciona la base para implementar diversos reportes financieros con una experiencia de usuario consistente.</p>
+<h3>7.2. Implementación de Reportes</h3>
+<p>El módulo implementa diversos reportes financieros requeridos por la normativa ecuatoriana:</p>
+<ol>
+<li><p><strong>Reportes principales</strong>:</p>
+<ul>
+<li>Balance de Situación</li>
+<li>Estado de Resultados</li>
+<li>Balance de Comprobación</li>
+<li>Estado de Flujo de Efectivo</li>
+<li>Anexos fiscales específicos</li>
+</ul>
+</li>
+<li><p><strong>Implementación técnica</strong>:</p>
+<pre><code class="language-python">class WizardReportesFinancieros(models.TransientModel):
+    _name = &#39;wizard.reportes.financieros&#39;
+    
+    # Parámetros comunes
+    date_from = fields.Date(&#39;Fecha Inicial&#39;)
+    date_to = fields.Date(&#39;Fecha Final&#39;)
+    company_id = fields.Many2one(&#39;res.company&#39;, &#39;Compañía&#39;)
+    report_type = fields.Selection([
+        (&#39;balance&#39;, &#39;Balance General&#39;),
+        (&#39;results&#39;, &#39;Estado de Resultados&#39;),
+        # Otros tipos...
+    ], &#39;Tipo de Reporte&#39;)
+    
+    def generate_report(self):
+        # Selección de método según tipo
+        # Recopilación de datos
+        # Aplicación de fórmulas
+        # Generación de salida
+</code></pre>
+</li>
+<li><p><strong>Personalización por compañía</strong>:</p>
+<ul>
+<li>Adaptación a plan de cuentas específico</li>
+<li>Niveles de detalle configurables</li>
+<li>Formatos personalizados de presentación</li>
+</ul>
+</li>
+<li><p><strong>Integración con sistema contable</strong>:</p>
+<ul>
+<li>Acceso directo desde menús contables</li>
+<li>Validación previa de datos</li>
+<li>Trazabilidad a documentos fuente</li>
+</ul>
+</li>
+</ol>
+<p>La implementación garantiza la generación de reportes precisos y conformes con los requerimientos de los organismos reguladores.</p>
+<h3>7.3. Fórmulas y Cálculos</h3>
+<p>El sistema implementa un mecanismo avanzado para los cálculos en reportes financieros:</p>
+<ol>
+<li><p><strong>Motor de fórmulas</strong>:</p>
+<pre><code class="language-python">def _compute_formula(self, formula, data_dict):
+    # Evaluación segura de fórmulas
+    # Acceso a cuentas por código
+    # Operaciones aritméticas
+    # Funciones financieras especiales
+</code></pre>
+</li>
+<li><p><strong>Tipos de cálculos</strong>:</p>
+<ul>
+<li>Saldos de cuenta (deudor/acreedor)</li>
+<li>Agrupaciones por categoría</li>
+<li>Ratios financieros</li>
+<li>Variaciones y comparativos</li>
+</ul>
+</li>
+<li><p><strong>Personalización</strong>:</p>
+<ul>
+<li>Fórmulas definidas en XML o base de datos</li>
+<li>Reutilización de componentes</li>
+<li>Herencia y extensión de cálculos</li>
+</ul>
+</li>
+<li><p><strong>Validaciones</strong>:</p>
+<ul>
+<li>Verificación de consistencia</li>
+<li>Detección de referencias circulares</li>
+<li>Comprobación de resultados</li>
+</ul>
+</li>
+</ol>
+<p>Este motor de fórmulas proporciona la flexibilidad necesaria para adaptarse a diferentes formatos de reportes y requisitos específicos.</p>
+<h3>7.4. Exportación de Datos</h3>
+<p>El módulo ofrece diversas opciones para exportar los reportes generados:</p>
+<ol>
+<li><p><strong>Formatos soportados</strong>:</p>
+<ul>
+<li>PDF (presentación formal)</li>
+<li>Excel (análisis detallado)</li>
+<li>CSV (integración con otros sistemas)</li>
+<li>HTML (visualización web)</li>
+</ul>
+</li>
+<li><p><strong>Implementación técnica</strong>:</p>
+<pre><code class="language-python">def _export_report(self, data, format_type):
+    # Selección de método de exportación
+    # Aplicación de formato específico
+    # Generación de archivo
+    # Entrega al usuario
+</code></pre>
+</li>
+<li><p><strong>Características avanzadas</strong>:</p>
+<ul>
+<li>Plantillas predefinidas</li>
+<li>Formatos oficiales</li>
+<li>Marcas de agua y sellos</li>
+<li>Firmas digitales</li>
+</ul>
+</li>
+<li><p><strong>Integración</strong>:</p>
+<ul>
+<li>Envío por correo electrónico</li>
+<li>Almacenamiento en sistema de documentos</li>
+<li>Histórico de reportes generados</li>
+</ul>
+</li>
+</ol>
+<p>Estas opciones de exportación facilitan el uso de los reportes financieros para diferentes propósitos, desde presentaciones oficiales hasta análisis internos.</p>
+<hr>
+<h2>8. AUTORIZACIONES SRI (ec_sri_authorizathions)</h2>
+<h3>8.1. Gestión de Puntos de Emisión</h3>
+<p>El módulo implementa un sistema completo para la gestión de puntos de emisión según la normativa del SRI:</p>
+<ol>
+<li><p><strong>Estructura de datos</strong>:</p>
+<pre><code class="language-python">class SriPrinterPoint(models.Model):
+    _name = &#39;sri.printer.point&#39;
+    
+    shop_id = fields.Many2one(&#39;sale.shop&#39;, &#39;Establecimiento&#39;)
+    printer_number = fields.Char(&#39;Número de Punto de Emisión&#39;, size=3)
+    document_electronic_ids = fields.One2many(&#39;sri.printer.point.document.electronic&#39;, &#39;printer_id&#39;, &#39;Documentos Electrónicos&#39;)
+    document_physical_ids = fields.One2many(&#39;sri.printer.point.document.physical&#39;, &#39;printer_id&#39;, &#39;Documentos Físicos&#39;)
+</code></pre>
+</li>
+<li><p><strong>Niveles de organización</strong>:</p>
+<ul>
+<li>Compañía</li>
+<li>Establecimiento (sucursal)</li>
+<li>Punto de emisión (caja/impresora)</li>
+<li>Tipos de documento por punto</li>
+</ul>
+</li>
+<li><p><strong>Configuración técnica</strong>:</p>
+<ul>
+<li>Numeración secuencial por documento</li>
+<li>Prefijos según normativa (001-001-000000001)</li>
+<li>Validación de formato</li>
+</ul>
+</li>
+<li><p><strong>Automatización</strong>:</p>
+<ul>
+<li>Selección automática según usuario</li>
+<li>Asignación de secuencias</li>
+<li>Control de acceso por punto</li>
+</ul>
+</li>
+</ol>
+<p>Esta estructura permite cumplir con los requisitos del SRI para la emisión de documentos desde diferentes ubicaciones físicas de la empresa.</p>
+<h3>8.2. Control de Secuencias</h3>
+<p>El sistema implementa un robusto control de secuencias para documentos fiscales:</p>
+<ol>
+<li><p><strong>Gestión de secuencias</strong>:</p>
+<pre><code class="language-python">class SriSequence(models.Model):
+    _name = &#39;sri.sequence&#39;
+    
+    printer_id = fields.Many2one(&#39;sri.printer.point&#39;, &#39;Punto de Emisión&#39;)
+    document_type = fields.Selection([...], &#39;Tipo de Documento&#39;)
+    sequence_id = fields.Many2one(&#39;ir.sequence&#39;, &#39;Secuencia&#39;)
+    current_number = fields.Integer(&#39;Número Actual&#39;)
+</code></pre>
+</li>
+<li><p><strong>Validaciones</strong>:</p>
+<ul>
+<li>Secuencialidad estricta</li>
+<li>Prevención de duplicados</li>
+<li>Control de saltos de secuencia</li>
+<li>Bloqueo de números utilizados</li>
+</ul>
+</li>
+<li><p><strong>Funcionalidades avanzadas</strong>:</p>
+<ul>
+<li>Reserva de números</li>
+<li>Gestión de anulados</li>
+<li>Reinicio programado (anual, mensual)</li>
+<li>Auditoría de uso</li>
+</ul>
+</li>
+<li><p><strong>Integración</strong>:</p>
+<ul>
+<li>Uso en documentos electrónicos y físicos</li>
+<li>Validación en proceso de autorización</li>
+<li>Reportes de secuencias utilizadas</li>
+</ul>
+</li>
+</ol>
+<p>El control de secuencias garantiza el cumplimiento de la normativa fiscal y facilita la auditoría de documentos emitidos.</p>
+<h3>8.3. Validación de Autorizaciones</h3>
+<p>El módulo implementa un sistema para la gestión y validación de autorizaciones del SRI:</p>
+<ol>
+<li><p><strong>Tipos de autorización</strong>:</p>
+<ul>
+<li>Autorizaciones propias (documentos emitidos)</li>
+<li>Autorizaciones de terceros (documentos recibidos)</li>
+<li>Autorizaciones electrónicas (claves de acceso)</li>
+</ul>
+</li>
+<li><p><strong>Estructura de datos</strong>:</p>
+<pre><code class="language-python">class SriAuthorization(models.Model):
+    _name = &#39;sri.authorization&#39;
+    
+    partner_id = fields.Many2one(&#39;res.partner&#39;, &#39;Contribuyente&#39;)
+    authorization_number = fields.Char(&#39;Número de Autorización&#39;, size=49)
+    start_date = fields.Date(&#39;Fecha de Inicio&#39;)
+    expiration_date = fields.Date(&#39;Fecha de Vencimiento&#39;)
+    document_type = fields.Selection([...], &#39;Tipo de Documento&#39;)
+</code></pre>
+</li>
+<li><p><strong>Validaciones implementadas</strong>:</p>
+<ul>
+<li>Formato de número de autorización</li>
+<li>Vigencia de autorización</li>
+<li>Correspondencia con tipo de documento</li>
+<li>Validez para el contribuyente</li>
+</ul>
+</li>
+<li><p><strong>Automatización</strong>:</p>
+<ul>
+<li>Verificación en tiempo real</li>
+<li>Alertas de vencimiento</li>
+<li>Validación en registro de documentos</li>
+<li>Verificación en línea (opcional)</li>
+</ul>
+</li>
+</ol>
+<p>Este sistema garantiza que todos los documentos fiscales utilizados cumplan con los requisitos de autorización establecidos por el SRI.</p>
+<h3>8.4. Integración con Documentos</h3>
+<p>El módulo de autorizaciones se integra con el resto del sistema para proporcionar una solución completa:</p>
+<ol>
+<li><p><strong>Puntos de integración</strong>:</p>
+<ul>
+<li>Facturas de venta y compra</li>
+<li>Notas de crédito y débito</li>
+<li>Retenciones</li>
+<li>Guías de remisión</li>
+</ul>
+</li>
+<li><p><strong>Funcionalidades integradas</strong>:</p>
+<pre><code class="language-python">def get_authorization_for_document(self, partner_id, document_type, date, printer_id=None):
+    # Búsqueda de autorización válida
+    # Validación de parámetros
+    # Asignación de secuencia
+    # Registro de uso
+</code></pre>
+</li>
+<li><p><strong>Validaciones cruzadas</strong>:</p>
+<ul>
+<li>Coherencia entre autorización y documento</li>
+<li>Validación de secuencia dentro de rango</li>
+<li>Verificación de datos fiscales</li>
+</ul>
+</li>
+<li><p><strong>Auditoría</strong>:</p>
+<ul>
+<li>Registro de autorizaciones utilizadas</li>
+<li>Trazabilidad de documentos</li>
+<li>Reportes de cumplimiento</li>
+</ul>
+</li>
+</ol>
+<p>Esta integración asegura que todos los documentos fiscales emitidos o recibidos cumplan con los requisitos de autorización establecidos por el SRI, minimizando riesgos tributarios.</p>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>

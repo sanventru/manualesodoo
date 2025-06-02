@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXTENSIÓN: REPORTES FINANCIEROS ADICIONALES</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h1>EXTENSIÓN: REPORTES FINANCIEROS ADICIONALES</h1>
+<h2>12. REPORTES FINANCIEROS (CONTINUACIÓN)</h2>
+<h3>12.10. Libro Mayor de Empresa</h3>
+<p>El Libro Mayor de Empresa ofrece una visión consolidada de los movimientos contables, adaptada especialmente para la presentación a entidades reguladoras en Ecuador.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/109_libro%20mayor%20de%20empresa.png" alt="Libro mayor de empresa"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Formato oficial</strong>: Estructura aceptada por organismos de control</li>
+<li><strong>Consolidación multicompañía</strong>: Integración de varias entidades legales</li>
+<li><strong>Jerarquía contable</strong>: Visualización por niveles de cuentas</li>
+<li><strong>Saldos iniciales verificados</strong>: Validación de arrastre de períodos</li>
+<li><strong>Pistas de auditoría</strong>: Trazabilidad completa de cada movimiento</li>
+<li><strong>Certificación digital</strong>: Opción para firma electrónica de contador</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/110_libro%20mayor%20de%20empresa%201.png" alt="Libro mayor de empresa 1"></p>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Estructura completa de cuentas</strong>: Desde mayores hasta auxiliares</li>
+<li><strong>Movimientos detallados</strong>: Cada transacción con sus referencias</li>
+<li><strong>Saldos por período</strong>: Inicial, movimientos y final</li>
+<li><strong>Naturaleza de saldos</strong>: Identificación de posición deudora/acreedora</li>
+<li><strong>Totales por nivel</strong>: Agrupación jerárquica de valores</li>
+<li><strong>Cuadre contable</strong>: Verificación de balance entre débitos y créditos</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Filtrado avanzado</strong>: Por cuenta, centro de costo, proyecto</li>
+<li><strong>Períodos fiscales precisos</strong>: Ajustado a calendario tributario</li>
+<li><strong>Conversión monetaria</strong>: Opción para moneda funcional y de reporte</li>
+<li><strong>Verificación de integridad</strong>: Control de secuencias y consistencia</li>
+<li><strong>Conciliación automática</strong>: Identificación de partidas pendientes</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Selección jerárquica de cuentas</strong>: Desde grupos hasta auxiliares</li>
+<li><strong>Múltiples formatos de salida</strong>: PDF, Excel, formatos oficiales</li>
+<li><strong>Inclusión de asientos preliminares</strong>: Para cierres provisionales</li>
+<li><strong>Detalle configurable</strong>: Desde resumen hasta transacción individual</li>
+<li><strong>Exportación estructurada</strong>: Para sistemas de control gubernamental</li>
+</ul>
+<h3>12.11. Reportes de Cartera</h3>
+<p>Los reportes de cartera proporcionan análisis detallados de las cuentas por cobrar y pagar, facilitando la gestión de flujo de caja y el seguimiento de vencimientos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/111_vencido%20por%20cobrar.png" alt="Vencido por cobrar"></p>
+<p><strong>Características del reporte de cuentas por cobrar:</strong></p>
+<ul>
+<li><strong>Clasificación por antigüedad</strong>: Agrupación por días de vencimiento</li>
+<li><strong>Detalle por cliente</strong>: Análisis individualizado por deudor</li>
+<li><strong>Historial de pagos</strong>: Comportamiento histórico de cobros</li>
+<li><strong>Proyección de ingresos</strong>: Estimación de flujos futuros</li>
+<li><strong>Indicadores de morosidad</strong>: Cálculo de índices de retraso</li>
+<li><strong>Gestión de cobranza</strong>: Seguimiento de acciones realizadas</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Facturas pendientes</strong>: Detalle de documentos no cobrados</li>
+<li><strong>Vencimientos próximos</strong>: Alertas de pagos cercanos</li>
+<li><strong>Días de crédito</strong>: Análisis de términos otorgados vs. reales</li>
+<li><strong>Retenciones pendientes</strong>: Documentos no recibidos</li>
+<li><strong>Notas de crédito aplicables</strong>: Saldos disponibles para aplicación</li>
+<li><strong>Intereses por mora</strong>: Cálculo según políticas comerciales</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/112_vencido%20por%20pagar.png" alt="Vencido por pagar"></p>
+<p><img src="odoo%2016%20m%C3%B3dulos/113_vencido%20por%20pagar%201.png" alt="Vencido por pagar 1"></p>
+<p><strong>Características del reporte de cuentas por pagar:</strong></p>
+<ul>
+<li><strong>Programación de pagos</strong>: Calendario de vencimientos</li>
+<li><strong>Agrupación por proveedor</strong>: Consolidación por acreedor</li>
+<li><strong>Priorización automática</strong>: Clasificación por criticidad</li>
+<li><strong>Descuentos por pronto pago</strong>: Identificación de oportunidades</li>
+<li><strong>Flujo de aprobación</strong>: Estado en proceso de autorización</li>
+<li><strong>Métodos de pago</strong>: Distribución por forma de pago programada</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Filtros dinámicos</strong>: Por antigüedad, monto, tipo de cliente/proveedor</li>
+<li><strong>Alertas configurables</strong>: Notificaciones según umbrales definidos</li>
+<li><strong>Conciliación con estados de cuenta</strong>: Validación con información bancaria</li>
+<li><strong>Análisis de tendencias</strong>: Comportamiento histórico de cartera</li>
+<li><strong>Segmentación por vendedor/comprador</strong>: Responsabilidad de seguimiento</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Corte a cualquier fecha</strong>: Histórico o proyectado</li>
+<li><strong>Múltiples formatos</strong>: Detallado, resumido, gerencial</li>
+<li><strong>Inclusión de documentos en disputa</strong>: Facturas en proceso de revisión</li>
+<li><strong>Exportación para gestión externa</strong>: Formatos para call centers</li>
+<li><strong>Envío automático</strong>: Distribución programada a responsables</li>
+</ul>
+<h3>12.12. Análisis de Facturas</h3>
+<p>Este reporte proporciona un análisis detallado de la facturación, permitiendo identificar tendencias, comportamientos y oportunidades de mejora.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/114_analisis%20de%20facturas.png" alt="Análisis de facturas"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Análisis multidimensional</strong>: Por cliente, producto, vendedor, período</li>
+<li><strong>Tendencias temporales</strong>: Evolución de ventas/compras</li>
+<li><strong>Comparativos interanuales</strong>: Contraste con períodos anteriores</li>
+<li><strong>Segmentación por categoría</strong>: Análisis por línea de negocio</li>
+<li><strong>Distribución geográfica</strong>: Comportamiento por región</li>
+<li><strong>Indicadores de rentabilidad</strong>: Márgenes por transacción</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Volumen de facturación</strong>: Cantidades y montos</li>
+<li><strong>Composición de ventas</strong>: Distribución por producto/servicio</li>
+<li><strong>Descuentos otorgados</strong>: Análisis de política comercial</li>
+<li><strong>Impuestos generados</strong>: Desglose por tipo de tributo</li>
+<li><strong>Formas de pago</strong>: Distribución por método de cobro</li>
+<li><strong>Devoluciones y anulaciones</strong>: Índices de rechazo</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Drill-down interactivo</strong>: Navegación desde resumen hasta detalle</li>
+<li><strong>Filtros combinados</strong>: Análisis por múltiples dimensiones</li>
+<li><strong>Gráficos dinámicos</strong>: Visualización de tendencias y distribuciones</li>
+<li><strong>Exportación analítica</strong>: Para procesamiento externo</li>
+<li><strong>Indicadores clave</strong>: Cálculo automático de KPIs relevantes</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Períodos personalizables</strong>: Diario, semanal, mensual, anual</li>
+<li><strong>Agrupación flexible</strong>: Por cualquier campo disponible</li>
+<li><strong>Ordenamiento multivariable</strong>: Combinación de criterios</li>
+<li><strong>Formatos diversos</strong>: Tabular, gráfico, combinado</li>
+<li><strong>Programación recurrente</strong>: Generación automática periódica</li>
+</ul>
+<h3>12.13. Reporte de Conciliación Bancaria</h3>
+<p>Este informe presenta el estado de la conciliación entre los registros contables y los movimientos bancarios, facilitando el control financiero.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/115_reporte%20conciliacion%20bancaria.png" alt="Reporte conciliación bancaria"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Estado por cuenta bancaria</strong>: Análisis individualizado por cuenta</li>
+<li><strong>Partidas conciliadas</strong>: Movimientos ya verificados</li>
+<li><strong>Partidas pendientes</strong>: Transacciones sin conciliar</li>
+<li><strong>Antigüedad de pendientes</strong>: Clasificación por tiempo sin conciliar</li>
+<li><strong>Diferencias identificadas</strong>: Discrepancias entre banco y contabilidad</li>
+<li><strong>Saldos comparativos</strong>: Contable vs. bancario</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Extracto bancario</strong>: Movimientos reportados por el banco</li>
+<li><strong>Registro contable</strong>: Apuntes en el sistema</li>
+<li><strong>Partidas en tránsito</strong>: Cheques girados no cobrados, depósitos en proceso</li>
+<li><strong>Errores detectados</strong>: Duplicidades, omisiones, diferencias</li>
+<li><strong>Ajustes propuestos</strong>: Sugerencias para corrección</li>
+<li><strong>Historial de conciliaciones</strong>: Seguimiento de proceso mensual</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Conciliación automática</strong>: Por monto, referencia o fecha</li>
+<li><strong>Conciliación manual asistida</strong>: Sugerencias de coincidencias</li>
+<li><strong>Reglas recurrentes</strong>: Automatización para conceptos frecuentes</li>
+<li><strong>Importación de formatos bancarios</strong>: Compatibilidad con MT940, OFX, etc.</li>
+<li><strong>Validación de secuencias</strong>: Control de cheques y depósitos</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Corte a cualquier fecha</strong>: Histórico o actual</li>
+<li><strong>Nivel de detalle</strong>: Desde resumen hasta transacción individual</li>
+<li><strong>Formatos para auditoría</strong>: Estructurados para revisión externa</li>
+<li><strong>Inclusión de documentos soporte</strong>: Enlaces a comprobantes</li>
+<li><strong>Certificación bancaria</strong>: Formato para confirmación con entidades</li>
+</ul>
+<h3>12.14. Programa de Depreciación</h3>
+<p>Este reporte presenta el plan completo de depreciación de activos fijos, cumpliendo con los requerimientos contables y fiscales ecuatorianos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/116_programa%20de%20depreciacion.png" alt="Programa de depreciación"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Plan completo por activo</strong>: Proyección de toda la vida útil</li>
+<li><strong>Métodos múltiples</strong>: Lineal, acelerado, unidades producidas</li>
+<li><strong>Depreciación fiscal vs. contable</strong>: Tratamiento diferenciado</li>
+<li><strong>Revaluaciones</strong>: Impacto en plan de depreciación</li>
+<li><strong>Valor residual</strong>: Consideración en cálculos</li>
+<li><strong>Baja de activos</strong>: Tratamiento de ventas y obsolescencia</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Datos del activo</strong>: Identificación, ubicación, responsable</li>
+<li><strong>Valores iniciales</strong>: Costo histórico, fecha de adquisición</li>
+<li><strong>Vida útil</strong>: Períodos de depreciación según tipo</li>
+<li><strong>Depreciación mensual</strong>: Cuota periódica calculada</li>
+<li><strong>Depreciación acumulada</strong>: Monto total depreciado</li>
+<li><strong>Valor en libros</strong>: Saldo pendiente por depreciar</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Depreciación por componentes</strong>: Tratamiento separado de partes</li>
+<li><strong>Cambios en estimaciones</strong>: Ajustes de vida útil o valor residual</li>
+<li><strong>Mejoras capitalizables</strong>: Incorporación a valor depreciable</li>
+<li><strong>Deterioro de valor</strong>: Registro de pérdidas por deterioro</li>
+<li><strong>Depreciación proporcional</strong>: Cálculo exacto por días</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Agrupación por categoría</strong>: Edificios, vehículos, equipos, etc.</li>
+<li><strong>Proyección a futuro</strong>: Estimación de gastos futuros</li>
+<li><strong>Corte histórico</strong>: Situación a cualquier fecha pasada</li>
+<li><strong>Formatos fiscales</strong>: Adaptados a requerimientos SRI</li>
+<li><strong>Exportación detallada</strong>: Para análisis financiero externo</li>
+</ul>
+<h3>12.15. Reportes de Información Fiscal</h3>
+<p>Conjunto de informes diseñados específicamente para facilitar la preparación de declaraciones tributarias y anexos fiscales.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/117_reporte%20informaci%C3%B3n%20de%20compras.png" alt="Reporte información de compras"></p>
+<p><strong>Características del reporte de compras:</strong></p>
+<ul>
+<li><strong>Clasificación por tipo de comprobante</strong>: Facturas, liquidaciones, etc.</li>
+<li><strong>Agrupación por proveedor</strong>: Consolidación por contribuyente</li>
+<li><strong>Desglose de impuestos</strong>: Base imponible y valor por tarifa</li>
+<li><strong>Retenciones aplicadas</strong>: Por tipo y porcentaje</li>
+<li><strong>Sustento tributario</strong>: Clasificación según código SRI</li>
+<li><strong>Validación de autorizaciones</strong>: Verificación de documentos</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/118_reporte%20informacion%20de%20ventas.png" alt="Reporte información de ventas"></p>
+<p><strong>Características del reporte de ventas:</strong></p>
+<ul>
+<li><strong>Clasificación por tipo de cliente</strong>: Contribuyentes especiales, RISE, etc.</li>
+<li><strong>Desglose por tarifa</strong>: Ventas gravadas, exentas, no objeto</li>
+<li><strong>Retenciones recibidas</strong>: Registro de documentos de retención</li>
+<li><strong>Formas de pago</strong>: Distribución según método declarado</li>
+<li><strong>Exportaciones</strong>: Tratamiento especial para ventas al exterior</li>
+<li><strong>Documentos anulados</strong>: Control de secuencias no utilizadas</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/119_reporte%20codigos%20de%20impuestos.png" alt="Reporte códigos de impuestos"></p>
+<p><strong>Reporte de códigos de impuestos:</strong></p>
+<ul>
+<li><strong>Catálogo completo SRI</strong>: Códigos oficiales actualizados</li>
+<li><strong>Porcentajes vigentes</strong>: Tasas aplicables por período</li>
+<li><strong>Configuración contable</strong>: Cuentas asociadas a cada impuesto</li>
+<li><strong>Validación de uso</strong>: Verificación de aplicación correcta</li>
+<li><strong>Historial de cambios</strong>: Seguimiento de modificaciones normativas</li>
+<li><strong>Referencias legales</strong>: Base jurídica de cada tributo</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/120_reporte%20informacin%20de%20compras.png" alt="Reporte información de compras"></p>
+<p><img src="odoo%2016%20m%C3%B3dulos/121_reporte%20informacion%20de%20ventas1.png" alt="Reporte información de ventas1"></p>
+<p><strong>Funcionalidades comunes:</strong></p>
+<ul>
+<li><strong>Períodos fiscales precisos</strong>: Ajustados a calendario tributario</li>
+<li><strong>Validación previa</strong>: Verificación de inconsistencias antes de declaración</li>
+<li><strong>Formato para formularios</strong>: Estructura adaptada a declaraciones SRI</li>
+<li><strong>Exportación para DIMM</strong>: Compatible con software oficial</li>
+<li><strong>Conciliación automática</strong>: Verificación de cuadre entre reportes</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Selección de período</strong>: Mensual, semestral, anual</li>
+<li><strong>Nivel de detalle</strong>: Desde resumen hasta transacción individual</li>
+<li><strong>Filtros específicos</strong>: Por establecimiento, tipo de documento, etc.</li>
+<li><strong>Formatos múltiples</strong>: PDF, Excel, XML</li>
+<li><strong>Validación integrada</strong>: Verificación de reglas tributarias</li>
+</ul>
+<h3>12.16. Reportes de Cuentas por Cobrar y Pagar</h3>
+<p>Informes especializados para la gestión de cartera y obligaciones, con enfoque en análisis financiero y operativo.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/122_reporte%20cuentas%20por%20cobrar.png" alt="Reporte cuentas por cobrar"></p>
+<p><strong>Características del reporte de cuentas por cobrar:</strong></p>
+<ul>
+<li><strong>Estado actual de cartera</strong>: Situación de facturas pendientes</li>
+<li><strong>Análisis de vencimientos</strong>: Clasificación por días de mora</li>
+<li><strong>Proyección de cobros</strong>: Estimación de ingresos futuros</li>
+<li><strong>Historial de cliente</strong>: Comportamiento histórico de pagos</li>
+<li><strong>Retenciones pendientes</strong>: Documentos no recibidos</li>
+<li><strong>Indicadores de gestión</strong>: Efectividad de cobranza</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/123_reporte%20cuentas%20por%20pagar.png" alt="Reporte cuentas por pagar"></p>
+<p><strong>Características del reporte de cuentas por pagar:</strong></p>
+<ul>
+<li><strong>Obligaciones pendientes</strong>: Facturas por pagar</li>
+<li><strong>Programación de pagos</strong>: Calendario de vencimientos</li>
+<li><strong>Análisis de flujo</strong>: Proyección de egresos</li>
+<li><strong>Condiciones negociadas</strong>: Términos de pago por proveedor</li>
+<li><strong>Retenciones emitidas</strong>: Estado de comprobantes</li>
+<li><strong>Optimización de pagos</strong>: Sugerencias para maximizar beneficios</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Filtros avanzados</strong>: Por antigüedad, monto, criticidad</li>
+<li><strong>Agrupación flexible</strong>: Por responsable, categoría, proyecto</li>
+<li><strong>Alertas configurables</strong>: Notificaciones según umbrales</li>
+<li><strong>Conciliación con presupuesto</strong>: Comparativo con proyecciones</li>
+<li><strong>Análisis de tendencias</strong>: Comportamiento histórico</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Corte a cualquier fecha</strong>: Histórico o proyectado</li>
+<li><strong>Formatos especializados</strong>: Operativo, gerencial, auditoría</li>
+<li><strong>Inclusión de documentos en disputa</strong>: Facturas en revisión</li>
+<li><strong>Exportación para gestión</strong>: Formatos para seguimiento externo</li>
+<li><strong>Distribución automática</strong>: Envío programado a responsables</li>
+</ul>
+<h3>12.17. Reporte de Pagos a Proveedores</h3>
+<p>Informe detallado de los pagos realizados a proveedores, facilitando el control y seguimiento de egresos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/124_reporte%20de%20pagos%20a%20proveedores.png" alt="Reporte de pagos a proveedores"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Detalle por proveedor</strong>: Pagos agrupados por beneficiario</li>
+<li><strong>Clasificación por método</strong>: Efectivo, transferencia, cheque</li>
+<li><strong>Documentos cancelados</strong>: Facturas cubiertas por cada pago</li>
+<li><strong>Retenciones aplicadas</strong>: Comprobantes emitidos</li>
+<li><strong>Aprobaciones</strong>: Flujo de autorización completado</li>
+<li><strong>Conciliación bancaria</strong>: Estado de confirmación con banco</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Fecha de pago</strong>: Registro cronológico</li>
+<li><strong>Referencia bancaria</strong>: Número de transacción o cheque</li>
+<li><strong>Monto total</strong>: Valor pagado</li>
+<li><strong>Facturas relacionadas</strong>: Documentos cancelados</li>
+<li><strong>Descuentos aplicados</strong>: Por pronto pago u otros conceptos</li>
+<li><strong>Usuario responsable</strong>: Ejecutor del pago</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Filtrado por período</strong>: Rango de fechas personalizable</li>
+<li><strong>Agrupación por categoría</strong>: Tipo de gasto o departamento</li>
+<li><strong>Verificación de autorizaciones</strong>: Validación de flujo completo</li>
+<li><strong>Seguimiento de cheques</strong>: Estado (entregado, cobrado, anulado)</li>
+<li><strong>Análisis de cumplimiento</strong>: Pagos a tiempo vs. retrasados</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Períodos fiscales o calendario</strong>: Flexibilidad en cortes</li>
+<li><strong>Nivel de detalle configurable</strong>: Resumen o transaccional</li>
+<li><strong>Inclusión de comprobantes</strong>: Enlaces a documentos soporte</li>
+<li><strong>Formatos para tesorería</strong>: Adaptados a control interno</li>
+<li><strong>Exportación para conciliación</strong>: Formatos compatibles con bancos</li>
+</ul>
+<h3>12.18. Libro Mayor por Cuenta</h3>
+<p>Reporte especializado que muestra el detalle de movimientos por cuenta contable específica, facilitando el análisis y auditoría.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/125_lobro%20mayor%20por%20cuenta.png" alt="Libro mayor por cuenta"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Enfoque en cuenta individual</strong>: Análisis detallado por cuenta</li>
+<li><strong>Movimientos cronológicos</strong>: Secuencia temporal exacta</li>
+<li><strong>Saldos progresivos</strong>: Cálculo de balance tras cada movimiento</li>
+<li><strong>Referencia cruzada</strong>: Vínculo a documentos origen</li>
+<li><strong>Conciliación visual</strong>: Estado de partidas pendientes</li>
+<li><strong>Análisis de composición</strong>: Naturaleza de transacciones</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Código y descripción</strong>: Identificación precisa de la cuenta</li>
+<li><strong>Fecha de registro</strong>: Cronología de movimientos</li>
+<li><strong>Referencia y descripción</strong>: Detalle explicativo</li>
+<li><strong>Documento origen</strong>: Factura, pago, asiento, etc.</li>
+<li><strong>Débitos y créditos</strong>: Valores registrados</li>
+<li><strong>Saldo acumulado</strong>: Balance actualizado</li>
+<li><strong>Usuario responsable</strong>: Registro de autoría</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Selección jerárquica</strong>: Navegación por estructura contable</li>
+<li><strong>Filtrado avanzado</strong>: Por período, diario, referencia</li>
+<li><strong>Búsqueda por valor</strong>: Localización de montos específicos</li>
+<li><strong>Conciliación integrada</strong>: Estado de partidas abiertas</li>
+<li><strong>Análisis de patrones</strong>: Identificación de movimientos recurrentes</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Múltiples períodos</strong>: Comparativo entre rangos de fecha</li>
+<li><strong>Nivel de agrupación</strong>: Diario, mensual, por documento</li>
+<li><strong>Inclusión de asientos no publicados</strong>: Para revisión previa</li>
+<li><strong>Formatos especializados</strong>: Auditoría, gerencial, fiscal</li>
+<li><strong>Exportación estructurada</strong>: Para análisis externo</li>
+</ul>
+<h3>12.19. Reportes Gerenciales</h3>
+<p>Informes especializados diseñados para la toma de decisiones a nivel directivo, con enfoque en análisis estratégico.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/126_reporte%20de%20cuentas%20por%20cobrar%20gerencia.png" alt="Reporte de cuentas por cobrar gerencia"></p>
+<p><strong>Características del reporte de cuentas por cobrar gerencial:</strong></p>
+<ul>
+<li><strong>Visión ejecutiva</strong>: Resumen de situación de cartera</li>
+<li><strong>Indicadores clave</strong>: Días promedio de cobro, morosidad</li>
+<li><strong>Tendencias temporales</strong>: Evolución de saldos pendientes</li>
+<li><strong>Clasificación por riesgo</strong>: Segmentación por probabilidad de cobro</li>
+<li><strong>Proyección de flujos</strong>: Estimación de ingresos futuros</li>
+<li><strong>Comparativo con objetivos</strong>: Contraste con metas establecidas</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/127_reporte%20de%20cuentas%20po%20pagar%20gerencia.png" alt="Reporte de cuentas por pagar gerencia"></p>
+<p><strong>Características del reporte de cuentas por pagar gerencial:</strong></p>
+<ul>
+<li><strong>Resumen estratégico</strong>: Visión consolidada de obligaciones</li>
+<li><strong>Programación financiera</strong>: Calendario de pagos críticos</li>
+<li><strong>Optimización de flujo</strong>: Recomendaciones para gestión de pagos</li>
+<li><strong>Análisis de proveedores clave</strong>: Concentración de obligaciones</li>
+<li><strong>Aprovechamiento de condiciones</strong>: Descuentos por pronto pago</li>
+<li><strong>Proyección de necesidades</strong>: Requerimientos futuros de fondos</li>
+</ul>
+<p><strong>Funcionalidades comunes:</strong></p>
+<ul>
+<li><strong>Dashboard interactivo</strong>: Visualización dinámica de indicadores</li>
+<li><strong>Alertas ejecutivas</strong>: Notificación de situaciones críticas</li>
+<li><strong>Tendencias comparativas</strong>: Análisis de evolución histórica</li>
+<li><strong>Escenarios hipotéticos</strong>: Simulación de cambios en condiciones</li>
+<li><strong>Benchmarking interno</strong>: Comparativo entre unidades de negocio</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Periodicidad configurable</strong>: Diario, semanal, mensual</li>
+<li><strong>Formato ejecutivo</strong>: Presentación concisa y visual</li>
+<li><strong>Distribución automática</strong>: Envío programado a directivos</li>
+<li><strong>Exportación para presentaciones</strong>: Formatos compatibles</li>
+<li><strong>Versión móvil</strong>: Acceso desde dispositivos portátiles</li>
+</ul>
+<h3>12.20. Reportes Financieros Ecuador</h3>
+<p>Conjunto de informes específicamente adaptados a los requerimientos regulatorios y prácticas empresariales ecuatorianas.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/128_reportes%20financieros%20ecuador.png" alt="Reportes financieros Ecuador"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Formatos oficiales</strong>: Estructura aceptada por organismos reguladores</li>
+<li><strong>Adaptación normativa</strong>: Cumplimiento de disposiciones locales</li>
+<li><strong>Codificación SRI</strong>: Compatibilidad con catálogos oficiales</li>
+<li><strong>Validación integrada</strong>: Verificación de reglas específicas</li>
+<li><strong>Firma electrónica</strong>: Soporte para certificación digital</li>
+<li><strong>Anexos regulatorios</strong>: Información complementaria requerida</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/129_reportes%20financieros%20ecuador1.png" alt="Reportes financieros Ecuador1"></p>
+<p><strong>Tipos de reportes disponibles:</strong></p>
+<ul>
+<li><strong>Formularios SRI</strong>: Estructura para declaraciones</li>
+<li><strong>Informes Superintendencia</strong>: Formatos para entidades de control</li>
+<li><strong>Reportes IESS</strong>: Información para seguridad social</li>
+<li><strong>Informes Ministerio de Trabajo</strong>: Cumplimiento laboral</li>
+<li><strong>Reportes municipales</strong>: Información para gobiernos locales</li>
+<li><strong>Informes sectoriales</strong>: Adaptados a industrias reguladas</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Validación normativa</strong>: Verificación de cumplimiento legal</li>
+<li><strong>Actualización automática</strong>: Adaptación a cambios regulatorios</li>
+<li><strong>Firma de responsables</strong>: Contador, representante legal, auditor</li>
+<li><strong>Notas explicativas</strong>: Revelaciones requeridas por normativa</li>
+<li><strong>Conciliación tributaria</strong>: Ajustes entre contabilidad y fiscalidad</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Períodos oficiales</strong>: Ajustados a calendario regulatorio</li>
+<li><strong>Formatos de presentación</strong>: Físico y electrónico</li>
+<li><strong>Exportación estructurada</strong>: Para sistemas gubernamentales</li>
+<li><strong>Histórico normativo</strong>: Adaptación a reglas de períodos anteriores</li>
+<li><strong>Validación previa</strong>: Verificación antes de presentación oficial</li>
+</ul>
+<h3>12.21. Estado de Cuenta Cliente</h3>
+<p>Reporte detallado de la relación comercial con cada cliente, facilitando la gestión de cobros y la comunicación efectiva.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/130_estado%20de%20cuenta%20cliente.png" alt="Estado de cuenta cliente"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Historial completo</strong>: Registro de todas las transacciones</li>
+<li><strong>Saldo actualizado</strong>: Situación actual de la cuenta</li>
+<li><strong>Documentos pendientes</strong>: Facturas por cobrar</li>
+<li><strong>Pagos recibidos</strong>: Registro de abonos aplicados</li>
+<li><strong>Retenciones</strong>: Comprobantes recibidos</li>
+<li><strong>Notas de crédito</strong>: Ajustes aplicados</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Datos del cliente</strong>: Información comercial y fiscal</li>
+<li><strong>Condiciones acordadas</strong>: Términos de crédito establecidos</li>
+<li><strong>Cronología de transacciones</strong>: Secuencia temporal completa</li>
+<li><strong>Referencias documentales</strong>: Números de comprobantes</li>
+<li><strong>Vencimientos</strong>: Fechas de pago programadas</li>
+<li><strong>Saldos progresivos</strong>: Evolución de la cuenta</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Generación por cliente</strong>: Informe individualizado</li>
+<li><strong>Período personalizable</strong>: Rango de fechas flexible</li>
+<li><strong>Inclusión de transacciones en proceso</strong>: Pedidos, entregas</li>
+<li><strong>Conciliación de saldos</strong>: Verificación con cliente</li>
+<li><strong>Historial de comunicaciones</strong>: Registro de gestiones realizadas</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Formato comercial</strong>: Presentación profesional para clientes</li>
+<li><strong>Detalle configurable</strong>: Nivel de información incluida</li>
+<li><strong>Inclusión de comprobantes</strong>: Enlaces a documentos originales</li>
+<li><strong>Envío automatizado</strong>: Distribución periódica programada</li>
+<li><strong>Versión interactiva</strong>: Acceso a portal de clientes</li>
+</ul>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>

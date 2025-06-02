@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXTENSIÓN: PROCESOS SRI</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h1>EXTENSIÓN: PROCESOS SRI</h1>
+<h2>10. PROCESOS SRI</h2>
+<h3>10.1. Menú SRI</h3>
+<p>El módulo SRI centraliza todas las funcionalidades relacionadas con el cumplimiento tributario ecuatoriano, proporcionando un punto de acceso unificado para la gestión de documentos electrónicos, retenciones y anexos fiscales.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/80_menu%20sri.png" alt="Menu SRI"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Panel de control SRI</strong>: Muestra indicadores clave como documentos pendientes de autorización, rechazados y autorizados.</li>
+<li><strong>Acceso centralizado</strong>: Agrupa todas las funciones tributarias específicas para Ecuador.</li>
+<li><strong>Monitoreo en tiempo real</strong>: Seguimiento del estado de comunicaciones con los servicios web del SRI.</li>
+<li><strong>Alertas automáticas</strong>: Notificaciones sobre documentos con problemas o pendientes de acción.</li>
+</ul>
+<p><strong>Submenús disponibles:</strong></p>
+<ul>
+<li><strong>Documentos Electrónicos</strong>: Gestión de comprobantes emitidos y recibidos</li>
+<li><strong>Retenciones</strong>: Administración de comprobantes de retención</li>
+<li><strong>ATS</strong>: Generación y validación del Anexo Transaccional Simplificado</li>
+<li><strong>Autorizaciones</strong>: Control de secuencias y autorizaciones</li>
+<li><strong>Reportes Tributarios</strong>: Informes específicos para declaraciones</li>
+</ul>
+<h3>10.2. Carga de Documentos Electrónicos</h3>
+<p>Esta funcionalidad permite importar documentos electrónicos XML recibidos de proveedores para su registro automático en el sistema.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/81_carga%20de%20documentos%20electronicos.png" alt="Carga de documentos electrónicos"></p>
+<p><strong>Proceso detallado:</strong></p>
+<ol>
+<li><strong>Selección de archivos</strong>: El usuario puede cargar uno o múltiples archivos XML.</li>
+<li><strong>Validación preliminar</strong>: El sistema verifica la estructura y firma digital del documento.</li>
+<li><strong>Extracción de datos</strong>: Se obtiene automáticamente la información fiscal y comercial.</li>
+<li><strong>Creación de registros</strong>: Generación automática de facturas, retenciones o notas de crédito.</li>
+<li><strong>Conciliación</strong>: Vinculación con proveedores existentes en el sistema.</li>
+<li><strong>Validación fiscal</strong>: Verificación de la autorización con el servicio web del SRI.</li>
+</ol>
+<p><strong>Funcionalidades avanzadas:</strong></p>
+<ul>
+<li><strong>Procesamiento por lotes</strong>: Carga masiva de documentos XML</li>
+<li><strong>Validación de duplicados</strong>: Prevención de registro múltiple del mismo documento</li>
+<li><strong>Registro de errores</strong>: Documentación detallada de problemas encontrados</li>
+<li><strong>Corrección asistida</strong>: Sugerencias para resolver inconsistencias</li>
+</ul>
+<h3>10.3. XML Enviados al SRI</h3>
+<p>Esta sección permite el seguimiento completo de los documentos electrónicos enviados al SRI, facilitando el monitoreo de su estado de autorización.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/82_xml%20enviados%20al%20sri.png" alt="XML enviados al SRI"></p>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Clave de acceso</strong>: Identificador único de 49 dígitos</li>
+<li><strong>Tipo de documento</strong>: Factura, retención, nota de crédito, etc.</li>
+<li><strong>Fecha de emisión</strong>: Fecha de generación del documento</li>
+<li><strong>Estado</strong>: Firmado, enviado, autorizado, rechazado</li>
+<li><strong>Fecha de autorización</strong>: Timestamp de la respuesta del SRI</li>
+<li><strong>Número de autorización</strong>: Código asignado por el SRI</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/83_xml%20enviados%20al%20sri%20detalle.png" alt="XML enviados al SRI detalle"></p>
+<p><strong>Funcionalidades de gestión:</strong></p>
+<ul>
+<li><strong>Filtrado avanzado</strong>: Por tipo, estado, fecha o cliente/proveedor</li>
+<li><strong>Reenvío automático</strong>: Para documentos no autorizados</li>
+<li><strong>Descarga de archivos</strong>: XML firmado y autorizado</li>
+<li><strong>Visualización RIDE</strong>: Representación impresa del documento</li>
+<li><strong>Historial de comunicaciones</strong>: Registro de interacciones con el SRI</li>
+<li><strong>Notificaciones configurables</strong>: Alertas sobre cambios de estado</li>
+</ul>
+<h3>10.4. Retenciones de Compra</h3>
+<p>El módulo de retenciones de compra permite la emisión y gestión de comprobantes de retención a proveedores, cumpliendo con los requisitos del SRI.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/84_retenciones%20de%20compra.png" alt="Retenciones de compra"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Emisión desde factura</strong>: Generación automática desde facturas de proveedor</li>
+<li><strong>Cálculo automático</strong>: Determinación de porcentajes según normativa vigente</li>
+<li><strong>Validación de plazos</strong>: Control del límite de 5 días para emisión</li>
+<li><strong>Numeración secuencial</strong>: Control por establecimiento y punto de emisión</li>
+<li><strong>Emisión electrónica</strong>: Generación de XML según formato SRI</li>
+<li><strong>Impresión RIDE</strong>: Formato oficial para representación impresa</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/85_retenciones%20de%20compra%20detalle.png" alt="Retenciones de compra detalle"></p>
+<p><strong>Formulario de retención:</strong></p>
+<ul>
+<li><strong>Cabecera</strong>: Proveedor, fecha, número de autorización</li>
+<li><strong>Documento relacionado</strong>: Factura a la que aplica la retención</li>
+<li><strong>Impuestos retenidos</strong>: Desglose por tipo (renta, IVA) y porcentaje</li>
+<li><strong>Bases imponibles</strong>: Valores sobre los que se aplica cada retención</li>
+<li><strong>Información de documento electrónico</strong>: Estado de autorización SRI</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/86_detalle%20de%20retenciones%20de%20compra.png" alt="Detalle de retenciones de compra"></p>
+<p><strong>Vista detallada:</strong></p>
+<ul>
+<li><strong>Información fiscal completa</strong>: Datos de emisor y receptor</li>
+<li><strong>Desglose por código</strong>: Clasificación según catálogo SRI</li>
+<li><strong>Valores calculados</strong>: Base imponible y valor retenido</li>
+<li><strong>Contabilización</strong>: Asiento contable generado</li>
+<li><strong>Historial</strong>: Seguimiento de modificaciones y autorizaciones</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/87_detalle%20detalle%20retenciondes%20de%20compra.png" alt="Detalle detalle retenciones de compra"></p>
+<p><strong>Configuraciones avanzadas:</strong></p>
+<ul>
+<li><strong>Retención automática</strong>: Según tipo de contribuyente y bien/servicio</li>
+<li><strong>Plantillas por proveedor</strong>: Configuración predeterminada por proveedor</li>
+<li><strong>Validación fiscal</strong>: Verificación de porcentajes según normativa vigente</li>
+<li><strong>Envío automático</strong>: Notificación al proveedor tras autorización</li>
+<li><strong>Reportes específicos</strong>: Informes para declaraciones mensuales</li>
+</ul>
+<h3>10.5. Retenciones de Venta</h3>
+<p>Este módulo gestiona las retenciones recibidas de clientes, permitiendo su registro, validación y aplicación a facturas emitidas.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/88_retenciones%20den%20ventas.png" alt="Retenciones de ventas"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Registro manual</strong>: Ingreso de retenciones físicas recibidas</li>
+<li><strong>Carga desde XML</strong>: Importación de retenciones electrónicas</li>
+<li><strong>Validación fiscal</strong>: Verificación de porcentajes y bases</li>
+<li><strong>Aplicación a facturas</strong>: Vinculación con documentos de venta</li>
+<li><strong>Impacto en cartera</strong>: Actualización automática de saldos por cobrar</li>
+<li><strong>Inclusión en ATS</strong>: Integración con anexo transaccional</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/89_detalle%20retencion%20en%20venta.png" alt="Detalle retención en venta"></p>
+<p><strong>Formulario de retención recibida:</strong></p>
+<ul>
+<li><strong>Información del cliente</strong>: Datos fiscales del emisor de la retención</li>
+<li><strong>Documento relacionado</strong>: Factura a la que aplica</li>
+<li><strong>Número de retención</strong>: Secuencia asignada por el cliente</li>
+<li><strong>Autorización SRI</strong>: Número de autorización del documento</li>
+<li><strong>Impuestos retenidos</strong>: Desglose por tipo y porcentaje</li>
+<li><strong>Fecha de emisión</strong>: Control de plazos legales</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/90_detalle%20de%20retencion%20en%20ventas.png" alt="Detalle de retención en ventas"></p>
+<p><strong>Vista detallada:</strong></p>
+<ul>
+<li><strong>Información completa</strong>: Todos los campos fiscales requeridos</li>
+<li><strong>Valores calculados</strong>: Bases imponibles y montos retenidos</li>
+<li><strong>Estado de aplicación</strong>: Vinculación con factura de venta</li>
+<li><strong>Contabilización</strong>: Asiento contable generado</li>
+<li><strong>Validaciones</strong>: Verificación de consistencia con factura relacionada</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/91_detalle%20detalle%20retencion%20en%20ventas.png" alt="Detalle detalle retención en ventas"></p>
+<p><strong>Funcionalidades avanzadas:</strong></p>
+<ul>
+<li><strong>Validación cruzada</strong>: Verificación contra factura emitida</li>
+<li><strong>Control de fechas</strong>: Validación de plazos legales</li>
+<li><strong>Alertas de inconsistencia</strong>: Notificación de discrepancias en valores</li>
+<li><strong>Reportes específicos</strong>: Informes para declaraciones mensuales</li>
+<li><strong>Conciliación automática</strong>: Aplicación a saldos pendientes</li>
+</ul>
+<h3>10.6. Anexo Transaccional Simplificado (ATS)</h3>
+<p>El módulo ATS permite la generación del anexo transaccional requerido mensualmente por el SRI, consolidando la información de compras, ventas y retenciones.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/92_ats.png" alt="ATS"></p>
+<p><strong>Proceso de generación:</strong></p>
+<ol>
+<li><strong>Selección de período</strong>: Mes y año a reportar</li>
+<li><strong>Recopilación de datos</strong>: Extracción de transacciones del período</li>
+<li><strong>Validación preliminar</strong>: Verificación de consistencia y completitud</li>
+<li><strong>Corrección de inconsistencias</strong>: Identificación y solución de problemas</li>
+<li><strong>Generación de XML</strong>: Creación del archivo según formato SRI</li>
+<li><strong>Validación final</strong>: Verificación contra esquema oficial</li>
+<li><strong>Exportación</strong>: Descarga del archivo para carga en DIMM</li>
+</ol>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Validación exhaustiva</strong>: Verificación de RUC, autorizaciones, valores</li>
+<li><strong>Corrección asistida</strong>: Identificación clara de inconsistencias</li>
+<li><strong>Generación automática</strong>: Cálculo de totales y agrupaciones</li>
+<li><strong>Inclusión de anulados</strong>: Registro de documentos anulados en el período</li>
+<li><strong>Validación matemática</strong>: Verificación de cuadre de impuestos</li>
+<li><strong>Formato oficial</strong>: Cumplimiento estricto de esquema XSD del SRI</li>
+</ul>
+<p><strong>Secciones del ATS:</strong></p>
+<ul>
+<li><strong>Identificación informante</strong>: Datos de la empresa emisora</li>
+<li><strong>Compras</strong>: Adquisiciones del período con desglose de impuestos</li>
+<li><strong>Ventas</strong>: Ventas del período agrupadas por cliente</li>
+<li><strong>Exportaciones</strong>: Ventas al exterior (si aplica)</li>
+<li><strong>Anulados</strong>: Documentos emitidos y anulados en el período</li>
+<li><strong>Retenciones</strong>: Información de retenciones emitidas y recibidas</li>
+</ul>
+<p><strong>Consideraciones especiales:</strong></p>
+<ul>
+<li><strong>Precisión decimal</strong>: Control especial para evitar problemas de redondeo</li>
+<li><strong>Validación de identificaciones</strong>: Verificación de algoritmo de RUC/cédula</li>
+<li><strong>Control de duplicados</strong>: Prevención de registro múltiple de documentos</li>
+<li><strong>Documentos especiales</strong>: Tratamiento específico para liquidaciones, reembolsos</li>
+<li><strong>Límites de tamaño</strong>: Gestión de archivos grandes para contribuyentes con alto volumen</li>
+</ul>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>

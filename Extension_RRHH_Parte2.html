@@ -1,0 +1,724 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXTENSIÓN: RECURSOS HUMANOS Y NÓMINA - PARTE 2</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h1>EXTENSIÓN: RECURSOS HUMANOS Y NÓMINA - PARTE 2</h1>
+<h2>13. RECURSOS HUMANOS (CONTINUACIÓN)</h2>
+<h3>13.9. Evaluación de Desempeño</h3>
+<p>El módulo de evaluación permite configurar y ejecutar procesos de valoración del rendimiento de los empleados, facilitando la gestión del talento.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/140_evaluacion_desempeno.png" alt="Evaluación de desempeño"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Ciclos de evaluación</strong>: Períodos configurables (anual, semestral)</li>
+<li><strong>Formularios personalizables</strong>: Adaptación según tipo de evaluación</li>
+<li><strong>Competencias y objetivos</strong>: Criterios de valoración</li>
+<li><strong>Evaluación 360°</strong>: Retroalimentación multifuente</li>
+<li><strong>Autoevaluación</strong>: Valoración personal</li>
+<li><strong>Plan de desarrollo</strong>: Acciones de mejora</li>
+<li><strong>Seguimiento de progreso</strong>: Monitoreo de evolución</li>
+</ul>
+<p><strong>Componentes de evaluación:</strong></p>
+<ul>
+<li><strong>Objetivos individuales</strong>: Metas específicas asignadas</li>
+<li><strong>Competencias técnicas</strong>: Conocimientos específicos del puesto</li>
+<li><strong>Competencias conductuales</strong>: Habilidades interpersonales</li>
+<li><strong>Valores organizacionales</strong>: Alineación con cultura empresarial</li>
+<li><strong>Indicadores de desempeño</strong>: Métricas cuantitativas</li>
+<li><strong>Proyectos especiales</strong>: Contribuciones extraordinarias</li>
+<li><strong>Áreas de mejora</strong>: Oportunidades de desarrollo</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Plantillas predefinidas</strong>: Formatos según tipo de evaluación</li>
+<li><strong>Ponderación configurable</strong>: Peso relativo de cada criterio</li>
+<li><strong>Escalas de valoración</strong>: Niveles de calificación personalizables</li>
+<li><strong>Comentarios cualitativos</strong>: Espacio para retroalimentación textual</li>
+<li><strong>Comparativa histórica</strong>: Evolución a lo largo del tiempo</li>
+<li><strong>Calibración grupal</strong>: Ajuste para consistencia entre evaluadores</li>
+<li><strong>Reportes consolidados</strong>: Análisis global de resultados</li>
+</ul>
+<p><strong>Proceso completo:</strong></p>
+<ol>
+<li><strong>Configuración del ciclo</strong>: Definición de período y alcance</li>
+<li><strong>Asignación de evaluaciones</strong>: Distribución a participantes</li>
+<li><strong>Fase de evaluación</strong>: Completado de formularios</li>
+<li><strong>Reuniones de feedback</strong>: Comunicación de resultados</li>
+<li><strong>Definición de planes</strong>: Establecimiento de acciones de desarrollo</li>
+<li><strong>Seguimiento</strong>: Monitoreo de compromisos</li>
+<li><strong>Vinculación con compensación</strong>: Impacto en decisiones salariales</li>
+</ol>
+<h3>13.10. Plan de Carrera</h3>
+<p>La gestión de planes de carrera permite definir rutas de desarrollo profesional para los empleados, facilitando la retención y crecimiento del talento.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/141_plan_carrera.png" alt="Plan de carrera"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Rutas profesionales</strong>: Trayectorias definidas por área</li>
+<li><strong>Requisitos por nivel</strong>: Condiciones para progresión</li>
+<li><strong>Competencias a desarrollar</strong>: Habilidades necesarias</li>
+<li><strong>Formación requerida</strong>: Capacitación asociada</li>
+<li><strong>Experiencia mínima</strong>: Tiempo necesario en cada posición</li>
+<li><strong>Mentorías</strong>: Acompañamiento para desarrollo</li>
+<li><strong>Evaluación de potencial</strong>: Identificación de talento</li>
+</ul>
+<p><strong>Componentes del plan:</strong></p>
+<ul>
+<li><strong>Mapa de posiciones</strong>: Estructura jerárquica de cargos</li>
+<li><strong>Perfiles de competencias</strong>: Requisitos por nivel</li>
+<li><strong>Plan de desarrollo individual</strong>: Acciones específicas</li>
+<li><strong>Hitos de carrera</strong>: Puntos clave de progresión</li>
+<li><strong>Evaluación de readiness</strong>: Valoración de preparación</li>
+<li><strong>Sucesión</strong>: Identificación de candidatos para posiciones clave</li>
+<li><strong>Movilidad horizontal</strong>: Opciones de desarrollo lateral</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Visualización de rutas</strong>: Representación gráfica de trayectorias</li>
+<li><strong>Autogestión de carrera</strong>: Portal para empleados</li>
+<li><strong>Seguimiento de avance</strong>: Monitoreo de progreso</li>
+<li><strong>Identificación de brechas</strong>: Análisis de áreas a desarrollar</li>
+<li><strong>Recomendaciones automáticas</strong>: Sugerencias de formación</li>
+<li><strong>Alertas de potencial</strong>: Notificación de talento destacado</li>
+<li><strong>Planificación de sucesión</strong>: Preparación para posiciones críticas</li>
+</ul>
+<p><strong>Proceso de implementación:</strong></p>
+<ol>
+<li><strong>Definición de estructura</strong>: Mapa de posiciones y niveles</li>
+<li><strong>Establecimiento de requisitos</strong>: Condiciones por posición</li>
+<li><strong>Evaluación inicial</strong>: Ubicación de empleados en estructura</li>
+<li><strong>Identificación de potencial</strong>: Valoración de capacidades</li>
+<li><strong>Planes individuales</strong>: Definición de acciones específicas</li>
+<li><strong>Seguimiento periódico</strong>: Monitoreo de avance</li>
+<li><strong>Actualización dinámica</strong>: Ajuste según evolución organizacional</li>
+</ol>
+<h2>14. NÓMINA</h2>
+<h3>14.1. Configuración de Nómina Ecuador</h3>
+<p>El módulo de nómina permite gestionar el proceso completo de cálculo y pago de remuneraciones, adaptado a los requerimientos legales ecuatorianos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/142_configuracion_nomina.png" alt="Configuración nómina"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Cumplimiento legal</strong>: Adaptación a normativa laboral ecuatoriana</li>
+<li><strong>Estructura salarial completa</strong>: Componentes según legislación</li>
+<li><strong>Beneficios sociales</strong>: Cálculo automático de décimos y fondos</li>
+<li><strong>Impuestos y aportes</strong>: IESS e Impuesto a la Renta</li>
+<li><strong>Múltiples periodicidades</strong>: Mensual, quincenal, semanal</li>
+<li><strong>Retroactividad</strong>: Manejo de ajustes con efecto pasado</li>
+<li><strong>Contabilización automática</strong>: Generación de asientos</li>
+</ul>
+<p><strong>Panel de configuración:</strong></p>
+<ul>
+<li><strong>Parámetros generales</strong>: Valores de referencia (SBU, topes)</li>
+<li><strong>Estructura salarial</strong>: Componentes y reglas de cálculo</li>
+<li><strong>Categorías de empleados</strong>: Agrupación para procesamiento</li>
+<li><strong>Periodicidad</strong>: Frecuencia de cálculo y pago</li>
+<li><strong>Integración contable</strong>: Cuentas para asientos</li>
+<li><strong>Formatos de reportes</strong>: Plantillas para documentos oficiales</li>
+<li><strong>Configuración fiscal</strong>: Tablas de impuesto a la renta</li>
+</ul>
+<p><strong>Componentes principales:</strong></p>
+<ul>
+<li><strong>Sueldo básico</strong>: Remuneración base mensual</li>
+<li><strong>Décimo tercer sueldo</strong>: Beneficio anual (navidad)</li>
+<li><strong>Décimo cuarto sueldo</strong>: Beneficio anual (educativo)</li>
+<li><strong>Fondos de reserva</strong>: Beneficio mensual o acumulado</li>
+<li><strong>Horas extras</strong>: 50% y 100% según corresponda</li>
+<li><strong>Comisiones</strong>: Pagos variables por resultados</li>
+<li><strong>Aporte IESS personal</strong>: Deducción para seguridad social</li>
+<li><strong>Aporte IESS patronal</strong>: Contribución empresarial</li>
+<li><strong>Impuesto a la renta</strong>: Retención mensual</li>
+<li><strong>Préstamos y anticipos</strong>: Descuentos por adelantos</li>
+<li><strong>Utilidades</strong>: Participación en beneficios empresariales</li>
+</ul>
+<p><strong>Proceso de implementación:</strong></p>
+<ol>
+<li><strong>Configuración base</strong>: Parámetros generales</li>
+<li><strong>Definición de estructura</strong>: Componentes salariales</li>
+<li><strong>Configuración contable</strong>: Cuentas para asientos</li>
+<li><strong>Parametrización fiscal</strong>: Tablas impositivas</li>
+<li><strong>Carga de datos iniciales</strong>: Información de empleados</li>
+<li><strong>Validación</strong>: Verificación de cálculos</li>
+<li><strong>Puesta en producción</strong>: Activación del proceso regular</li>
+</ol>
+<h3>14.2. Procesamiento de Nómina</h3>
+<p>El procesamiento de nómina permite ejecutar el cálculo y generación de pagos de manera eficiente y precisa, cumpliendo con los requerimientos legales.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/143_procesamiento_nomina.png" alt="Procesamiento nómina"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Cálculo automatizado</strong>: Procesamiento según reglas definidas</li>
+<li><strong>Múltiples períodos</strong>: Gestión de diferentes frecuencias</li>
+<li><strong>Procesamiento por lotes</strong>: Agrupación por departamentos o categorías</li>
+<li><strong>Simulación previa</strong>: Verificación antes de confirmación</li>
+<li><strong>Generación de comprobantes</strong>: Roles individuales y consolidados</li>
+<li><strong>Contabilización</strong>: Creación de asientos contables</li>
+<li><strong>Integración bancaria</strong>: Generación de archivos para transferencias</li>
+</ul>
+<p><strong>Etapas del proceso:</strong></p>
+<ul>
+<li><strong>Preparación de datos</strong>: Verificación de información base</li>
+<li><strong>Cálculo preliminar</strong>: Simulación de resultados</li>
+<li><strong>Revisión</strong>: Validación de cálculos</li>
+<li><strong>Confirmación</strong>: Aprobación de proceso</li>
+<li><strong>Generación de roles</strong>: Creación de comprobantes</li>
+<li><strong>Contabilización</strong>: Registro en sistema contable</li>
+<li><strong>Pago</strong>: Generación de transferencias o cheques</li>
+<li><strong>Reportes</strong>: Generación de informes requeridos</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Control de cambios</strong>: Registro de modificaciones</li>
+<li><strong>Recálculo selectivo</strong>: Ajustes para casos específicos</li>
+<li><strong>Reversión</strong>: Anulación de procesos erróneos</li>
+<li><strong>Cálculos especiales</strong>: Liquidaciones, retroactivos</li>
+<li><strong>Aprobación multinivel</strong>: Flujo de autorización configurable</li>
+<li><strong>Notificaciones automáticas</strong>: Alertas a responsables</li>
+<li><strong>Auditoría completa</strong>: Trazabilidad de operaciones</li>
+</ul>
+<p><strong>Ciclo completo mensual:</strong></p>
+<ol>
+<li><strong>Actualización de novedades</strong>: Registro de cambios</li>
+<li><strong>Verificación de asistencia</strong>: Control de días trabajados</li>
+<li><strong>Procesamiento de horas extras</strong>: Cálculo de sobretiempos</li>
+<li><strong>Registro de comisiones</strong>: Ingreso de variables</li>
+<li><strong>Cálculo de nómina</strong>: Procesamiento completo</li>
+<li><strong>Revisión y aprobación</strong>: Validación de resultados</li>
+<li><strong>Generación de roles</strong>: Creación de comprobantes</li>
+<li><strong>Transferencia bancaria</strong>: Pago de remuneraciones</li>
+<li><strong>Contabilización</strong>: Registro en sistema contable</li>
+<li><strong>Reportes oficiales</strong>: Generación de informes legales</li>
+</ol>
+<h3>14.3. Roles de Pago</h3>
+<p>Los roles de pago son los comprobantes que detallan la remuneración de cada empleado, cumpliendo con los requisitos legales ecuatorianos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/144_roles_pago.png" alt="Roles de pago"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Formato legal</strong>: Estructura según normativa laboral</li>
+<li><strong>Detalle completo</strong>: Desglose de ingresos y deducciones</li>
+<li><strong>Firma digital</strong>: Opción para certificación electrónica</li>
+<li><strong>Distribución automatizada</strong>: Envío a empleados</li>
+<li><strong>Historial completo</strong>: Acceso a roles anteriores</li>
+<li><strong>Portal del empleado</strong>: Consulta en línea</li>
+<li><strong>Reportes consolidados</strong>: Resúmenes por departamento o período</li>
+</ul>
+<p><strong>Información incluida:</strong></p>
+<ul>
+<li><strong>Datos del empleado</strong>: Identificación completa</li>
+<li><strong>Período de pago</strong>: Rango de fechas</li>
+<li><strong>Ingresos</strong>: Detalle de todos los conceptos positivos<ul>
+<li>Sueldo base</li>
+<li>Horas extras</li>
+<li>Comisiones</li>
+<li>Bonificaciones</li>
+<li>Décimos (si aplica mensualización)</li>
+<li>Fondos de reserva (si aplica mensualización)</li>
+<li>Otros ingresos</li>
+</ul>
+</li>
+<li><strong>Deducciones</strong>: Detalle de todos los conceptos negativos<ul>
+<li>Aporte IESS personal</li>
+<li>Impuesto a la renta</li>
+<li>Préstamos y anticipos</li>
+<li>Pensiones alimenticias</li>
+<li>Otras deducciones</li>
+</ul>
+</li>
+<li><strong>Totales</strong>: Valores finales<ul>
+<li>Total ingresos</li>
+<li>Total deducciones</li>
+<li>Valor neto a recibir</li>
+</ul>
+</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Plantillas personalizables</strong>: Adaptación de formato</li>
+<li><strong>Agrupación por lotes</strong>: Generación masiva</li>
+<li><strong>Firma electrónica</strong>: Certificación digital</li>
+<li><strong>Distribución automática</strong>: Envío por correo</li>
+<li><strong>Confirmación de recepción</strong>: Acuse de recibo</li>
+<li><strong>Consulta histórica</strong>: Acceso a roles anteriores</li>
+<li><strong>Exportación múltiple</strong>: PDF, Excel, XML</li>
+</ul>
+<p><strong>Proceso de generación:</strong></p>
+<ol>
+<li><strong>Cálculo de nómina</strong>: Procesamiento de remuneraciones</li>
+<li><strong>Generación de roles</strong>: Creación de comprobantes</li>
+<li><strong>Revisión</strong>: Verificación de información</li>
+<li><strong>Aprobación</strong>: Validación final</li>
+<li><strong>Distribución</strong>: Envío a empleados</li>
+<li><strong>Archivo</strong>: Almacenamiento según normativa</li>
+<li><strong>Consulta</strong>: Disponibilidad para verificación posterior</li>
+</ol>
+<h3>14.4. Décimos y Beneficios Sociales</h3>
+<p>La gestión de décimos y beneficios sociales permite administrar los pagos adicionales establecidos por la legislación laboral ecuatoriana.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/145_decimos.png" alt="Décimos"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Cálculo automático</strong>: Determinación según normativa</li>
+<li><strong>Opciones de pago</strong>: Acumulado o mensualizado</li>
+<li><strong>Períodos legales</strong>: Respeto a fechas oficiales</li>
+<li><strong>Generación de comprobantes</strong>: Documentos de respaldo</li>
+<li><strong>Reportes ministeriales</strong>: Formatos para entidades de control</li>
+<li><strong>Histórico completo</strong>: Registro de pagos anteriores</li>
+<li><strong>Proyección</strong>: Estimación de provisiones</li>
+</ul>
+<p><strong>Beneficios gestionados:</strong></p>
+<ul>
+<li><p><strong>Décimo tercer sueldo (Navidad)</strong>:</p>
+<ul>
+<li>Período: 1 diciembre a 30 noviembre</li>
+<li>Pago: Hasta 24 de diciembre</li>
+<li>Cálculo: Doceava parte de ingresos del período</li>
+<li>Opción: Acumulado o mensualizado</li>
+</ul>
+</li>
+<li><p><strong>Décimo cuarto sueldo (Educativo)</strong>:</p>
+<ul>
+<li>Período: Según región (Sierra/Costa)</li>
+<li>Pago: Agosto (Sierra) o Marzo (Costa)</li>
+<li>Cálculo: Un salario básico unificado</li>
+<li>Opción: Acumulado o mensualizado</li>
+</ul>
+</li>
+<li><p><strong>Fondos de reserva</strong>:</p>
+<ul>
+<li>Elegibilidad: Después de primer año de servicio</li>
+<li>Cálculo: 8.33% de remuneración mensual</li>
+<li>Opción: Pago mensual o acumulación en IESS</li>
+</ul>
+</li>
+<li><p><strong>Vacaciones</strong>:</p>
+<ul>
+<li>Derecho: 15 días por año (desde año completo)</li>
+<li>Cálculo para pago: Remuneración dividida para 24</li>
+<li>Adicional: 1 día extra desde año 6 (máximo 30)</li>
+</ul>
+</li>
+<li><p><strong>Utilidades</strong>:</p>
+<ul>
+<li>Período: Año fiscal (enero a diciembre)</li>
+<li>Distribución: 15% de utilidades</li>
+<li>Reparto: 10% todos los trabajadores, 5% cargas familiares</li>
+<li>Pago: Hasta 15 de abril del siguiente año</li>
+</ul>
+</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Configuración de preferencias</strong>: Elección de modalidad</li>
+<li><strong>Cálculo proporcional</strong>: Ajuste según tiempo trabajado</li>
+<li><strong>Generación de provisiones</strong>: Registro contable mensual</li>
+<li><strong>Formularios ministeriales</strong>: Generación automática</li>
+<li><strong>Notificaciones de pago</strong>: Alertas a empleados</li>
+<li><strong>Reportes comparativos</strong>: Análisis entre períodos</li>
+<li><strong>Exportación para declaraciones</strong>: Formatos oficiales</li>
+</ul>
+<p><strong>Proceso de gestión:</strong></p>
+<ol>
+<li><strong>Configuración inicial</strong>: Definición de parámetros</li>
+<li><strong>Registro de preferencias</strong>: Elección de modalidad por empleado</li>
+<li><strong>Cálculo periódico</strong>: Determinación de valores</li>
+<li><strong>Generación de comprobantes</strong>: Creación de documentos</li>
+<li><strong>Pago</strong>: Transferencia o inclusión en rol</li>
+<li><strong>Reportes oficiales</strong>: Generación de formatos ministeriales</li>
+<li><strong>Archivo</strong>: Almacenamiento según normativa</li>
+</ol>
+<h3>14.5. Préstamos y Anticipos</h3>
+<p>La gestión de préstamos y anticipos permite administrar los adelantos de remuneración y préstamos a empleados, controlando su devolución a través de la nómina.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/146_prestamos.png" alt="Préstamos"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Múltiples tipos</strong>: Préstamos, anticipos, avances</li>
+<li><strong>Aprobación configurable</strong>: Flujo de autorización</li>
+<li><strong>Plan de pagos</strong>: Cuotas y fechas de descuento</li>
+<li><strong>Intereses</strong>: Opción para aplicación de tasas</li>
+<li><strong>Límites por empleado</strong>: Topes máximos configurables</li>
+<li><strong>Descuento automático</strong>: Integración con nómina</li>
+<li><strong>Reportes de saldos</strong>: Control de pendientes</li>
+</ul>
+<p><strong>Tipos principales:</strong></p>
+<ul>
+<li><p><strong>Anticipo de sueldo</strong>:</p>
+<ul>
+<li>Adelanto parcial de remuneración mensual</li>
+<li>Descuento en rol del mismo mes</li>
+<li>Sin intereses ni plazos extendidos</li>
+</ul>
+</li>
+<li><p><strong>Préstamo personal</strong>:</p>
+<ul>
+<li>Monto mayor con devolución en cuotas</li>
+<li>Plan de pagos con fechas específicas</li>
+<li>Posibilidad de aplicar intereses</li>
+<li>Descuento automático en nómina</li>
+</ul>
+</li>
+<li><p><strong>Préstamo hipotecario/prendario</strong>:</p>
+<ul>
+<li>Vinculado a garantía específica</li>
+<li>Plazo extendido de devolución</li>
+<li>Tasa de interés preferencial</li>
+<li>Documentación legal asociada</li>
+</ul>
+</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Solicitud en línea</strong>: Portal para empleados</li>
+<li><strong>Aprobación multinivel</strong>: Flujo configurable</li>
+<li><strong>Generación automática de plan</strong>: Cálculo de cuotas</li>
+<li><strong>Simulador de préstamos</strong>: Proyección de pagos</li>
+<li><strong>Control de capacidad de endeudamiento</strong>: Verificación de límites</li>
+<li><strong>Refinanciación</strong>: Reestructuración de deuda existente</li>
+<li><strong>Cancelación anticipada</strong>: Liquidación antes de plazo</li>
+</ul>
+<p><strong>Proceso completo:</strong></p>
+<ol>
+<li><strong>Solicitud</strong>: Petición del empleado</li>
+<li><strong>Análisis de capacidad</strong>: Verificación de límites</li>
+<li><strong>Aprobación</strong>: Autorización según niveles</li>
+<li><strong>Desembolso</strong>: Transferencia del monto</li>
+<li><strong>Generación de plan</strong>: Creación de calendario de pagos</li>
+<li><strong>Descuentos automáticos</strong>: Aplicación en nómina</li>
+<li><strong>Seguimiento</strong>: Control de saldo pendiente</li>
+<li><strong>Cierre</strong>: Liquidación completa del préstamo</li>
+</ol>
+<h3>14.6. Liquidaciones Laborales</h3>
+<p>La gestión de liquidaciones permite calcular y procesar los valores correspondientes a la finalización de la relación laboral, según la normativa ecuatoriana.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/147_liquidaciones.png" alt="Liquidaciones"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Cálculo según causa</strong>: Adaptación a motivo de salida</li>
+<li><strong>Componentes completos</strong>: Todos los rubros legales</li>
+<li><strong>Acta de finiquito</strong>: Generación según formato ministerial</li>
+<li><strong>Documentación asociada</strong>: Respaldos requeridos</li>
+<li><strong>Aprobación multinivel</strong>: Flujo de autorización</li>
+<li><strong>Contabilización automática</strong>: Generación de asientos</li>
+<li><strong>Certificados laborales</strong>: Documentos complementarios</li>
+</ul>
+<p><strong>Componentes de liquidación:</strong></p>
+<ul>
+<li><p><strong>Proporcional de remuneraciones pendientes</strong>:</p>
+<ul>
+<li>Días trabajados del último mes</li>
+<li>Horas extras pendientes</li>
+<li>Comisiones por pagar</li>
+</ul>
+</li>
+<li><p><strong>Proporcional de beneficios sociales</strong>:</p>
+<ul>
+<li>Décimo tercer sueldo</li>
+<li>Décimo cuarto sueldo</li>
+<li>Vacaciones no gozadas</li>
+<li>Fondos de reserva no depositados</li>
+</ul>
+</li>
+<li><p><strong>Bonificación por desahucio</strong> (si aplica):</p>
+<ul>
+<li>25% de última remuneración por año de servicio</li>
+</ul>
+</li>
+<li><p><strong>Indemnización por despido intempestivo</strong> (si aplica):</p>
+<ul>
+<li>Según escala legal por años de servicio</li>
+</ul>
+</li>
+<li><p><strong>Otros valores específicos</strong>:</p>
+<ul>
+<li>Jubilación patronal proporcional</li>
+<li>Compensaciones adicionales</li>
+<li>Acuerdos particulares</li>
+</ul>
+</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Asistente de cálculo</strong>: Herramienta guiada</li>
+<li><strong>Simulación previa</strong>: Estimación antes de proceso</li>
+<li><strong>Generación de acta</strong>: Formato ministerial automático</li>
+<li><strong>Flujo de aprobación</strong>: Validación por responsables</li>
+<li><strong>Integración con Ministerio</strong>: Carga en sistema oficial</li>
+<li><strong>Reportes históricos</strong>: Registro de liquidaciones anteriores</li>
+<li><strong>Auditoría completa</strong>: Trazabilidad de operaciones</li>
+</ul>
+<p><strong>Proceso completo:</strong></p>
+<ol>
+<li><strong>Registro de salida</strong>: Documentación de terminación</li>
+<li><strong>Selección de motivo</strong>: Clasificación según causa</li>
+<li><strong>Cálculo de valores</strong>: Determinación de componentes</li>
+<li><strong>Revisión</strong>: Verificación de montos</li>
+<li><strong>Aprobación</strong>: Autorización según niveles</li>
+<li><strong>Generación de acta</strong>: Creación de documento oficial</li>
+<li><strong>Pago</strong>: Transferencia de valores</li>
+<li><strong>Registro ministerial</strong>: Carga en sistema gubernamental</li>
+<li><strong>Archivo</strong>: Almacenamiento según normativa</li>
+</ol>
+<h3>14.7. Reportes de Nómina</h3>
+<p>El sistema ofrece un conjunto completo de reportes para el análisis y control del proceso de nómina, así como para cumplir con requerimientos legales.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/148_reportes_nomina.png" alt="Reportes nómina"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Reportes operativos</strong>: Para gestión interna</li>
+<li><strong>Reportes legales</strong>: Para entidades de control</li>
+<li><strong>Análisis gerencial</strong>: Para toma de decisiones</li>
+<li><strong>Exportación múltiple</strong>: Diversos formatos disponibles</li>
+<li><strong>Filtros avanzados</strong>: Selección precisa de información</li>
+<li><strong>Programación</strong>: Generación automática periódica</li>
+<li><strong>Distribución automática</strong>: Envío a responsables</li>
+</ul>
+<p><strong>Reportes principales:</strong></p>
+<ul>
+<li><p><strong>Nómina consolidada</strong>:</p>
+<ul>
+<li>Resumen de todos los empleados</li>
+<li>Agrupación por departamento</li>
+<li>Totales por concepto</li>
+</ul>
+</li>
+<li><p><strong>Planilla de aportes IESS</strong>:</p>
+<ul>
+<li>Detalle para declaración mensual</li>
+<li>Valores personales y patronales</li>
+<li>Novedades de ingreso/salida</li>
+</ul>
+</li>
+<li><p><strong>Provisiones sociales</strong>:</p>
+<ul>
+<li>Cálculo de valores acumulados</li>
+<li>Proyección de pagos futuros</li>
+<li>Impacto contable mensual</li>
+</ul>
+</li>
+<li><p><strong>Impuesto a la renta</strong>:</p>
+<ul>
+<li>Proyección anual</li>
+<li>Retenciones mensuales</li>
+<li>Formulario 107</li>
+</ul>
+</li>
+<li><p><strong>Análisis de costos laborales</strong>:</p>
+<ul>
+<li>Distribución por área</li>
+<li>Tendencias temporales</li>
+<li>Comparativo presupuestal</li>
+</ul>
+</li>
+<li><p><strong>Histórico por empleado</strong>:</p>
+<ul>
+<li>Evolución salarial</li>
+<li>Registro de beneficios</li>
+<li>Deducciones acumuladas</li>
+</ul>
+</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Filtros combinados</strong>: Selección por múltiples criterios</li>
+<li><strong>Agrupación flexible</strong>: Organización según necesidad</li>
+<li><strong>Gráficos integrados</strong>: Visualización de tendencias</li>
+<li><strong>Exportación estructurada</strong>: Formatos para análisis externo</li>
+<li><strong>Plantillas personalizables</strong>: Adaptación a necesidades</li>
+<li><strong>Programación recurrente</strong>: Generación automática</li>
+<li><strong>Seguridad por nivel</strong>: Acceso según responsabilidad</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Períodos flexibles</strong>: Cualquier rango de fechas</li>
+<li><strong>Selección de empleados</strong>: Individual o grupal</li>
+<li><strong>Nivel de detalle</strong>: Desde resumen hasta transaccional</li>
+<li><strong>Formatos múltiples</strong>: PDF, Excel, XML</li>
+<li><strong>Inclusión de gráficos</strong>: Representación visual</li>
+<li><strong>Comparativo temporal</strong>: Contraste entre períodos</li>
+<li><strong>Distribución automática</strong>: Envío programado a usuarios</li>
+</ul>
+<h3>14.8. Interfaz de Empleado</h3>
+<p>El portal del empleado proporciona acceso a información personal, recibos de pago y solicitudes relacionadas con recursos humanos y nómina.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/149_portal_empleado.png" alt="Portal empleado"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Acceso seguro</strong>: Autenticación personal</li>
+<li><strong>Información laboral</strong>: Datos de contrato y posición</li>
+<li><strong>Recibos de pago</strong>: Roles históricos</li>
+<li><strong>Solicitudes en línea</strong>: Gestión de peticiones</li>
+<li><strong>Actualización de datos</strong>: Modificación de información personal</li>
+<li><strong>Calendario laboral</strong>: Visualización de programación</li>
+<li><strong>Notificaciones</strong>: Alertas sobre eventos importantes</li>
+</ul>
+<p><strong>Funcionalidades disponibles:</strong></p>
+<ul>
+<li><p><strong>Consulta de roles de pago</strong>:</p>
+<ul>
+<li>Visualización de comprobantes</li>
+<li>Descarga en formato PDF</li>
+<li>Histórico completo</li>
+</ul>
+</li>
+<li><p><strong>Solicitudes de ausencia</strong>:</p>
+<ul>
+<li>Petición de vacaciones</li>
+<li>Registro de permisos</li>
+<li>Seguimiento de aprobación</li>
+</ul>
+</li>
+<li><p><strong>Gestión de gastos</strong>:</p>
+<ul>
+<li>Registro de desembolsos</li>
+<li>Carga de comprobantes</li>
+<li>Estado de reembolsos</li>
+</ul>
+</li>
+<li><p><strong>Información personal</strong>:</p>
+<ul>
+<li>Visualización de datos</li>
+<li>Actualización de contacto</li>
+<li>Documentos personales</li>
+</ul>
+</li>
+<li><p><strong>Evaluaciones</strong>:</p>
+<ul>
+<li>Acceso a formularios</li>
+<li>Resultados históricos</li>
+<li>Plan de desarrollo</li>
+</ul>
+</li>
+<li><p><strong>Préstamos y anticipos</strong>:</p>
+<ul>
+<li>Solicitud en línea</li>
+<li>Estado de deuda</li>
+<li>Plan de pagos</li>
+</ul>
+</li>
+</ul>
+<p><strong>Beneficios del portal:</strong></p>
+<ul>
+<li><strong>Autoservicio</strong>: Reducción de carga administrativa</li>
+<li><strong>Disponibilidad 24/7</strong>: Acceso permanente</li>
+<li><strong>Transparencia</strong>: Información clara y oportuna</li>
+<li><strong>Reducción de papel</strong>: Documentación digital</li>
+<li><strong>Comunicación directa</strong>: Canal con área de RRHH</li>
+<li><strong>Trazabilidad</strong>: Registro de solicitudes y respuestas</li>
+<li><strong>Experiencia mejorada</strong>: Satisfacción del empleado</li>
+</ul>
+<p><strong>Proceso de implementación:</strong></p>
+<ol>
+<li><strong>Configuración de accesos</strong>: Definición de permisos</li>
+<li><strong>Carga de información</strong>: Datos históricos disponibles</li>
+<li><strong>Capacitación</strong>: Instrucción a usuarios</li>
+<li><strong>Lanzamiento</strong>: Activación del portal</li>
+<li><strong>Soporte inicial</strong>: Asistencia en primeros accesos</li>
+<li><strong>Mejora continua</strong>: Incorporación de nuevas funcionalidades</li>
+<li><strong>Evaluación de uso</strong>: Análisis de adopción y satisfacción</li>
+</ol>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>

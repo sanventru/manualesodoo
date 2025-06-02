@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Odoo 16 Ecuador</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h2>3. VENTAS</h2>
+<h3>3.1. Menú de Ventas</h3>
+<p>El módulo de ventas permite gestionar todo el ciclo comercial, desde cotizaciones hasta facturación.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/7_ventas.png" alt="Ventas"></p>
+<p>El módulo de ventas incluye las siguientes funcionalidades principales:</p>
+<ul>
+<li>Gestión de cotizaciones</li>
+<li>Pedidos de venta</li>
+<li>Seguimiento de oportunidades</li>
+<li>Generación de facturas</li>
+<li>Reportes de ventas</li>
+<li>Configuración de productos y precios</li>
+</ul>
+<h3>3.2. Creación de Cotizaciones</h3>
+<p>Para crear una nueva cotización, acceda desde el menú de ventas a la opción &quot;Cotizaciones&quot; y seleccione &quot;Crear&quot;.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/8_nueva%20venta%20cotizacion.png" alt="Nueva cotización"></p>
+<p>Al crear una cotización debe:</p>
+<ol>
+<li>Seleccionar el cliente</li>
+<li>Establecer condiciones comerciales (plazo de pago, validez)</li>
+<li>Agregar líneas de productos o servicios</li>
+<li>Aplicar descuentos si corresponde</li>
+<li>Guardar o enviar para aprobación</li>
+</ol>
+<h3>3.3. Gestión de Pedidos</h3>
+<p>Los pedidos se generan a partir de cotizaciones aprobadas. Puede gestionarlos desde la sección &quot;Pedidos&quot;.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/9_ventas%20menu%20pedidos.png" alt="Menú pedidos"></p>
+<p>También puede verificar los elementos pendientes por facturar:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/10_ventas%20menu%20a%20facturar.png" alt="Menú a facturar"></p>
+<p>El proceso de pedidos incluye:</p>
+<ul>
+<li>Confirmación de pedido</li>
+<li>Verificación de disponibilidad</li>
+<li>Preparación de envío</li>
+<li>Facturación</li>
+<li>Seguimiento post-venta</li>
+</ul>
+<h3>3.4. Configuración de Ventas</h3>
+<p>Esta sección permite ajustar parámetros específicos del proceso de ventas.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/11_ventas%20configuracion.png" alt="Configuración de ventas"></p>
+<p>En configuración puede definir:</p>
+<ul>
+<li>Políticas de facturación</li>
+<li>Etapas del proceso de venta</li>
+<li>Plantillas de documentos</li>
+<li>Reglas de precios y descuentos</li>
+<li>Equipos de venta y comisiones</li>
+</ul>
+<hr>
+<h2>4. COMPRAS</h2>
+<h3>4.1. Requisiciones de Compra</h3>
+<p>Las requisiciones de compra son solicitudes internas para adquirir productos o servicios.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/4_requisiciones%20de%20compra.png" alt="Requisiciones de compra"></p>
+<p>Para crear una nueva requisición:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/5_nueva%20requisici%C3%B3n%20de%20compra.png" alt="Nueva requisición"></p>
+<p>El proceso incluye solicitud de aprobación:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/6_requisiciones%20de%20compra%20solicita%20aprobacion.png" alt="Solicitud de aprobación"></p>
+<p>El flujo de trabajo de requisiciones incluye:</p>
+<ol>
+<li>Creación de la solicitud por el usuario</li>
+<li>Revisión por el responsable de compras</li>
+<li>Aprobación según niveles de autorización</li>
+<li>Generación de solicitud de presupuesto a proveedores</li>
+<li>Seguimiento hasta la recepción del producto o servicio</li>
+</ol>
+<h3>4.2. Solicitudes de Presupuesto</h3>
+<p>El módulo de compras permite gestionar todo el proceso de adquisiciones:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/12_compras.png" alt="Compras"></p>
+<h3>4.3. Órdenes de Compra</h3>
+<p>Para solicitar cotizaciones a proveedores:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/13_nueva%20solicitud%20de%20presupuesto.png" alt="Solicitud de presupuesto"></p>
+<p>Al crear una orden de compra debe:</p>
+<ol>
+<li>Seleccionar el proveedor</li>
+<li>Establecer condiciones comerciales (plazo de pago, fecha de entrega)</li>
+<li>Agregar líneas de productos o servicios</li>
+<li>Confirmar la orden</li>
+<li>Dar seguimiento a la recepción y facturación</li>
+</ol>
+<h3>4.4. Recepción de Productos</h3>
+<p>El proceso de compra incluye la recepción de productos:</p>
+<ol>
+<li>Verificación de la orden de compra</li>
+<li>Registro de la recepción (completa o parcial)</li>
+<li>Control de calidad</li>
+<li>Actualización de inventario</li>
+<li>Proceso de facturación</li>
+</ol>
+<hr>
+<h2>5. INVENTARIO</h2>
+<h3>5.1. Gestión de Inventario</h3>
+<p>El módulo de inventario permite controlar existencias, movimientos y valoración de productos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/14_inventario.png" alt="Inventario"></p>
+<p>Las principales funcionalidades incluyen:</p>
+<ul>
+<li>Gestión de almacenes y ubicaciones</li>
+<li>Control de stock</li>
+<li>Movimientos de entrada y salida</li>
+<li>Transferencias entre ubicaciones</li>
+<li>Inventarios físicos</li>
+<li>Valoración de existencias</li>
+<li>Reglas de abastecimiento</li>
+<li>Trazabilidad de productos (lotes y series)</li>
+</ul>
+<h3>5.2. Movimientos de Inventario</h3>
+<p>Los movimientos de inventario registran entradas, salidas y transferencias de productos:</p>
+<ul>
+<li>Recepción de compras</li>
+<li>Entregas de ventas</li>
+<li>Ajustes de inventario</li>
+<li>Producciones</li>
+<li>Desechos y pérdidas</li>
+</ul>
+<h3>5.3. Operaciones de Inventario</h3>
+<p>Las operaciones de inventario incluyen:</p>
+<ul>
+<li>Recepciones</li>
+<li>Entregas</li>
+<li>Transferencias internas</li>
+<li>Tomas físicas</li>
+<li>Ajustes de inventario</li>
+</ul>
+<h3>5.4. Kardex de Productos</h3>
+<p>El kardex permite visualizar todos los movimientos de un producto y su valoración:</p>
+<ul>
+<li>Movimientos históricos</li>
+<li>Valoración FIFO, LIFO o Promedio</li>
+<li>Cantidades y valores por movimiento</li>
+<li>Saldos acumulados</li>
+<li>Reportes por producto, categoría o almacén</li>
+</ul>
+<hr>
+<h2>6. FACTURACIÓN</h2>
+<h3>6.1. Módulo de Facturación</h3>
+<p>El módulo de facturación centraliza todas las operaciones relacionadas con documentos fiscales.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/26_facturacion.png" alt="Facturación"></p>
+<p>Las principales secciones incluyen:</p>
+<ul>
+<li>Facturas a clientes</li>
+<li>Facturas rectificativas (notas de crédito)</li>
+<li>Pagos</li>
+<li>Informes de seguimiento</li>
+<li>Productos</li>
+<li>Clientes</li>
+</ul>
+<h3>6.2. Facturas de Clientes</h3>
+<p>Gestión completa de facturas emitidas a clientes:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/27_facturacion_clientes_facturas.png" alt="Facturas de clientes"></p>
+<p>Para crear una nueva factura:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/33_nueva%20factura.png" alt="Nueva factura"></p>
+<p>El sistema permite generar diferentes tipos de documentos fiscales:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/34_nueva%20factura%20(es%20nota%20de%20credito%20externa).png" alt="Nueva factura - nota de crédito"></p>
+<p><img src="odoo%2016%20m%C3%B3dulos/35_nueva%20factura%20(es%20reembolso%20externa).png" alt="Nueva factura - reembolso"></p>
+<p>Menús disponibles en la creación de facturas:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/36_Menus%20en%20Nueva%20Factura.png" alt="Menús en nueva factura"></p>
+<p>El proceso de facturación incluye:</p>
+<ol>
+<li>Creación del documento (manual o desde pedido de venta)</li>
+<li>Validación</li>
+<li>Generación del documento electrónico</li>
+<li>Envío al SRI</li>
+<li>Envío al cliente</li>
+<li>Registro de pago</li>
+<li>Contabilización</li>
+</ol>
+<h3>6.3. Notas de Crédito</h3>
+<p>Las facturas rectificativas o notas de crédito permiten ajustar facturas emitidas previamente:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/28_facturas_rectificativas.png" alt="Facturas rectificativas"></p>
+<p>Detalle de facturas rectificativas:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/37_facturas%20rectificativas.png" alt="Detalle de facturas rectificativas"></p>
+<p>Creación de una nueva factura rectificativa:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/38_nueva%20factura%20rectificativa.png" alt="Nueva factura rectificativa"></p>
+<p>Vista de factura rectificativa a cliente:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/39_factura%20rectificativa%20cliente.png" alt="Factura rectificativa cliente"></p>
+<p>Los tipos de notas de crédito incluyen:</p>
+<ul>
+<li>Devolución de productos</li>
+<li>Anulación de factura</li>
+<li>Descuentos posteriores</li>
+<li>Corrección de errores</li>
+</ul>
+<h3>6.4. Gestión de Pagos</h3>
+<p>Control de pagos recibidos de clientes:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/29_facturacion%20pagos.png" alt="Facturación pagos"></p>
+<p>Detalle de pagos:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/40_facturas%20pagos%20detalle.png" alt="Facturas pagos detalle"></p>
+<p>El registro de pagos permite:</p>
+<ul>
+<li>Conciliar facturas con pagos</li>
+<li>Registrar pagos parciales</li>
+<li>Utilizar diferentes métodos de pago</li>
+<li>Gestionar anticipos</li>
+<li>Controlar vencimientos</li>
+</ul>
+<h3>6.5. Informes de Seguimiento</h3>
+<p>Reportes para monitorear el estado de la facturación:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/30_facturacion%20informes%20de%20seguimiento.png" alt="Informes de seguimiento"></p>
+<p>Detalle de informes:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/41_informe%20de%20seguimiento%20detalle.png" alt="Informe de seguimiento detalle"></p>
+<p>Los informes incluyen:</p>
+<ul>
+<li>Estado de cuentas por cobrar</li>
+<li>Antigüedad de saldos</li>
+<li>Previsión de cobros</li>
+<li>Análisis de ventas</li>
+<li>Reportes fiscales</li>
+</ul>
+<h3>6.6. Facturas de Proveedores</h3>
+<p>Gestión de facturas recibidas de proveedores:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/44_proveedores%20factura.png" alt="Proveedores factura"></p>
+<p>Detalle de factura de proveedor:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/45_proceedores%20factura%20detalle.png" alt="Proveedores factura detalle"></p>
+<p>El proceso de facturas de proveedores incluye:</p>
+<ol>
+<li>Registro de la factura (manual o desde orden de compra)</li>
+<li>Validación y aprobación</li>
+<li>Registro de retenciones</li>
+<li>Programación de pago</li>
+<li>Contabilización</li>
+</ol>
+<h3>6.7. Liquidaciones de Compra</h3>
+<p>Las liquidaciones de compra se utilizan para transacciones con proveedores que no emiten facturas:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/46_liquidaciones%20de%20compra.png" alt="Liquidaciones de compra"></p>
+<p>Detalle de liquidación de compra:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/47_liquidaciones%20de%20compra%20detalle.png" alt="Liquidaciones de compra detalle"></p>
+<p>Las liquidaciones de compra son utilizadas para:</p>
+<ul>
+<li>Compras a personas naturales sin actividad empresarial</li>
+<li>Adquisiciones de servicios ocasionales</li>
+<li>Operaciones con proveedores informales</li>
+<li>Compras en el sector agrícola o pesquero</li>
+</ul>
+<h3>6.8. Reembolsos</h3>
+<p>Gestión de reembolsos:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/48_reembolsos.png" alt="Reembolsos"></p>
+<p>Detalle de reembolsos:</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/49_reempbolsos%20detalle.png" alt="Reembolsos detalle"></p>
+<p>Los reembolsos se utilizan para:</p>
+<ul>
+<li>Gastos realizados por empleados</li>
+<li>Pagos efectuados por terceros</li>
+<li>Reintegro de gastos</li>
+<li>Recuperación de valores anticipados</li>
+</ul>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>

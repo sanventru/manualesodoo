@@ -1,0 +1,15 @@
+{
+  "name": "manuales-odoo",
+  "version": "1.0.0",
+  "description": "Este repositorio contiene la documentación y manuales para Odoo 16 adaptado para Ecuador.",
+  "main": "convert_md_to_html.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "marked": "^15.0.12"
+  }
+}

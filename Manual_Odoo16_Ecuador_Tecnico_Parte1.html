@@ -1,0 +1,726 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANUAL TÉCNICO: SISTEMA ODOO 16 COMMUNITY ADAPTADO A LA LEGISLACIÓN ECUATORIANA</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h1>MANUAL TÉCNICO: SISTEMA ODOO 16 COMMUNITY ADAPTADO A LA LEGISLACIÓN ECUATORIANA</h1>
+<p><strong>Versión 1.0</strong><br><strong>Mayo 2025</strong></p>
+<h2>ÍNDICE DE CONTENIDOS</h2>
+<ol>
+<li><p><strong>INTRODUCCIÓN</strong>
+1.1. Arquitectura del Sistema<br>1.2. Estructura de la Localización Ecuatoriana
+1.3. Integración con SRI</p>
+</li>
+<li><p><strong>CONFIGURACIÓN TÉCNICA</strong><br>2.1. Instalación de Módulos Ecuatorianos<br>2.2. Configuración de Parámetros del Sistema<br>2.3. Estructura de Permisos<br>2.4. Configuración Avanzada de Documentos Electrónicos<br>2.5. Gestión de Certificados Digitales</p>
+</li>
+<li><p><strong>MÓDULO DE CONTABILIDAD (ec_account_base)</strong><br>3.1. Plan de Cuentas Ecuatoriano<br>3.2. Configuración de Impuestos<br>3.3. Estructura de Diarios Contables<br>3.4. Procesos Contables Locales<br>3.5. Reportes Financieros Adaptados</p>
+</li>
+<li><p><strong>DOCUMENTOS ELECTRÓNICOS (ec_account_edi)</strong><br>4.1. Arquitectura del Módulo<br>4.2. Proceso de Firmado Electrónico<br>4.3. Comunicación con Servicios Web del SRI<br>4.4. Gestión de Respuestas del SRI<br>4.5. Estructura de XML y Validaciones</p>
+</li>
+</ol>
+<hr>
+<h2>1. INTRODUCCIÓN</h2>
+<h3>1.1. Arquitectura del Sistema</h3>
+<p>El sistema Odoo 16 Community adaptado a la legislación ecuatoriana ha sido diseñado con una arquitectura modular que permite cumplir con todos los requerimientos fiscales y contables establecidos por el Servicio de Rentas Internas (SRI) de Ecuador.</p>
+<p>La implementación está basada en el framework Odoo 16, con los siguientes componentes principales:</p>
+<ul>
+<li><strong>Core Odoo</strong>: Funcionalidad base del sistema (Contabilidad, Inventario, Ventas, Compras, etc.)</li>
+<li><strong>Localización Ecuatoriana</strong>: Conjunto de módulos específicos desarrollados por HackSystem bajo la carpeta <code>core/ec_location/</code></li>
+<li><strong>Módulos Integrados</strong>: Adaptaciones que conectan la funcionalidad estándar con los requerimientos locales</li>
+</ul>
+<p>La arquitectura sigue el patrón MVC (Modelo-Vista-Controlador) propio de Odoo, donde:</p>
+<ul>
+<li><strong>Modelo</strong>: Definido en los archivos Python dentro de la carpeta <code>models</code> de cada módulo</li>
+<li><strong>Vista</strong>: Implementada en archivos XML en la carpeta <code>views</code> de cada módulo</li>
+<li><strong>Controlador</strong>: Lógica de negocio implementada en Python, principalmente en wizards y modelos</li>
+</ul>
+<h3>1.2. Estructura de la Localización Ecuatoriana</h3>
+<p>La localización ecuatoriana está estructurada en múltiples módulos específicos, cada uno responsable de una parte de la funcionalidad necesaria para cumplir con la normativa local. Los principales módulos son:</p>
+<ol>
+<li><p><strong>ec_account_base</strong>: Módulo base de contabilidad ecuatoriana que incluye:</p>
+<ul>
+<li>Plan de cuentas ecuatoriano</li>
+<li>Estructura de impuestos</li>
+<li>Configuraciones básicas de localización</li>
+</ul>
+</li>
+<li><p><strong>ec_account_edi</strong>: Implementación de facturación electrónica:</p>
+<ul>
+<li>Generación de XML según formato SRI</li>
+<li>Firmado electrónico de documentos</li>
+<li>Comunicación con webservices del SRI</li>
+<li>Gestión de respuestas y autorizaciones</li>
+</ul>
+</li>
+<li><p><strong>ec_ats</strong>: Módulo para la generación del Anexo Transaccional Simplificado:</p>
+<ul>
+<li>Recopilación de información de transacciones</li>
+<li>Validación de datos según normativa SRI</li>
+<li>Generación de archivo XML para declaración</li>
+</ul>
+</li>
+<li><p><strong>ec_withholding</strong>: Gestión de retenciones:</p>
+<ul>
+<li>Configuración de porcentajes de retención</li>
+<li>Emisión de comprobantes de retención</li>
+<li>Validación según normativa vigente</li>
+</ul>
+</li>
+<li><p><strong>ec_sri_authorizathions</strong>: Gestión de autorizaciones y numeración de documentos:</p>
+<ul>
+<li>Control de secuencias de documentos</li>
+<li>Validación de autorizaciones</li>
+<li>Administración de puntos de emisión</li>
+</ul>
+</li>
+<li><p><strong>ec_financial_reports</strong>: Reportes financieros adaptados a requerimientos locales:</p>
+<ul>
+<li>Balances adaptados a formato Ecuador</li>
+<li>Reportes tributarios</li>
+<li>Análisis financieros específicos</li>
+</ul>
+</li>
+</ol>
+<h3>1.3. Integración con SRI</h3>
+<p>La integración con el Servicio de Rentas Internas (SRI) se realiza a través de varios componentes:</p>
+<ol>
+<li><p><strong>Servicios Web</strong>: El sistema se comunica con los webservices del SRI mediante:</p>
+<ul>
+<li>Protocolo SOAP para el envío de documentos electrónicos</li>
+<li>Validación de respuestas y gestión de errores</li>
+<li>Consulta de estado de documentos</li>
+</ul>
+</li>
+<li><p><strong>Firmado Electrónico</strong>: Implementado mediante:</p>
+<ul>
+<li>Módulo <code>xadesSigner.py</code> para la firma de documentos</li>
+<li>Soporte para certificados en formato P12</li>
+<li>Validación de vigencia de certificados</li>
+</ul>
+</li>
+<li><p><strong>Validación de Datos</strong>: El sistema incluye:</p>
+<ul>
+<li>Validación de RUC/CI según algoritmo verificador</li>
+<li>Validación de estructura de documentos</li>
+<li>Cumplimiento de formatos según normativa</li>
+</ul>
+</li>
+<li><p><strong>Gestión de Respuestas</strong>: Manejo de diferentes estados:</p>
+<ul>
+<li>Recibido</li>
+<li>En procesamiento</li>
+<li>Autorizado</li>
+<li>Rechazado</li>
+<li>Con errores</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>2. CONFIGURACIÓN TÉCNICA</h2>
+<h3>2.1. Instalación de Módulos Ecuatorianos</h3>
+<p>La localización ecuatoriana requiere la instalación de varios módulos interdependientes. El orden recomendado de instalación es:</p>
+<ol>
+<li><p><strong>Módulos base</strong>:</p>
+<pre><code>ec_account_base
+ec_sri_authorizathions
+</code></pre>
+</li>
+<li><p><strong>Módulos de facturación</strong>:</p>
+<pre><code>ec_account_edi
+ec_withholding
+</code></pre>
+</li>
+<li><p><strong>Módulos complementarios</strong>:</p>
+<pre><code>ec_ats
+ec_financial_reports
+</code></pre>
+</li>
+</ol>
+<p>Cada módulo cuenta con sus propias dependencias que se activan automáticamente durante la instalación. El sistema verifica la coherencia de dependencias para asegurar un funcionamiento correcto.</p>
+<h3>2.2. Configuración de Parámetros del Sistema</h3>
+<p>Los parámetros críticos del sistema se configuran a través de:</p>
+<ol>
+<li><p><strong>Parámetros de compañía</strong>:</p>
+<ul>
+<li>RUC y datos fiscales</li>
+<li>Régimen tributario</li>
+<li>Configuración de firmado electrónico</li>
+</ul>
+</li>
+<li><p><strong>Parámetros técnicos</strong>:</p>
+<ul>
+<li>URLs de servicios web SRI (producción/pruebas)</li>
+<li>Timeouts de conexión</li>
+<li>Directorios de almacenamiento de XML</li>
+</ul>
+</li>
+<li><p><strong>Parámetros operativos</strong>:</p>
+<ul>
+<li>Secuencias de documentos</li>
+<li>Numeración de puntos de emisión</li>
+<li>Prefijos y sufijos</li>
+</ul>
+</li>
+</ol>
+<p>El sistema utiliza la clase <code>res_company</code> extendida en <code>ec_account_edi/models/res_company.py</code> para almacenar estos parámetros a nivel de compañía, permitiendo una operación multicompañía.</p>
+<h3>2.3. Estructura de Permisos</h3>
+<p>El sistema implementa un modelo de seguridad basado en grupos:</p>
+<ol>
+<li><p><strong>Grupos específicos</strong>:</p>
+<ul>
+<li><code>account_edi_user</code>: Usuarios de facturación electrónica</li>
+<li><code>account_edi_manager</code>: Administradores de facturación electrónica</li>
+<li><code>sri_user</code>: Usuarios con acceso a funciones SRI</li>
+<li><code>sri_manager</code>: Administradores de configuración SRI</li>
+</ul>
+</li>
+<li><p><strong>Permisos por objeto</strong>:</p>
+<ul>
+<li>Definidos en archivos <code>security/ir.model.access.csv</code> de cada módulo</li>
+<li>Controlan operaciones CRUD por grupo</li>
+</ul>
+</li>
+<li><p><strong>Reglas de registro</strong>:</p>
+<ul>
+<li>Implementadas en <code>security/rules.xml</code></li>
+<li>Filtran acceso por compañía, establecimiento o usuario</li>
+</ul>
+</li>
+</ol>
+<p>Este modelo de seguridad garantiza que los usuarios solo puedan acceder a las funcionalidades y datos acordes a su rol dentro de la organización.</p>
+<h3>2.4. Configuración Avanzada de Documentos Electrónicos</h3>
+<p>La configuración de documentos electrónicos se realiza a través de:</p>
+<ol>
+<li><p><strong>Tipos de documentos</strong>:</p>
+<ul>
+<li>Facturas (01)</li>
+<li>Notas de crédito (04)</li>
+<li>Notas de débito (05)</li>
+<li>Retenciones (07)</li>
+<li>Guías de remisión (06)</li>
+<li>Liquidaciones de compra (03)</li>
+</ul>
+</li>
+<li><p><strong>Ambientes de operación</strong>:</p>
+<ul>
+<li>Pruebas (1)</li>
+<li>Producción (2)</li>
+</ul>
+</li>
+<li><p><strong>Contingencia</strong>:</p>
+<ul>
+<li>Gestión de claves de contingencia</li>
+<li>Proceso de emisión en modo offline</li>
+</ul>
+</li>
+<li><p><strong>Plantillas XML</strong>:</p>
+<ul>
+<li>Almacenadas en <code>ec_account_edi/data/templates/</code></li>
+<li>Validadas contra esquemas XSD oficiales</li>
+<li>Parametrizables según versión de formato</li>
+</ul>
+</li>
+</ol>
+<p>La implementación utiliza una arquitectura extensible que permite añadir nuevos tipos de documentos o adaptar los existentes ante cambios en la normativa SRI.</p>
+<h3>2.5. Gestión de Certificados Digitales</h3>
+<p>El sistema permite la gestión de certificados digitales para firma electrónica:</p>
+<ol>
+<li><p><strong>Tipos de certificados soportados</strong>:</p>
+<ul>
+<li>Archivo P12 (PKCS#12)</li>
+<li>Soporte para certificados de entidades autorizadas (BCE, Security Data, etc.)</li>
+</ul>
+</li>
+<li><p><strong>Proceso de carga</strong>:</p>
+<ul>
+<li>Carga del archivo P12</li>
+<li>Validación de formato</li>
+<li>Verificación de fecha de expiración</li>
+</ul>
+</li>
+<li><p><strong>Seguridad</strong>:</p>
+<ul>
+<li>Almacenamiento seguro de contraseña</li>
+<li>Validación periódica de vigencia</li>
+<li>Alertas de vencimiento</li>
+</ul>
+</li>
+<li><p><strong>Configuración técnica</strong>:</p>
+<pre><code class="language-python"># Proceso de firma implementado en ec_account_edi/models/xadesSigner.py
+def sign_xml(self, xml_document, cert_path, cert_password):
+    # Implementación de firma XAdES-BES
+</code></pre>
+</li>
+</ol>
+<p>La gestión de certificados está implementada en el módulo <code>ec_account_edi</code> a través de las clases <code>sri.keys</code> y <code>xadesSigner</code>, que manejan todo el ciclo de vida del certificado digital.</p>
+<hr>
+<h2>3. MÓDULO DE CONTABILIDAD (ec_account_base)</h2>
+<h3>3.1. Plan de Cuentas Ecuatoriano</h3>
+<p>El plan de cuentas ecuatoriano está implementado como una plantilla estándar, con las siguientes características:</p>
+<ol>
+<li><p><strong>Estructura</strong>:</p>
+<ul>
+<li>Basado en NIIF</li>
+<li>Adaptado a requerimientos SRI</li>
+<li>Códigos compatibles con formularios 101, 102 y 104</li>
+</ul>
+</li>
+<li><p><strong>Implementación técnica</strong>:</p>
+<ul>
+<li>Definido en <code>ec_account_base/data/account.account.template.csv</code></li>
+<li>Cargado durante la instalación del módulo</li>
+<li>Grupos de cuentas definidos en <code>account_group_template_data.xml</code></li>
+</ul>
+</li>
+<li><p><strong>Personalización</strong>:</p>
+<ul>
+<li>Extensible mediante categorías adicionales</li>
+<li>Posibilidad de añadir subcuentas específicas</li>
+<li>Estructura jerárquica para reportes</li>
+</ul>
+</li>
+<li><p><strong>Integración</strong>:</p>
+<ul>
+<li>Mapeo con códigos de formularios SRI</li>
+<li>Asociación automática con impuestos</li>
+<li>Configuración de conciliación automática</li>
+</ul>
+</li>
+</ol>
+<p>La estructura del plan de cuentas sigue la normativa contable ecuatoriana y facilita la generación de reportes financieros y tributarios requeridos por las autoridades fiscales.</p>
+<h3>3.2. Configuración de Impuestos</h3>
+<p>El sistema implementa una completa configuración de impuestos adaptada a la legislación ecuatoriana:</p>
+<ol>
+<li><p><strong>Tipos de impuestos</strong>:</p>
+<ul>
+<li>IVA (diferentes porcentajes: 0%, 12%, 15%, etc.)</li>
+<li>ICE (específico por producto)</li>
+<li>Retenciones de IVA (30%, 70%, 100%)</li>
+<li>Retenciones de Renta (diferentes porcentajes según el concepto)</li>
+</ul>
+</li>
+<li><p><strong>Implementación técnica</strong>:</p>
+<ul>
+<li>Definidos en <code>ec_account_base/data/account_tax_template_data.xml</code></li>
+<li>Extensión del modelo <code>account.tax</code> para incluir códigos SRI</li>
+<li>Configuración de códigos de impuestos según catálogo SRI</li>
+</ul>
+</li>
+<li><p><strong>Funcionalidad avanzada</strong>:</p>
+<pre><code class="language-python"># Implementado en ec_account_edi/models/account_tax.py
+def get_tax_values(self, base, amount):
+    # Cálculo y validación de impuestos
+</code></pre>
+</li>
+<li><p><strong>Adaptación dinámica</strong>:</p>
+<ul>
+<li>Actualización de porcentajes sin modificar código</li>
+<li>Activación/desactivación según normativa vigente</li>
+<li>Histórico de cambios para declaraciones de períodos anteriores</li>
+</ul>
+</li>
+</ol>
+<p>La implementación garantiza el correcto cálculo de impuestos en documentos y su adecuada representación en los anexos y declaraciones requeridos por el SRI.</p>
+<h3>3.3. Estructura de Diarios Contables</h3>
+<p>Los diarios contables están adaptados para cumplir con los requerimientos de la contabilidad ecuatoriana:</p>
+<ol>
+<li><p><strong>Diarios estándar</strong>:</p>
+<ul>
+<li>Ventas (facturas, notas de crédito, notas de débito)</li>
+<li>Compras (facturas, liquidaciones, importaciones)</li>
+<li>Retenciones emitidas</li>
+<li>Retenciones recibidas</li>
+<li>Bancos y efectivo</li>
+</ul>
+</li>
+<li><p><strong>Configuración técnica</strong>:</p>
+<ul>
+<li>Extensión del modelo <code>account.journal</code></li>
+<li>Asociación con tipos de documentos SRI</li>
+<li>Configuración de secuencias específicas</li>
+</ul>
+</li>
+<li><p><strong>Automatización</strong>:</p>
+<ul>
+<li>Selección automática de diario según tipo de documento</li>
+<li>Validación de secuencias</li>
+<li>Control de numeración por punto de emisión</li>
+</ul>
+</li>
+<li><p><strong>Contabilización específica</strong>:</p>
+<ul>
+<li>Esquemas contables adaptados a normativa local</li>
+<li>Manejo separado de impuestos para declaraciones</li>
+<li>Tratamiento especial de retenciones</li>
+</ul>
+</li>
+</ol>
+<p>La estructura de diarios facilita la organización contable y contribuye a mantener la integridad y trazabilidad de las transacciones.</p>
+<h3>3.4. Procesos Contables Locales</h3>
+<p>El sistema implementa diversos procesos contables específicos para Ecuador:</p>
+<ol>
+<li><p><strong>Retenciones</strong>:</p>
+<ul>
+<li>Cálculo automático según tipo de contribuyente</li>
+<li>Emisión de comprobantes de retención</li>
+<li>Validación de plazos legales</li>
+</ul>
+</li>
+<li><p><strong>Liquidaciones de compra</strong>:</p>
+<ul>
+<li>Emisión para proveedores sin RUC o no obligados a llevar contabilidad</li>
+<li>Cálculo automático de retenciones obligatorias</li>
+<li>Validación de límites según normativa</li>
+</ul>
+</li>
+<li><p><strong>Notas de crédito/débito</strong>:</p>
+<ul>
+<li>Vinculación con documentos originales</li>
+<li>Validación de plazos legales</li>
+<li>Motivos predefinidos según normativa</li>
+</ul>
+</li>
+<li><p><strong>Procesos de cierre</strong>:</p>
+<ul>
+<li>Cierre mensual para declaraciones</li>
+<li>Validación de consistencia contable</li>
+<li>Generación de asientos de ajuste</li>
+</ul>
+</li>
+</ol>
+<p>Cada proceso está implementado como una extensión de los flujos estándar de Odoo, manteniendo la compatibilidad con el core y añadiendo las validaciones específicas requeridas por la legislación ecuatoriana.</p>
+<h3>3.5. Reportes Financieros Adaptados</h3>
+<p>Los reportes financieros han sido adaptados a los formatos requeridos por las autoridades ecuatorianas:</p>
+<ol>
+<li><p><strong>Reportes oficiales</strong>:</p>
+<ul>
+<li>Balance de Situación adaptado</li>
+<li>Estado de Resultados con clasificación local</li>
+<li>Estado de Flujo de Efectivo</li>
+<li>Estado de Cambios en el Patrimonio</li>
+</ul>
+</li>
+<li><p><strong>Implementación técnica</strong>:</p>
+<ul>
+<li>Desarrollados utilizando el motor QWeb</li>
+<li>Personalización de plantillas en XML</li>
+<li>Lógica de cálculo en Python</li>
+</ul>
+</li>
+<li><p><strong>Exportación</strong>:</p>
+<ul>
+<li>Formatos PDF, Excel y HTML</li>
+<li>Estructura compatible con presentación a organismos oficiales</li>
+<li>Opciones de filtrado y parametrización</li>
+</ul>
+</li>
+<li><p><strong>Funcionalidades avanzadas</strong>:</p>
+<ul>
+<li>Comparativos interanuales</li>
+<li>Análisis de variaciones</li>
+<li>Indicadores financieros locales</li>
+</ul>
+</li>
+</ol>
+<p>Los reportes financieros constituyen una herramienta fundamental para la gestión empresarial y el cumplimiento de obligaciones con entidades reguladoras.</p>
+<hr>
+<h2>4. DOCUMENTOS ELECTRÓNICOS (ec_account_edi)</h2>
+<h3>4.1. Arquitectura del Módulo</h3>
+<p>El módulo de facturación electrónica (<code>ec_account_edi</code>) está diseñado con una arquitectura robusta y extensible:</p>
+<ol>
+<li><p><strong>Componentes principales</strong>:</p>
+<ul>
+<li>Generador de XML (<code>xml_data.py</code>)</li>
+<li>Firmador electrónico (<code>xadesSigner.py</code>)</li>
+<li>Comunicador con SRI (<code>sri.py</code>)</li>
+<li>Gestor de respuestas y autorizaciones</li>
+</ul>
+</li>
+<li><p><strong>Modelo de datos</strong>:</p>
+<ul>
+<li><code>sri.xml.data</code>: Almacena información de documentos electrónicos</li>
+<li><code>sri.keys</code>: Gestiona certificados digitales</li>
+<li><code>sri.error.code</code>: Catálogo de errores SRI</li>
+</ul>
+</li>
+<li><p><strong>Integración con Odoo</strong>:</p>
+<ul>
+<li>Extensión de <code>account.move</code> para documentos electrónicos</li>
+<li>Adaptación de flujos de trabajo estándar</li>
+<li>Hooks en puntos clave del proceso</li>
+</ul>
+</li>
+<li><p><strong>Arquitectura técnica</strong>:</p>
+<pre><code>/models
+  /account_move.py     # Extensión de facturas
+  /xml_data.py         # Generación de XML
+  /xadesSigner.py      # Firmado electrónico
+  /sri.py              # Comunicación con webservices
+/data
+  /templates/          # Plantillas XML
+  /xsd/                # Esquemas de validación
+</code></pre>
+</li>
+</ol>
+<p>Esta arquitectura modular permite mantener y extender la funcionalidad ante cambios en la normativa o requisitos técnicos.</p>
+<h3>4.2. Proceso de Firmado Electrónico</h3>
+<p>El proceso de firmado electrónico sigue el estándar XAdES-BES requerido por el SRI:</p>
+<ol>
+<li><p><strong>Preparación del documento</strong>:</p>
+<ul>
+<li>Generación del XML según formato SRI</li>
+<li>Inclusión de información obligatoria</li>
+<li>Validación previa contra esquemas XSD</li>
+</ul>
+</li>
+<li><p><strong>Firmado electrónico</strong>:</p>
+<pre><code class="language-python"># Implementado en xadesSigner.py
+def sign_xml(self, xml_content, p12_certificate, password):
+    # Carga del certificado P12
+    # Extracción de clave privada
+    # Firma del documento
+    # Inclusión de información del certificado
+    return signed_xml
+</code></pre>
+</li>
+<li><p><strong>Validaciones técnicas</strong>:</p>
+<ul>
+<li>Verificación de vigencia del certificado</li>
+<li>Validación de estructura de firma</li>
+<li>Comprobación de integridad del documento</li>
+</ul>
+</li>
+<li><p><strong>Manejo de errores</strong>:</p>
+<ul>
+<li>Detección de problemas de certificado</li>
+<li>Errores en el proceso de firma</li>
+<li>Validación posterior a la firma</li>
+</ul>
+</li>
+</ol>
+<p>El sistema utiliza bibliotecas estándar de criptografía y firma digital, adaptadas a los requerimientos específicos del SRI Ecuador.</p>
+<h3>4.3. Comunicación con Servicios Web del SRI</h3>
+<p>La comunicación con los webservices del SRI se implementa a través de clientes SOAP:</p>
+<ol>
+<li><p><strong>Servicios utilizados</strong>:</p>
+<ul>
+<li>Recepción de comprobantes</li>
+<li>Autorización de comprobantes</li>
+<li>Consulta de estado</li>
+</ul>
+</li>
+<li><p><strong>Implementación técnica</strong>:</p>
+<pre><code class="language-python"># Implementado en sri.py
+def send_xml_to_sri(self, xml_content, environment):
+    # Configuración del cliente SOAP
+    # Envío del documento
+    # Procesamiento de respuesta
+    return response
+</code></pre>
+</li>
+<li><p><strong>Gestión de conexión</strong>:</p>
+<ul>
+<li>Manejo de timeouts</li>
+<li>Reintentos automáticos</li>
+<li>Logs detallados de comunicación</li>
+</ul>
+</li>
+<li><p><strong>Validación de respuestas</strong>:</p>
+<ul>
+<li>Decodificación de mensajes de error</li>
+<li>Interpretación de códigos de estado</li>
+<li>Almacenamiento de respuestas para auditoría</li>
+</ul>
+</li>
+</ol>
+<p>La implementación maneja adecuadamente los diferentes ambientes (pruebas/producción) y contempla los casos de contingencia cuando los servicios no están disponibles.</p>
+<h3>4.4. Gestión de Respuestas del SRI</h3>
+<p>El sistema implementa un completo flujo de gestión de respuestas del SRI:</p>
+<ol>
+<li><p><strong>Estados del documento</strong>:</p>
+<ul>
+<li><code>draft</code>: Borrador</li>
+<li><code>signed</code>: Firmado</li>
+<li><code>waiting</code>: Enviado, esperando autorización</li>
+<li><code>authorized</code>: Autorizado</li>
+<li><code>rejected</code>: Rechazado</li>
+<li><code>returned</code>: Devuelto (con errores)</li>
+<li><code>cancel</code>: Cancelado</li>
+</ul>
+</li>
+<li><p><strong>Procesamiento de respuestas</strong>:</p>
+<pre><code class="language-python"># Implementado en account_move.py
+def process_sri_response(self, response):
+    # Análisis de la respuesta
+    # Actualización del estado
+    # Registro de errores si existen
+    # Notificaciones a usuarios
+</code></pre>
+</li>
+<li><p><strong>Gestión de errores</strong>:</p>
+<ul>
+<li>Catálogo de errores SRI precargado</li>
+<li>Sugerencias de corrección</li>
+<li>Flujos de reenvío o corrección</li>
+</ul>
+</li>
+<li><p><strong>Notificaciones</strong>:</p>
+<ul>
+<li>Alertas al usuario</li>
+<li>Correos automáticos</li>
+<li>Registro en log del sistema</li>
+</ul>
+</li>
+</ol>
+<p>Este sistema de gestión de respuestas permite un seguimiento completo del ciclo de vida del documento electrónico y facilita la resolución de problemas cuando ocurren.</p>
+<h3>4.5. Estructura de XML y Validaciones</h3>
+<p>Los documentos XML generados cumplen estrictamente con los esquemas definidos por el SRI:</p>
+<ol>
+<li><p><strong>Estructura por tipo de documento</strong>:</p>
+<ul>
+<li>Facturas: <code>factura_v1.0.xsd</code></li>
+<li>Notas de crédito: <code>notaCredito_v1.0.xsd</code></li>
+<li>Retenciones: <code>comprobanteRetencion_v1.0.xsd</code></li>
+<li>Etc.</li>
+</ul>
+</li>
+<li><p><strong>Generación de XML</strong>:</p>
+<pre><code class="language-python"># Implementado en xml_data.py
+def generate_invoice_xml(self, invoice):
+    # Creación de estructura XML
+    # Inclusión de datos obligatorios
+    # Cálculo de totales y verificación
+    return xml_string
+</code></pre>
+</li>
+<li><p><strong>Validaciones implementadas</strong>:</p>
+<ul>
+<li>Estructura según XSD</li>
+<li>Consistencia matemática (totales, impuestos)</li>
+<li>Datos obligatorios según tipo de documento</li>
+<li>Formato de campos específicos (fechas, números)</li>
+</ul>
+</li>
+<li><p><strong>Herramientas de diagnóstico</strong>:</p>
+<ul>
+<li>Validadores internos</li>
+<li>Comparación con ejemplos oficiales</li>
+<li>Depuración detallada de estructura</li>
+</ul>
+</li>
+</ol>
+<p>El sistema garantiza que los documentos generados cumplan con todas las especificaciones técnicas del SRI, minimizando rechazos por errores de formato.</p>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>

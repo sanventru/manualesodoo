@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANUAL TÉCNICO: FACTURACIÓN ELECTRÓNICA ECUADOR - PARTE 1</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h1>MANUAL TÉCNICO: FACTURACIÓN ELECTRÓNICA ECUADOR - PARTE 1</h1>
+<h2>1. INTRODUCCIÓN AL MÓDULO DE FACTURACIÓN ELECTRÓNICA</h2>
+<h3>1.1. Arquitectura General</h3>
+<p>El módulo de facturación electrónica para Ecuador en Odoo 16 está diseñado para cumplir con todos los requisitos establecidos por el Servicio de Rentas Internas (SRI) para la emisión, firma, autorización y gestión de comprobantes electrónicos.</p>
+<p><strong>Componentes principales:</strong></p>
+<ol>
+<li><p><strong>Módulo base (ec_account_edi)</strong>:</p>
+<ul>
+<li>Implementa la estructura fundamental para documentos electrónicos</li>
+<li>Gestiona el ciclo de vida de los comprobantes</li>
+<li>Proporciona las interfaces para integración con el SRI</li>
+</ul>
+</li>
+<li><p><strong>Módulo de firma electrónica (ec_electronic_signature)</strong>:</p>
+<ul>
+<li>Gestiona certificados digitales</li>
+<li>Implementa algoritmos de firma según estándares ecuatorianos</li>
+<li>Valida y verifica firmas en documentos XML</li>
+</ul>
+</li>
+<li><p><strong>Módulo de comunicación SRI (ec_sri_webservice)</strong>:</p>
+<ul>
+<li>Implementa clientes SOAP para servicios web del SRI</li>
+<li>Gestiona envío y recepción de documentos</li>
+<li>Procesa respuestas y notificaciones</li>
+</ul>
+</li>
+<li><p><strong>Módulo de reportes (ec_account_edi_reports)</strong>:</p>
+<ul>
+<li>Genera representaciones impresas de documentos (RIDE)</li>
+<li>Implementa formatos según normativa SRI</li>
+<li>Proporciona opciones de distribución (email, impresión)</li>
+</ul>
+</li>
+</ol>
+<h3>1.2. Dependencias y Estructura de Archivos</h3>
+<p><strong>Dependencias principales:</strong></p>
+<pre><code class="language-python"># Extracto de __manifest__.py
+{
+    &#39;name&#39;: &#39;Ecuador Electronic Documents&#39;,
+    &#39;version&#39;: &#39;16.0.1.0.0&#39;,
+    &#39;depends&#39;: [
+        &#39;account&#39;,
+        &#39;l10n_ec&#39;,
+        &#39;ec_account_base&#39;,
+        &#39;ec_electronic_signature&#39;,
+        &#39;mail&#39;,
+    ],
+    &#39;data&#39;: [
+        &#39;security/ir.model.access.csv&#39;,
+        &#39;data/mail_template_data.xml&#39;,
+        &#39;data/ir_sequence_data.xml&#39;,
+        &#39;data/ir_cron_data.xml&#39;,
+        &#39;views/account_move_views.xml&#39;,
+        &#39;views/res_config_settings_views.xml&#39;,
+        &#39;views/res_company_views.xml&#39;,
+        &#39;views/account_journal_views.xml&#39;,
+        &#39;wizard/account_move_reversal_views.xml&#39;,
+        &#39;wizard/account_move_send_views.xml&#39;,
+    ],
+}
+</code></pre>
+<p><strong>Estructura de directorios:</strong></p>
+<pre><code>ec_account_edi/
+├── __init__.py
+├── __manifest__.py
+├── controllers/
+│   ├── __init__.py
+│   └── portal.py
+├── data/
+│   ├── ir_cron_data.xml
+│   ├── ir_sequence_data.xml
+│   └── mail_template_data.xml
+├── models/
+│   ├── __init__.py
+│   ├── account_journal.py
+│   ├── account_move.py
+│   ├── res_company.py
+│   └── res_config_settings.py
+├── security/
+│   └── ir.model.access.csv
+├── static/
+│   └── src/
+├── views/
+│   ├── account_journal_views.xml
+│   ├── account_move_views.xml
+│   ├── res_company_views.xml
+│   └── res_config_settings_views.xml
+└── wizard/
+    ├── __init__.py
+    ├── account_move_reversal.py
+    ├── account_move_reversal_views.xml
+    ├── account_move_send.py
+    └── account_move_send_views.xml
+</code></pre>
+<h2>2. CONFIGURACIÓN DEL MÓDULO</h2>
+<h3>2.1. Parámetros de Configuración</h3>
+<p>La configuración del módulo de facturación electrónica se realiza a nivel de compañía y a nivel de diario contable, con los siguientes parámetros principales:</p>
+<p><strong>Configuración de Compañía:</strong></p>
+<pre><code class="language-python"># Extracto de res_company.py
+class ResCompany(models.Model):
+    _inherit = &#39;res.company&#39;
+    
+    electronic_signature_id = fields.Many2one(
+        &#39;ec.electronic.signature&#39;,
+        string=&#39;Electronic Signature&#39;,
+        help=&#39;Electronic signature used for EDI documents&#39;
+    )
+    edi_environment = fields.Selection([
+        (&#39;1&#39;, &#39;Test&#39;),
+        (&#39;2&#39;, &#39;Production&#39;)
+    ], string=&#39;Environment&#39;, default=&#39;1&#39;,
+       help=&#39;Environment where electronic documents will be sent&#39;)
+    edi_emission_type = fields.Selection([
+        (&#39;1&#39;, &#39;Normal&#39;),
+        (&#39;2&#39;, &#39;Indisponibilidad SRI&#39;)
+    ], string=&#39;Emission Type&#39;, default=&#39;1&#39;)
+    edi_contingency_key = fields.Char(
+        string=&#39;Contingency Key&#39;,
+        help=&#39;Key provided by SRI for contingency emission&#39;
+    )
+    edi_sender_email = fields.Char(
+        string=&#39;Sender Email&#39;,
+        help=&#39;Email used to send electronic documents to customers&#39;
+    )
+</code></pre>
+<p><strong>Configuración de Diario:</strong></p>
+<pre><code class="language-python"># Extracto de account_journal.py
+class AccountJournal(models.Model):
+    _inherit = &#39;account.journal&#39;
+    
+    edi_enabled = fields.Boolean(
+        string=&#39;Enable Electronic Documents&#39;,
+        help=&#39;Enable electronic document generation for this journal&#39;
+    )
+    edi_document_type = fields.Selection([
+        (&#39;01&#39;, &#39;Factura&#39;),
+        (&#39;04&#39;, &#39;Nota de Crédito&#39;),
+        (&#39;05&#39;, &#39;Nota de Débito&#39;),
+        (&#39;06&#39;, &#39;Guía de Remisión&#39;),
+        (&#39;07&#39;, &#39;Comprobante de Retención&#39;)
+    ], string=&#39;Electronic Document Type&#39;)
+    edi_sequence_id = fields.Many2one(
+        &#39;ir.sequence&#39;,
+        string=&#39;Electronic Document Sequence&#39;
+    )
+    edi_establishment = fields.Char(
+        string=&#39;Establishment Code&#39;,
+        size=3,
+        help=&#39;SRI establishment code (3 digits)&#39;
+    )
+    edi_emission_point = fields.Char(
+        string=&#39;Emission Point&#39;,
+        size=3,
+        help=&#39;SRI emission point code (3 digits)&#39;
+    )
+</code></pre>
+<h3>2.2. Secuencias y Numeración</h3>
+<p>La numeración de documentos electrónicos sigue el formato requerido por el SRI:</p>
+<pre><code>ESTABLECIMIENTO-PUNTO_EMISION-SECUENCIAL
+</code></pre>
+<p>Donde:</p>
+<ul>
+<li><strong>ESTABLECIMIENTO</strong>: Código de 3 dígitos que identifica el establecimiento emisor</li>
+<li><strong>PUNTO_EMISION</strong>: Código de 3 dígitos que identifica el punto de emisión</li>
+<li><strong>SECUENCIAL</strong>: Número secuencial de 9 dígitos</li>
+</ul>
+<p>La implementación se realiza mediante secuencias de Odoo:</p>
+<pre><code class="language-xml">&lt;!-- Extracto de ir_sequence_data.xml --&gt;
+&lt;record id=&quot;sequence_electronic_invoice&quot; model=&quot;ir.sequence&quot;&gt;
+    &lt;field name=&quot;name&quot;&gt;Electronic Invoice Sequence&lt;/field&gt;
+    &lt;field name=&quot;code&quot;&gt;account.move.electronic.invoice&lt;/field&gt;
+    &lt;field name=&quot;prefix&quot;&gt;&lt;/field&gt;
+    &lt;field name=&quot;padding&quot;&gt;9&lt;/field&gt;
+    &lt;field name=&quot;company_id&quot; eval=&quot;False&quot;/&gt;
+&lt;/record&gt;
+
+&lt;record id=&quot;sequence_electronic_credit_note&quot; model=&quot;ir.sequence&quot;&gt;
+    &lt;field name=&quot;name&quot;&gt;Electronic Credit Note Sequence&lt;/field&gt;
+    &lt;field name=&quot;code&quot;&gt;account.move.electronic.credit.note&lt;/field&gt;
+    &lt;field name=&quot;prefix&quot;&gt;&lt;/field&gt;
+    &lt;field name=&quot;padding&quot;&gt;9&lt;/field&gt;
+    &lt;field name=&quot;company_id&quot; eval=&quot;False&quot;/&gt;
+&lt;/record&gt;
+</code></pre>
+<p>La generación del número completo se implementa en el modelo <code>account.move</code>:</p>
+<pre><code class="language-python"># Extracto de account_move.py
+def _get_electronic_number(self):
+    &quot;&quot;&quot;Generate electronic document number with format: 001-001-000000001&quot;&quot;&quot;
+    if not self.journal_id.edi_establishment or not self.journal_id.edi_emission_point:
+        raise UserError(_(&#39;Establishment and emission point must be configured&#39;))
+    
+    sequence = self.journal_id.edi_sequence_id
+    if not sequence:
+        raise UserError(_(&#39;Electronic document sequence not configured&#39;))
+    
+    next_number = sequence.next_by_id()
+    return &#39;{}-{}-{}&#39;.format(
+        self.journal_id.edi_establishment.zfill(3),
+        self.journal_id.edi_emission_point.zfill(3),
+        next_number.zfill(9)
+    )
+</code></pre>
+<h2>3. GENERACIÓN DE DOCUMENTOS ELECTRÓNICOS</h2>
+<h3>3.1. Flujo de Procesamiento</h3>
+<p>El flujo completo de procesamiento de documentos electrónicos sigue estos pasos:</p>
+<ol>
+<li><strong>Generación del documento</strong>: Creación de la factura, nota de crédito, etc.</li>
+<li><strong>Validación del documento</strong>: Verificación de datos obligatorios</li>
+<li><strong>Generación de XML</strong>: Creación del archivo XML según esquema SRI</li>
+<li><strong>Firma electrónica</strong>: Aplicación de firma digital al XML</li>
+<li><strong>Envío al SRI</strong>: Transmisión del documento al webservice</li>
+<li><strong>Procesamiento de respuesta</strong>: Análisis de la respuesta del SRI</li>
+<li><strong>Autorización</strong>: Verificación del estado de autorización</li>
+<li><strong>Notificación al cliente</strong>: Envío del documento autorizado</li>
+</ol>
+<p>Este flujo se implementa mediante estados en el modelo <code>account.move</code>:</p>
+<pre><code class="language-python"># Extracto de account_move.py
+class AccountMove(models.Model):
+    _inherit = &#39;account.move&#39;
+    
+    edi_state = fields.Selection([
+        (&#39;draft&#39;, &#39;Draft&#39;),
+        (&#39;to_send&#39;, &#39;To Send&#39;),
+        (&#39;sent&#39;, &#39;Sent&#39;),
+        (&#39;authorized&#39;, &#39;Authorized&#39;),
+        (&#39;rejected&#39;, &#39;Rejected&#39;),
+        (&#39;canceled&#39;, &#39;Canceled&#39;)
+    ], string=&#39;Electronic Document State&#39;, default=&#39;draft&#39;, copy=False)
+    
+    edi_xml_data = fields.Binary(string=&#39;XML Data&#39;, copy=False, attachment=True)
+    edi_xml_filename = fields.Char(string=&#39;XML Filename&#39;, copy=False)
+    edi_access_key = fields.Char(string=&#39;Access Key&#39;, size=49, copy=False)
+    edi_authorization_date = fields.Datetime(string=&#39;Authorization Date&#39;, copy=False)
+    edi_authorization_number = fields.Char(string=&#39;Authorization Number&#39;, copy=False)
+    edi_error_message = fields.Text(string=&#39;Error Message&#39;, copy=False)
+</code></pre>
+<h3>3.2. Generación de XML</h3>
+<p>La generación del XML sigue los esquemas definidos por el SRI para cada tipo de documento. Se implementa mediante la construcción de un árbol XML utilizando la biblioteca <code>lxml</code>:</p>
+<pre><code class="language-python"># Extracto de account_move.py
+def _generate_electronic_invoice_xml(self):
+    &quot;&quot;&quot;Generate XML for electronic invoice according to SRI schema&quot;&quot;&quot;
+    # Crear estructura base del XML
+    root = etree.Element(&#39;factura&#39;, {
+        &#39;id&#39;: &#39;comprobante&#39;,
+        &#39;version&#39;: &#39;1.0.0&#39;
+    })
+    
+    # Información tributaria
+    info_tributaria = etree.SubElement(root, &#39;infoTributaria&#39;)
+    etree.SubElement(info_tributaria, &#39;ambiente&#39;).text = self.company_id.edi_environment
+    etree.SubElement(info_tributaria, &#39;tipoEmision&#39;).text = self.company_id.edi_emission_type
+    etree.SubElement(info_tributaria, &#39;razonSocial&#39;).text = self.company_id.name
+    etree.SubElement(info_tributaria, &#39;nombreComercial&#39;).text = self.company_id.name
+    etree.SubElement(info_tributaria, &#39;ruc&#39;).text = self.company_id.vat
+    # Generar clave de acceso
+    access_key = self._generate_access_key()
+    etree.SubElement(info_tributaria, &#39;claveAcceso&#39;).text = access_key
+    etree.SubElement(info_tributaria, &#39;codDoc&#39;).text = &#39;01&#39;  # Código para factura
+    etree.SubElement(info_tributaria, &#39;estab&#39;).text = self.journal_id.edi_establishment
+    etree.SubElement(info_tributaria, &#39;ptoEmi&#39;).text = self.journal_id.edi_emission_point
+    etree.SubElement(info_tributaria, &#39;secuencial&#39;).text = self.edi_number.split(&#39;-&#39;)[2]
+    etree.SubElement(info_tributaria, &#39;dirMatriz&#39;).text = self.company_id.street or &#39;&#39;
+    
+    # Información de factura
+    info_factura = etree.SubElement(root, &#39;infoFactura&#39;)
+    etree.SubElement(info_factura, &#39;fechaEmision&#39;).text = self.invoice_date.strftime(&#39;%d/%m/%Y&#39;)
+    # Dirección establecimiento
+    address = self.journal_id.edi_address or self.company_id.street or &#39;&#39;
+    etree.SubElement(info_factura, &#39;dirEstablecimiento&#39;).text = address
+    
+    # Información del cliente
+    if self.partner_id.company_type == &#39;company&#39;:
+        tipo_identificacion = &#39;04&#39;  # RUC
+    else:
+        tipo_identificacion = &#39;05&#39;  # Cédula
+    etree.SubElement(info_factura, &#39;tipoIdentificacionComprador&#39;).text = tipo_identificacion
+    etree.SubElement(info_factura, &#39;razonSocialComprador&#39;).text = self.partner_id.name
+    etree.SubElement(info_factura, &#39;identificacionComprador&#39;).text = self.partner_id.vat or &#39;&#39;
+    etree.SubElement(info_factura, &#39;totalSinImpuestos&#39;).text = &#39;{:.2f}&#39;.format(self.amount_untaxed)
+    
+    # Impuestos
+    # ... (código para generar estructura de impuestos)
+    
+    # Detalles de factura
+    detalles = etree.SubElement(root, &#39;detalles&#39;)
+    for line in self.invoice_line_ids:
+        detalle = etree.SubElement(detalles, &#39;detalle&#39;)
+        etree.SubElement(detalle, &#39;codigoPrincipal&#39;).text = line.product_id.default_code or &#39;001&#39;
+        etree.SubElement(detalle, &#39;descripcion&#39;).text = line.name
+        etree.SubElement(detalle, &#39;cantidad&#39;).text = &#39;{:.2f}&#39;.format(line.quantity)
+        etree.SubElement(detalle, &#39;precioUnitario&#39;).text = &#39;{:.2f}&#39;.format(line.price_unit)
+        etree.SubElement(detalle, &#39;descuento&#39;).text = &#39;{:.2f}&#39;.format(line.discount)
+        etree.SubElement(detalle, &#39;precioTotalSinImpuesto&#39;).text = &#39;{:.2f}&#39;.format(line.price_subtotal)
+        
+        # Impuestos de línea
+        # ... (código para generar estructura de impuestos por línea)
+    
+    # Información adicional
+    info_adicional = etree.SubElement(root, &#39;infoAdicional&#39;)
+    if self.partner_id.email:
+        etree.SubElement(info_adicional, &#39;campoAdicional&#39;, nombre=&#39;email&#39;).text = self.partner_id.email
+    if self.partner_id.phone:
+        etree.SubElement(info_adicional, &#39;campoAdicional&#39;, nombre=&#39;teléfono&#39;).text = self.partner_id.phone
+    if self.partner_id.street:
+        etree.SubElement(info_adicional, &#39;campoAdicional&#39;, nombre=&#39;dirección&#39;).text = self.partner_id.street
+    
+    # Convertir a string y guardar
+    xml_string = etree.tostring(root, encoding=&#39;UTF-8&#39;, xml_declaration=True)
+    self.edi_xml_data = base64.b64encode(xml_string)
+    self.edi_xml_filename = &#39;factura_{}.xml&#39;.format(self.edi_number.replace(&#39;-&#39;, &#39;&#39;))
+    self.edi_access_key = access_key
+    
+    return xml_string
+</code></pre>
+<h3>3.3. Clave de Acceso</h3>
+<p>La clave de acceso es un identificador único de 49 dígitos que se genera para cada documento electrónico según las especificaciones del SRI:</p>
+<pre><code class="language-python"># Extracto de account_move.py
+def _generate_access_key(self):
+    &quot;&quot;&quot;Generate SRI access key (49 digits)&quot;&quot;&quot;
+    emission_date = self.invoice_date or fields.Date.context_today(self)
+    
+    # Formato: ddmmaaaa
+    date_str = emission_date.strftime(&#39;%d%m%Y&#39;)
+    
+    # Tipo de comprobante (01=factura, 04=nota crédito, etc)
+    doc_type = {
+        &#39;out_invoice&#39;: &#39;01&#39;,
+        &#39;out_refund&#39;: &#39;04&#39;,
+        &#39;out_debit&#39;: &#39;05&#39;,
+        &#39;liq_purchase&#39;: &#39;03&#39;,
+        &#39;withhold&#39;: &#39;07&#39;
+    }.get(self.move_type, &#39;01&#39;)
+    
+    # Número de RUC
+    vat = self.company_id.vat or &#39;&#39;
+    
+    # Tipo de ambiente (1=pruebas, 2=producción)
+    environment = self.company_id.edi_environment or &#39;1&#39;
+    
+    # Código numérico (8 dígitos)
+    numeric_code = &#39;&#39;.join(random.choice(&#39;0123456789&#39;) for _ in range(8))
+    
+    # Tipo de emisión (1=normal, 2=indisponibilidad SRI)
+    emission_type = self.company_id.edi_emission_type or &#39;1&#39;
+    
+    # Número de serie (establecimiento-punto-secuencial)
+    if not self.edi_number:
+        raise UserError(_(&#39;Electronic document number not generated&#39;))
+    
+    serial_parts = self.edi_number.split(&#39;-&#39;)
+    if len(serial_parts) != 3:
+        raise UserError(_(&#39;Invalid electronic document number format&#39;))
+    
+    establishment = serial_parts[0]
+    emission_point = serial_parts[1]
+    sequential = serial_parts[2]
+    
+    # Construir clave de acceso sin dígito verificador
+    access_key = &#39;&#39;.join([
+        date_str,
+        doc_type,
+        vat,
+        environment,
+        establishment,
+        emission_point,
+        sequential,
+        numeric_code,
+        emission_type
+    ])
+    
+    # Calcular dígito verificador (módulo 11)
+    factor = 2
+    total = 0
+    for digit in reversed(access_key):
+        total += int(digit) * factor
+        factor = 2 if factor &gt;= 7 else factor + 1
+    
+    check_digit = 11 - (total % 11)
+    if check_digit == 11:
+        check_digit = 0
+    elif check_digit == 10:
+        check_digit = 1
+    
+    # Añadir dígito verificador
+    access_key += str(check_digit)
+    
+    return access_key
+</code></pre>
+<h2>4. FIRMA ELECTRÓNICA</h2>
+<h3>4.1. Gestión de Certificados</h3>
+<p>Los certificados digitales se gestionan a través del módulo <code>ec_electronic_signature</code>, que implementa:</p>
+<pre><code class="language-python"># Extracto de ec_electronic_signature/models/electronic_signature.py
+class ElectronicSignature(models.Model):
+    _name = &#39;ec.electronic.signature&#39;
+    _description = &#39;Electronic Signature&#39;
+    
+    name = fields.Char(string=&#39;Name&#39;, required=True)
+    signature_file = fields.Binary(string=&#39;Signature File (.p12)&#39;, required=True, attachment=True)
+    signature_filename = fields.Char(string=&#39;Signature Filename&#39;)
+    password = fields.Char(string=&#39;Password&#39;, required=True)
+    subject = fields.Char(string=&#39;Subject&#39;, readonly=True)
+    issuer = fields.Char(string=&#39;Issuer&#39;, readonly=True)
+    valid_from = fields.Datetime(string=&#39;Valid From&#39;, readonly=True)
+    valid_to = fields.Datetime(string=&#39;Valid To&#39;, readonly=True)
+    active = fields.Boolean(string=&#39;Active&#39;, default=True)
+    company_id = fields.Many2one(&#39;res.company&#39;, string=&#39;Company&#39;, default=lambda self: self.env.company)
+    
+    @api.model
+    def create(self, vals):
+        record = super(ElectronicSignature, self).create(vals)
+        record._validate_signature()
+        return record
+    
+    def write(self, vals):
+        result = super(ElectronicSignature, self).write(vals)
+        if &#39;signature_file&#39; in vals or &#39;password&#39; in vals:
+            self._validate_signature()
+        return result
+    
+    def _validate_signature(self):
+        &quot;&quot;&quot;Validate electronic signature and extract certificate information&quot;&quot;&quot;
+        for record in self:
+            if not record.signature_file or not record.password:
+                continue
+            
+            try:
+                # Decodificar archivo p12
+                p12_data = base64.b64decode(record.signature_file)
+                p12 = crypto.load_pkcs12(p12_data, record.password.encode())
+                cert = p12.get_certificate()
+                
+                # Extraer información del certificado
+                subject = cert.get_subject()
+                record.subject = &#39;, &#39;.join([&#39;{}={}&#39;.format(k, v) for k, v in subject.get_components()])
+                
+                issuer = cert.get_issuer()
+                record.issuer = &#39;, &#39;.join([&#39;{}={}&#39;.format(k, v) for k, v in issuer.get_components()])
+                
+                record.valid_from = datetime.strptime(cert.get_notBefore().decode(), &#39;%Y%m%d%H%M%SZ&#39;)
+                record.valid_to = datetime.strptime(cert.get_notAfter().decode(), &#39;%Y%m%d%H%M%SZ&#39;)
+                
+                # Verificar validez
+                now = datetime.now()
+                if record.valid_to &lt; now:
+                    raise UserError(_(&#39;The certificate has expired on %s&#39;) % record.valid_to)
+                
+            except Exception as e:
+                raise UserError(_(&#39;Error validating electronic signature: %s&#39;) % str(e))
+</code></pre>
+<h3>4.2. Proceso de Firma XML</h3>
+<p>La firma del XML se realiza utilizando el estándar XAdES-BES, según los requerimientos del SRI:</p>
+<pre><code class="language-python"># Extracto de ec_electronic_signature/models/electronic_signature.py
+def sign_xml(self, xml_string):
+    &quot;&quot;&quot;Sign XML document using XAdES-BES standard&quot;&quot;&quot;
+    if not self.signature_file or not self.password:
+        raise UserError(_(&#39;Signature file and password are required&#39;))
+    
+    try:
+        # Decodificar archivo p12
+        p12_data = base64.b64decode(self.signature_file)
+        p12 = crypto.load_pkcs12(p12_data, self.password.encode())
+        cert = p12.get_certificate()
+        private_key = p12.get_privatekey()
+        
+        # Parsear XML
+        root = etree.fromstring(xml_string)
+        
+        # Crear nodo de firma
+        signature_node = xmlsig.template.create(
+            c14n_method=xmlsig.constants.TransformInclC14N,
+            sign_method=xmlsig.constants.TransformRsaSha1,
+            ns=&#39;ds&#39;
+        )
+        
+        # Añadir nodo de firma al documento
+        root.append(signature_node)
+        
+        # Crear contexto de firma
+        ctx = xmlsig.SignatureContext()
+        ctx.x509 = cert
+        ctx.private_key = private_key
+        
+        # Configurar referencias
+        ref = xmlsig.template.add_reference(
+            signature_node,
+            xmlsig.constants.TransformSha1,
+            uri=&#39;&#39;,
+            name=&#39;SignedProperties&#39;
+        )
+        xmlsig.template.add_transform(ref, xmlsig.constants.TransformEnveloped)
+        
+        # Añadir información del certificado
+        key_info = xmlsig.template.ensure_key_info(signature_node)
+        x509_data = xmlsig.template.add_x509_data(key_info)
+        xmlsig.template.x509_data_add_certificate(x509_data)
+        xmlsig.template.x509_data_add_subject_name(x509_data)
+        xmlsig.template.x509_data_add_issuer_serial(x509_data)
+        
+        # Añadir propiedades firmadas (XAdES)
+        qualifying_properties = xmlsig.template.create_qualifying_properties(
+            signature_node,
+            name=&#39;QualifyingProperties&#39;
+        )
+        signed_properties = xmlsig.template.create_signed_properties(
+            qualifying_properties,
+            name=&#39;SignedProperties&#39;
+        )
+        
+        # Añadir propiedades firmadas
+        signed_signature_properties = xmlsig.template.create_signed_signature_properties(
+            signed_properties,
+            name=&#39;SignedSignatureProperties&#39;
+        )
+        
+        # Añadir tiempo de firma
+        signing_time = etree.SubElement(
+            signed_signature_properties,
+            etree.QName(xmlsig.constants.NS_XMLDSIG, &#39;SigningTime&#39;)
+        )
+        signing_time.text = datetime.now().strftime(&#39;%Y-%m-%dT%H:%M:%S%z&#39;)
+        
+        # Firmar el documento
+        ctx.sign(signature_node)
+        
+        # Verificar la firma
+        ctx.verify(signature_node)
+        
+        # Devolver XML firmado
+        return etree.tostring(root, encoding=&#39;UTF-8&#39;, xml_declaration=True)
+        
+    except Exception as e:
+        raise UserError(_(&#39;Error signing XML: %s&#39;) % str(e))
+</code></pre>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>

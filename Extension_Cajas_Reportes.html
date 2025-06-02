@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXTENSIÓN: CAJAS CHICAS Y REPORTES FINANCIEROS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page-header {
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0.3rem;
+      transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .btn:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .main-content-nav {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaecef;
+    }
+    .main-content-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      padding: 16px;
+      overflow: auto;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background-color: rgba(27,31,35,0.05);
+      border-radius: 3px;
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #dfe2e5;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f6f8fa;
+    }
+    .site-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eaecef;
+      text-align: center;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">Manuales Odoo 16 Ecuador</h1>
+    <p class="project-tagline">Documentación y manuales para Odoo 16 en Ecuador</p>
+    <a href="index.html" class="btn">Inicio</a>
+    <a href="Manual_Odoo16_Ecuador_Completo.html" class="btn">Manual Completo</a>
+    <a href="Manual_Odoo16_Ecuador_Tecnico_Parte1.html" class="btn">Manual Técnico</a>
+  </header>
+
+  <div class="main-content">
+    <div class="main-content-nav">
+      <a href="index.html">Inicio</a>
+      <a href="Manual_Odoo16_Ecuador_Completo.html">Manual Completo</a>
+      <a href="Manual_Odoo16_Ecuador_Parte1.html">Parte 1</a>
+      <a href="Manual_Odoo16_Ecuador_Parte2.html">Parte 2</a>
+      <a href="Manual_Odoo16_Ecuador_Parte3.html">Parte 3</a>
+      <a href="Manual_Odoo16_Ecuador_Parte4.html">Parte 4</a>
+    </div>
+
+    <div class="markdown-body">
+      <h1>EXTENSIÓN: CAJAS CHICAS Y REPORTES FINANCIEROS</h1>
+<h2>11. CAJAS CHICAS</h2>
+<h3>11.1. Configuración de Cajas Chicas</h3>
+<p>El módulo de Cajas Chicas permite la gestión eficiente de fondos de efectivo para gastos menores, adaptado a los requerimientos contables y fiscales ecuatorianos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/93_cajas%20chicas%20menu.png" alt="Cajas chicas menu"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Gestión de múltiples cajas</strong>: Creación y administración de diferentes fondos según ubicación o departamento.</li>
+<li><strong>Asignación de responsables</strong>: Definición clara de custodios para cada caja.</li>
+<li><strong>Establecimiento de límites</strong>: Configuración de montos máximos por caja y por transacción.</li>
+<li><strong>Categorización de gastos</strong>: Definición de conceptos permitidos para cada fondo.</li>
+<li><strong>Flujos de aprobación</strong>: Configuración de niveles de autorización según monto.</li>
+<li><strong>Integración contable</strong>: Contabilización automática por tipo de gasto.</li>
+</ul>
+<p><strong>Panel principal:</strong></p>
+<ul>
+<li><strong>Lista de cajas activas</strong>: Visualización de todas las cajas configuradas</li>
+<li><strong>Saldo actual</strong>: Monto disponible en cada caja</li>
+<li><strong>Responsable</strong>: Usuario asignado como custodio</li>
+<li><strong>Estado</strong>: Activa, en reposición, cerrada</li>
+<li><strong>Límite máximo</strong>: Tope configurado para el fondo</li>
+<li><strong>Gastos pendientes</strong>: Transacciones no procesadas</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/94_caja%20chica%20detalle.png" alt="Caja chica detalle"></p>
+<p><strong>Formulario de caja chica:</strong></p>
+<ul>
+<li><strong>Información general</strong>: Nombre, código, ubicación</li>
+<li><strong>Configuración financiera</strong>: Monto inicial, límite, cuenta contable</li>
+<li><strong>Responsables</strong>: Custodio principal y suplentes</li>
+<li><strong>Políticas de uso</strong>: Tipos de gasto permitidos, límites por transacción</li>
+<li><strong>Configuración de aprobación</strong>: Flujo de autorizaciones</li>
+<li><strong>Historial</strong>: Registro de operaciones y reposiciones</li>
+</ul>
+<p><strong>Proceso de creación:</strong></p>
+<ol>
+<li><strong>Definición de parámetros</strong>: Configuración inicial del fondo</li>
+<li><strong>Asignación de responsable</strong>: Designación del custodio</li>
+<li><strong>Apertura del fondo</strong>: Registro del monto inicial</li>
+<li><strong>Generación de comprobante</strong>: Documento para entrega de efectivo</li>
+<li><strong>Activación</strong>: Habilitación para registro de gastos</li>
+</ol>
+<p><strong>Configuración avanzada:</strong></p>
+<ul>
+<li><strong>Plantillas de gastos</strong>: Conceptos predefinidos con cuentas contables</li>
+<li><strong>Restricciones por usuario</strong>: Control de acceso a fondos específicos</li>
+<li><strong>Alertas automáticas</strong>: Notificaciones por saldo bajo o gastos pendientes</li>
+<li><strong>Reportes personalizados</strong>: Informes de uso y rendición de cuentas</li>
+<li><strong>Cierre temporal</strong>: Bloqueo por ausencia del responsable</li>
+</ul>
+<h3>11.2. Reposiciones de Caja Chica</h3>
+<p>El proceso de reposición permite restablecer el fondo de caja chica después de registrar los gastos realizados, manteniendo la operatividad continua del fondo.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/95_reposiciones%20caja%20chica.png" alt="Reposiciones caja chica"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Reposición basada en gastos</strong>: Reembolso exacto de lo consumido</li>
+<li><strong>Validación de comprobantes</strong>: Verificación de documentos de respaldo</li>
+<li><strong>Aprobación multinivel</strong>: Flujo configurable según montos</li>
+<li><strong>Contabilización automática</strong>: Asientos por categoría de gasto</li>
+<li><strong>Trazabilidad completa</strong>: Historial de todas las reposiciones</li>
+<li><strong>Cumplimiento fiscal</strong>: Validación de requisitos tributarios</li>
+</ul>
+<p><strong>Panel de reposiciones:</strong></p>
+<ul>
+<li><strong>Lista de solicitudes</strong>: Reposiciones en diferentes estados</li>
+<li><strong>Caja relacionada</strong>: Fondo al que corresponde</li>
+<li><strong>Monto solicitado</strong>: Valor total a reponer</li>
+<li><strong>Estado</strong>: Borrador, en aprobación, aprobado, pagado</li>
+<li><strong>Responsable</strong>: Solicitante de la reposición</li>
+<li><strong>Fecha</strong>: Registro cronológico del proceso</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/96_reposiciones%20caja%20chica%20detalle.png" alt="Reposiciones caja chica detalle"></p>
+<p><strong>Formulario de reposición:</strong></p>
+<ul>
+<li><strong>Información general</strong>: Caja, período, responsable</li>
+<li><strong>Gastos incluidos</strong>: Detalle de transacciones a reponer</li>
+<li><strong>Documentos de respaldo</strong>: Facturas y comprobantes adjuntos</li>
+<li><strong>Distribución contable</strong>: Clasificación por cuenta y centro de costo</li>
+<li><strong>Flujo de aprobación</strong>: Estado actual y próximos aprobadores</li>
+<li><strong>Método de reposición</strong>: Efectivo, transferencia, cheque</li>
+</ul>
+<p><strong>Proceso completo:</strong></p>
+<ol>
+<li><strong>Registro de gastos</strong>: Documentación de desembolsos realizados</li>
+<li><strong>Adjunto de comprobantes</strong>: Carga de respaldos fiscales</li>
+<li><strong>Solicitud de reposición</strong>: Generación del pedido de reembolso</li>
+<li><strong>Aprobación</strong>: Validación según niveles configurados</li>
+<li><strong>Emisión de pago</strong>: Restitución del monto al fondo</li>
+<li><strong>Contabilización</strong>: Registro en cuentas correspondientes</li>
+<li><strong>Actualización de saldo</strong>: Incremento del disponible en caja</li>
+</ol>
+<p><strong>Funcionalidades avanzadas:</strong></p>
+<ul>
+<li><strong>Reposición parcial</strong>: Posibilidad de reponer solo gastos seleccionados</li>
+<li><strong>Anticipos extraordinarios</strong>: Incrementos temporales del fondo</li>
+<li><strong>Validación fiscal</strong>: Verificación automática de comprobantes</li>
+<li><strong>Liquidación de caja</strong>: Proceso de cierre definitivo</li>
+<li><strong>Arqueos sorpresivos</strong>: Registro de verificaciones no programadas</li>
+<li><strong>Reportes gerenciales</strong>: Análisis de uso por categoría y período</li>
+</ul>
+<h2>12. REPORTES FINANCIEROS</h2>
+<h3>12.1. Menús de Informes</h3>
+<p>El sistema ofrece un completo conjunto de reportes financieros adaptados a los requerimientos contables y fiscales ecuatorianos, accesibles desde un menú centralizado.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/97_informe%20menu.png" alt="Informe menu"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Reportes oficiales</strong>: Formatos adaptados a normativa local</li>
+<li><strong>Informes gerenciales</strong>: Análisis para toma de decisiones</li>
+<li><strong>Reportes fiscales</strong>: Información para declaraciones tributarias</li>
+<li><strong>Exportación múltiple</strong>: Generación en PDF, Excel, HTML</li>
+<li><strong>Filtros avanzados</strong>: Selección por período, cuenta, dimensión analítica</li>
+<li><strong>Comparativos</strong>: Análisis entre períodos o presupuestos</li>
+</ul>
+<p><strong>Categorías principales:</strong></p>
+<ul>
+<li><strong>Contabilidad general</strong>: Balances y estados financieros</li>
+<li><strong>Impuestos</strong>: Reportes para declaraciones fiscales</li>
+<li><strong>Cartera</strong>: Análisis de cuentas por cobrar y pagar</li>
+<li><strong>Bancos</strong>: Conciliaciones y flujos de efectivo</li>
+<li><strong>Analítica</strong>: Reportes por centro de costo o proyecto</li>
+</ul>
+<p><img src="odoo%2016%20m%C3%B3dulos/98_informe%20menu%202.png" alt="Informe menu 2"></p>
+<p><strong>Menú extendido:</strong></p>
+<ul>
+<li><strong>Reportes legales</strong>: Formatos oficiales para entidades reguladoras</li>
+<li><strong>Reportes operativos</strong>: Análisis de gestión diaria</li>
+<li><strong>Reportes de auditoría</strong>: Verificación y control interno</li>
+<li><strong>Reportes personalizados</strong>: Informes configurados por el usuario</li>
+<li><strong>Dashboards</strong>: Paneles visuales con indicadores clave</li>
+</ul>
+<p><strong>Funcionalidades comunes:</strong></p>
+<ul>
+<li><strong>Períodos fiscales</strong>: Selección de rangos de fecha</li>
+<li><strong>Niveles de detalle</strong>: Desde resumen hasta máximo desglose</li>
+<li><strong>Filtros contextuales</strong>: Opciones específicas según tipo de reporte</li>
+<li><strong>Vistas previas</strong>: Visualización antes de generación final</li>
+<li><strong>Programación</strong>: Generación automática periódica</li>
+<li><strong>Distribución</strong>: Envío automático por correo electrónico</li>
+</ul>
+<h3>12.2. Balance de Situación</h3>
+<p>El Balance de Situación (Estado de Situación Financiera) presenta la posición financiera de la empresa en un momento determinado, adaptado a la normativa contable ecuatoriana.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/99_balance%20de%20situacion.png" alt="Balance de situación"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Estructura normalizada</strong>: Formato adaptado a requerimientos locales</li>
+<li><strong>Múltiples niveles</strong>: Visualización desde resumen hasta detalle</li>
+<li><strong>Comparativo</strong>: Contraste con períodos anteriores</li>
+<li><strong>Análisis vertical</strong>: Porcentajes sobre total de activos</li>
+<li><strong>Notas explicativas</strong>: Espacio para aclaraciones contables</li>
+<li><strong>Firmas digitales</strong>: Inclusión de responsables (contador, gerente)</li>
+</ul>
+<p><strong>Secciones principales:</strong></p>
+<ul>
+<li><strong>Activos</strong>: Corrientes, no corrientes, diferidos</li>
+<li><strong>Pasivos</strong>: Corrientes, no corrientes, provisiones</li>
+<li><strong>Patrimonio</strong>: Capital, reservas, resultados acumulados</li>
+<li><strong>Cuentas de orden</strong>: Registros informativos fuera de balance</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Ajuste por inflación</strong>: Opcional según normativa vigente</li>
+<li><strong>Conversión de moneda</strong>: Para reportes en dólares y moneda funcional</li>
+<li><strong>Consolidación</strong>: Para grupos empresariales</li>
+<li><strong>Segmentación</strong>: Por sucursal o unidad de negocio</li>
+<li><strong>Conciliación patrimonial</strong>: Análisis de variaciones</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Fechas flexibles</strong>: Cualquier corte dentro del período abierto</li>
+<li><strong>Filtros contables</strong>: Por diario, cuenta o etiqueta</li>
+<li><strong>Formatos de salida</strong>: PDF, Excel, HTML</li>
+<li><strong>Inclusión de gráficos</strong>: Visualización de composición</li>
+<li><strong>Drill-down</strong>: Navegación hasta transacciones origen</li>
+</ul>
+<h3>12.3. Estado de Pérdidas y Ganancias</h3>
+<p>El Estado de Resultados muestra el desempeño económico de la empresa durante un período, con clasificación adaptada a los requerimientos ecuatorianos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/100_perdidas%20y%20ganancias.png" alt="Pérdidas y ganancias"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Estructura por naturaleza</strong>: Clasificación según tipo de ingreso/gasto</li>
+<li><strong>Estructura por función</strong>: Agrupación por área funcional</li>
+<li><strong>Múltiples períodos</strong>: Comparativo mensual, trimestral, anual</li>
+<li><strong>Análisis horizontal</strong>: Variaciones entre períodos</li>
+<li><strong>Análisis vertical</strong>: Porcentajes sobre ingresos totales</li>
+<li><strong>Indicadores clave</strong>: Márgenes y ratios de rentabilidad</li>
+</ul>
+<p><strong>Secciones principales:</strong></p>
+<ul>
+<li><strong>Ingresos operacionales</strong>: Ventas de bienes y servicios</li>
+<li><strong>Costo de ventas</strong>: Costo directo de productos vendidos</li>
+<li><strong>Gastos operacionales</strong>: Administración, ventas, producción</li>
+<li><strong>Resultados financieros</strong>: Intereses y diferencias cambiarias</li>
+<li><strong>Otros ingresos/gastos</strong>: Conceptos no operacionales</li>
+<li><strong>Participación trabajadores</strong>: Cálculo del 15% según legislación</li>
+<li><strong>Impuesto a la renta</strong>: Determinación del impuesto causado</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Desglose por impuesto</strong>: Separación de bases gravadas y exentas</li>
+<li><strong>Conciliación tributaria</strong>: Ajustes para determinación fiscal</li>
+<li><strong>Análisis de contribución</strong>: Rentabilidad por línea de producto</li>
+<li><strong>Proyecciones</strong>: Comparativo con presupuesto</li>
+<li><strong>Tendencias</strong>: Gráficos de evolución temporal</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Períodos acumulados o individuales</strong>: Mensual vs. año a la fecha</li>
+<li><strong>Nivel de detalle configurable</strong>: Desde resumen hasta máximo desglose</li>
+<li><strong>Agrupación alternativa</strong>: Por categoría, proyecto o departamento</li>
+<li><strong>Formatos oficiales</strong>: Adaptación a formularios SRI</li>
+<li><strong>Exportación múltiple</strong>: PDF, Excel, XML para declaraciones</li>
+</ul>
+<h3>12.4. Estado de Flujos de Efectivo</h3>
+<p>Este reporte muestra los movimientos de efectivo clasificados por actividades, permitiendo analizar la generación y uso de liquidez durante el período.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/101_estadi%20de%20flujos%20de%20efectivo.png" alt="Estado de flujos de efectivo"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Método directo</strong>: Clasificación directa de cobros y pagos</li>
+<li><strong>Método indirecto</strong>: Partiendo del resultado neto con ajustes</li>
+<li><strong>Conciliación de saldos</strong>: Verificación con cuentas de efectivo</li>
+<li><strong>Análisis de variaciones</strong>: Cambios en posición de liquidez</li>
+<li><strong>Proyección</strong>: Estimación de flujos futuros</li>
+<li><strong>Indicadores de liquidez</strong>: Ratios derivados del flujo</li>
+</ul>
+<p><strong>Secciones principales:</strong></p>
+<ul>
+<li><strong>Actividades operativas</strong>: Relacionadas con operación principal</li>
+<li><strong>Actividades de inversión</strong>: Adquisición/venta de activos de largo plazo</li>
+<li><strong>Actividades de financiamiento</strong>: Cambios en estructura de capital</li>
+<li><strong>Efecto de variación cambiaria</strong>: Para operaciones en moneda extranjera</li>
+<li><strong>Conciliación final</strong>: Cuadre con saldos contables</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Clasificación automática</strong>: Categorización inteligente de transacciones</li>
+<li><strong>Ajustes no monetarios</strong>: Identificación de movimientos sin efecto en caja</li>
+<li><strong>Análisis de ciclo de efectivo</strong>: Rotación de inventario, cobros y pagos</li>
+<li><strong>Tendencias estacionales</strong>: Identificación de patrones temporales</li>
+<li><strong>Flujo libre de caja</strong>: Cálculo para análisis de inversiones</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Períodos comparativos</strong>: Análisis de evolución temporal</li>
+<li><strong>Detalle por cuenta</strong>: Desglose de componentes principales</li>
+<li><strong>Visualización gráfica</strong>: Representación de flujos principales</li>
+<li><strong>Formato NIC 7</strong>: Cumplimiento de estándar internacional</li>
+<li><strong>Exportación analítica</strong>: Para modelos financieros externos</li>
+</ul>
+<h3>12.5. Resumen Ejecutivo</h3>
+<p>El Resumen Ejecutivo proporciona una visión consolidada de los principales indicadores financieros y operativos para la toma de decisiones gerenciales.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/102_resumen%20ejecutivo.png" alt="Resumen ejecutivo"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Dashboard integrado</strong>: Visualización de KPIs principales</li>
+<li><strong>Tendencias clave</strong>: Evolución de indicadores críticos</li>
+<li><strong>Alertas automáticas</strong>: Notificación de desviaciones importantes</li>
+<li><strong>Análisis comparativo</strong>: Contraste con períodos anteriores y presupuesto</li>
+<li><strong>Visualización personalizable</strong>: Adaptación a necesidades gerenciales</li>
+<li><strong>Actualización en tiempo real</strong>: Datos sincronizados con operaciones</li>
+</ul>
+<p><strong>Componentes principales:</strong></p>
+<ul>
+<li><strong>Indicadores de rentabilidad</strong>: Márgenes, ROI, EBITDA</li>
+<li><strong>Indicadores de liquidez</strong>: Razón corriente, prueba ácida, capital de trabajo</li>
+<li><strong>Indicadores de actividad</strong>: Rotación de inventario, cartera, proveedores</li>
+<li><strong>Indicadores de endeudamiento</strong>: Apalancamiento, cobertura de intereses</li>
+<li><strong>Indicadores operativos</strong>: Volumen de ventas, nuevos clientes, devoluciones</li>
+<li><strong>Proyecciones</strong>: Tendencias esperadas a corto plazo</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Drill-down interactivo</strong>: Navegación desde resumen hasta detalle</li>
+<li><strong>Umbrales configurables</strong>: Definición de rangos aceptables por indicador</li>
+<li><strong>Benchmarking</strong>: Comparación con estándares de la industria</li>
+<li><strong>Escenarios hipotéticos</strong>: Simulación de cambios en variables clave</li>
+<li><strong>Calendario fiscal</strong>: Recordatorio de obligaciones próximas</li>
+</ul>
+<p><strong>Opciones de visualización:</strong></p>
+<ul>
+<li><strong>Tableros personalizados</strong>: Configuración según perfil de usuario</li>
+<li><strong>Gráficos interactivos</strong>: Visualización dinámica de datos</li>
+<li><strong>Exportación ejecutiva</strong>: Formatos para presentaciones</li>
+<li><strong>Envío programado</strong>: Distribución automática a directivos</li>
+<li><strong>Versión móvil</strong>: Acceso desde dispositivos portátiles</li>
+</ul>
+<h3>12.6. Informes de Impuestos</h3>
+<p>Los reportes de impuestos proporcionan información detallada para el cumplimiento de obligaciones tributarias según la normativa ecuatoriana.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/103_informe%20impuestos.png" alt="Informe impuestos"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Reportes por período fiscal</strong>: Mensual, semestral, anual</li>
+<li><strong>Clasificación por tipo de impuesto</strong>: IVA, Renta, ICE, etc.</li>
+<li><strong>Desglose por código SRI</strong>: Según catálogo oficial</li>
+<li><strong>Conciliación automática</strong>: Verificación de consistencia</li>
+<li><strong>Formatos oficiales</strong>: Adaptados a declaraciones</li>
+<li><strong>Exportación para DIMM</strong>: Compatible con software SRI</li>
+</ul>
+<p><strong>Tipos de informes disponibles:</strong></p>
+<ul>
+<li><strong>Resumen de IVA</strong>: Ventas y compras por tarifa</li>
+<li><strong>Retenciones efectuadas</strong>: Por tipo y porcentaje</li>
+<li><strong>Retenciones recibidas</strong>: De clientes y agentes de retención</li>
+<li><strong>Anticipos de impuesto</strong>: Cálculo y seguimiento</li>
+<li><strong>Impuestos especiales</strong>: ICE, ISD, otros específicos</li>
+<li><strong>Anexos fiscales</strong>: Preparación para ATS, APS, etc.</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Validación previa</strong>: Verificación de inconsistencias</li>
+<li><strong>Ajustes automáticos</strong>: Corrección de diferencias por redondeo</li>
+<li><strong>Conciliación con contabilidad</strong>: Cuadre con cuentas de impuestos</li>
+<li><strong>Historial de declaraciones</strong>: Seguimiento de presentaciones anteriores</li>
+<li><strong>Calendario tributario</strong>: Alertas de vencimientos</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Vista preliminar</strong>: Revisión antes de declaración oficial</li>
+<li><strong>Exportación múltiple</strong>: PDF, Excel, XML</li>
+<li><strong>Nivel de detalle</strong>: Desde resumen hasta transacción individual</li>
+<li><strong>Filtros avanzados</strong>: Por establecimiento, tipo de contribuyente, etc.</li>
+<li><strong>Reportes ad-hoc</strong>: Consultas personalizadas para auditoría</li>
+</ul>
+<h3>12.7. Libro Mayor</h3>
+<p>El Libro Mayor proporciona el detalle de movimientos por cuenta contable, permitiendo el análisis y seguimiento de saldos durante el período fiscal.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/104_libro%20mayor%201.png" alt="Libro mayor 1"></p>
+<p><img src="odoo%2016%20m%C3%B3dulos/105_libro%20mayor%202.png" alt="Libro mayor 2"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Detalle cronológico</strong>: Movimientos ordenados por fecha</li>
+<li><strong>Saldos progresivos</strong>: Cálculo de balance después de cada movimiento</li>
+<li><strong>Múltiples niveles</strong>: Desde cuentas principales hasta auxiliares</li>
+<li><strong>Trazabilidad completa</strong>: Vínculo a documentos origen</li>
+<li><strong>Conciliación bancaria</strong>: Estado de partidas pendientes</li>
+<li><strong>Formato oficial</strong>: Cumplimiento de requisitos legales</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Código y nombre de cuenta</strong>: Identificación según plan contable</li>
+<li><strong>Fecha de registro</strong>: Cronología de transacciones</li>
+<li><strong>Referencia y descripción</strong>: Detalle explicativo del movimiento</li>
+<li><strong>Documento origen</strong>: Factura, pago, asiento manual, etc.</li>
+<li><strong>Débitos y créditos</strong>: Valores registrados en cada movimiento</li>
+<li><strong>Saldo acumulado</strong>: Balance actualizado tras cada transacción</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Filtrado multinivel</strong>: Por período, diario, etiqueta, etc.</li>
+<li><strong>Búsqueda avanzada</strong>: Localización por monto o descripción</li>
+<li><strong>Agrupación flexible</strong>: Por día, semana, mes o documento</li>
+<li><strong>Conciliación visual</strong>: Identificación de partidas pendientes</li>
+<li><strong>Análisis de antigüedad</strong>: Para cuentas de balance</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Selección de cuentas</strong>: Individual, grupo o rango</li>
+<li><strong>Períodos personalizados</strong>: Cualquier rango de fechas</li>
+<li><strong>Nivel de detalle</strong>: Desde resumen hasta máximo desglose</li>
+<li><strong>Formatos de salida</strong>: PDF, Excel, CSV</li>
+<li><strong>Inclusión de asientos no contabilizados</strong>: Opción para revisión</li>
+</ul>
+<h3>12.8. Balance General</h3>
+<p>Versión alternativa del Estado de Situación Financiera con formato y opciones adicionales adaptadas a requerimientos específicos.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/106_balance%20general.png" alt="Balance general"></p>
+<p><strong>Características diferenciales:</strong></p>
+<ul>
+<li><strong>Formato condensado</strong>: Presentación más ejecutiva</li>
+<li><strong>Agrupación alternativa</strong>: Clasificación personalizable</li>
+<li><strong>Análisis comparativo</strong>: Múltiples períodos en paralelo</li>
+<li><strong>Visualización gráfica</strong>: Composición de activos y pasivos</li>
+<li><strong>Indicadores integrados</strong>: Ratios financieros calculados</li>
+<li><strong>Notas automáticas</strong>: Generación de revelaciones contables</li>
+</ul>
+<p><strong>Secciones especiales:</strong></p>
+<ul>
+<li><strong>Activos contingentes</strong>: Derechos potenciales</li>
+<li><strong>Pasivos contingentes</strong>: Obligaciones potenciales</li>
+<li><strong>Cuentas de orden</strong>: Registros informativos</li>
+<li><strong>Conciliación patrimonial</strong>: Análisis de variaciones</li>
+<li><strong>Revelaciones obligatorias</strong>: Según normativa contable</li>
+</ul>
+<p><strong>Funcionalidades adicionales:</strong></p>
+<ul>
+<li><strong>Múltiples esquemas</strong>: Adaptación a diferentes normativas (NEC, NIIF)</li>
+<li><strong>Consolidación avanzada</strong>: Para grupos empresariales complejos</li>
+<li><strong>Conversión monetaria</strong>: Reportes en moneda funcional y de presentación</li>
+<li><strong>Ajustes de cierre</strong>: Inclusión de asientos preliminares</li>
+<li><strong>Simulación de escenarios</strong>: Proyección de impactos</li>
+</ul>
+<p><strong>Opciones específicas:</strong></p>
+<ul>
+<li><strong>Períodos fiscales o calendarios</strong>: Flexibilidad en cortes</li>
+<li><strong>Niveles de aprobación</strong>: Flujo para revisión y publicación</li>
+<li><strong>Comparativo presupuestal</strong>: Contraste con proyecciones</li>
+<li><strong>Exportación estructurada</strong>: Para presentación a entidades reguladoras</li>
+<li><strong>Historial de versiones</strong>: Seguimiento de modificaciones</li>
+</ul>
+<h3>12.9. Journal Report</h3>
+<p>El informe de diarios contables proporciona un análisis detallado de los asientos registrados, facilitando la auditoría y control interno.</p>
+<p><img src="odoo%2016%20m%C3%B3dulos/107_journal%20report1.png" alt="Journal report 1"></p>
+<p><img src="odoo%2016%20m%C3%B3dulos/108_journal%20report2.png" alt="Journal report 2"></p>
+<p><strong>Características principales:</strong></p>
+<ul>
+<li><strong>Organización por diario</strong>: Agrupación según origen contable</li>
+<li><strong>Secuencia cronológica</strong>: Ordenamiento por fecha de registro</li>
+<li><strong>Detalle de asientos</strong>: Visualización completa de cada transacción</li>
+<li><strong>Verificación de cuadre</strong>: Validación de débitos y créditos</li>
+<li><strong>Trazabilidad documental</strong>: Vínculos a documentos origen</li>
+<li><strong>Identificación de usuario</strong>: Registro de responsable de cada asiento</li>
+</ul>
+<p><strong>Información disponible:</strong></p>
+<ul>
+<li><strong>Diario contable</strong>: Ventas, compras, bancos, operaciones, etc.</li>
+<li><strong>Número y fecha</strong>: Identificación única de cada asiento</li>
+<li><strong>Referencia y descripción</strong>: Detalle explicativo</li>
+<li><strong>Cuentas utilizadas</strong>: Códigos según plan contable</li>
+<li><strong>Importes registrados</strong>: Débitos y créditos por línea</li>
+<li><strong>Documentos relacionados</strong>: Facturas, pagos, etc.</li>
+</ul>
+<p><strong>Funcionalidades específicas:</strong></p>
+<ul>
+<li><strong>Filtrado por diario</strong>: Análisis de un tipo específico de transacciones</li>
+<li><strong>Rango de fechas personalizable</strong>: Período de análisis flexible</li>
+<li><strong>Búsqueda por referencia</strong>: Localización de asientos específicos</li>
+<li><strong>Verificación de secuencia</strong>: Control de numeración consecutiva</li>
+<li><strong>Identificación de ajustes</strong>: Asientos manuales vs. automáticos</li>
+</ul>
+<p><strong>Opciones de generación:</strong></p>
+<ul>
+<li><strong>Selección múltiple de diarios</strong>: Combinación para análisis integral</li>
+<li><strong>Nivel de agrupación</strong>: Por día, documento o asiento individual</li>
+<li><strong>Inclusión de anulados</strong>: Opción para mostrar asientos cancelados</li>
+<li><strong>Formatos de salida</strong>: PDF, Excel, CSV</li>
+<li><strong>Ordenamiento configurable</strong>: Por número, fecha o importe</li>
+</ul>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 - Manuales Odoo 16 Ecuador</p>
+    </footer>
+  </div>
+</body>
+</html>
