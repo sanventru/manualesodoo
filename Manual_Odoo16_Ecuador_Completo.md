@@ -1,7 +1,7 @@
 # MANUAL DE USUARIO: SISTEMA ODOO 16 COMMUNITY ADAPTADO A LA LEGISLACIÓN ECUATORIANA
 
-**Versión 1.0**  
-**Mayo 2025**
+**Versión 1.1**  
+**Junio 2025**
 
 ## ÍNDICE DE CONTENIDOS
 
@@ -17,78 +17,112 @@
    2.4. Configuración de Documentos Electrónicos  
    2.5. Configuración SRI
 
-3. **VENTAS**  
-   3.1. Menú de Ventas  
-   3.2. Creación de Cotizaciones  
-   3.3. Gestión de Pedidos  
-   3.4. Configuración de Ventas
+3. **FUNCIONALIDADES ESTÁNDAR**
+   3.1. Interfaz de Usuario
+   3.2. Búsqueda y Filtrado
+   3.3. Vistas y Personalización
+   3.4. Importación y Exportación
+   3.5. Comunicación y Notificaciones
+   3.6. Ajustes del Sistema
 
-4. **COMPRAS**  
-   4.1. Requisiciones de Compra  
-   4.2. Solicitudes de Presupuesto  
-   4.3. Órdenes de Compra  
-   4.4. Recepción de Productos
+4. **VENTAS**  
+   4.1. Menú de Ventas  
+   4.2. Creación de Cotizaciones  
+   4.3. Gestión de Pedidos  
+   4.4. Configuración de Ventas
+   4.5. Integración con CRM
 
-5. **INVENTARIO**  
-   5.1. Gestión de Productos  
-   5.2. Movimientos de Inventario  
-   5.3. Operaciones de Inventario  
-   5.4. Kardex de Productos
+5. **CRM**
+   5.1. Pipeline de Ventas
+   5.2. Gestión de Leads y Oportunidades
+   5.3. Seguimiento de Actividades
+   5.4. Cierre y Conversión a Ventas
 
-6. **FACTURACIÓN**  
-   6.1. Facturas de Clientes  
-   6.2. Notas de Crédito  
-   6.3. Reembolsos  
-   6.4. Gestión de Pagos  
-   6.5. Facturas de Proveedores  
-   6.6. Liquidaciones de Compra  
-   6.7. Recibos de Proveedores  
-   6.8. Gastos de Empleados
+6. **COMPRAS**  
+   6.1. Requisiciones de Compra  
+   6.2. Solicitudes de Presupuesto  
+   6.3. Órdenes de Compra  
+   6.4. Recepción de Productos
+   6.5. Automatización de Reabastecimiento
 
-7. **CONTABILIDAD**  
-   7.1. Asientos Contables  
-   7.2. Apuntes Contables  
-   7.3. Apuntes Analíticos  
-   7.4. Presupuestos  
-   7.5. Conciliación Bancaria  
-   7.6. Histórico de Movimientos  
-   7.7. Chequeras y Gestión de Cheques
+7. **INVENTARIO**  
+   7.1. Gestión de Productos  
+   7.2. Almacenes y Ubicaciones
+   7.3. Operaciones de Inventario  
+   7.4. Kardex de Productos
+   7.5. Trazabilidad y Control de Lotes
 
-8. **ACTIVOS**  
-   8.1. Gestión de Activos  
-   8.2. Depreciaciones  
-   8.3. Gastos Diferidos
+8. **FABRICACIÓN**
+   8.1. Listas de Materiales
+   8.2. Órdenes de Fabricación
+   8.3. Planificación de Producción
+   8.4. Control de Calidad
 
-9. **TALENTO HUMANO Y NÓMINA**  
-   9.1. Gestión de Empleados  
-   9.2. Contratos  
-   9.3. Nómina  
-   9.4. Configuración de Nómina  
-   9.5. Gestión de Ausencias
+9. **PROYECTOS**
+   9.1. Gestión de Proyectos
+   9.2. Tareas y Subtareas
+   9.3. Seguimiento de Tiempo
+   9.4. Colaboración en Equipo
 
-10. **PROCESOS SRI**  
-    10.1. Carga de Documentos Electrónicos  
-    10.2. XML Enviados al SRI  
-    10.3. Retenciones de Compra  
-    10.4. Retenciones de Venta  
-    10.5. Anexo Transaccional Simplificado (ATS)
+10. **CONTACTOS**
+    10.1. Gestión de Contactos
+    10.2. Categorización y Etiquetas
+    10.3. Integración con Otras Aplicaciones
 
-11. **CAJAS CHICAS**  
-    11.1. Configuración de Cajas Chicas  
-    11.2. Reposiciones de Caja Chica
+11. **EMPLEADOS**
+    11.1. Gestión de Empleados
+    11.2. Estructura Organizativa
+    11.3. Contratos
+    11.4. Nómina
+    11.5. Gestión de Ausencias
 
-12. **REPORTES FINANCIEROS**  
-    12.1. Balance de Situación  
-    12.2. Estado de Pérdidas y Ganancias  
-    12.3. Estado de Flujos de Efectivo  
-    12.4. Resumen Ejecutivo  
-    12.5. Informes de Impuestos  
-    12.6. Libro Mayor  
-    12.7. Reportes por Cobrar/Pagar  
-    12.8. Reportes Financieros Ecuador  
-    12.9. Estados de Cuenta Cliente
+12. **FACTURACIÓN**  
+    12.1. Facturas de Clientes  
+    12.2. Notas de Crédito  
+    12.3. Reembolsos  
+    12.4. Gestión de Pagos  
+    12.5. Facturas de Proveedores  
+    12.6. Liquidaciones de Compra  
+    12.7. Recibos de Proveedores  
+    12.8. Gastos de Empleados
 
-13. **GLOSARIO**
+13. **CONTABILIDAD**  
+    13.1. Asientos Contables  
+    13.2. Apuntes Contables  
+    13.3. Apuntes Analíticos  
+    13.4. Presupuestos  
+    13.5. Conciliación Bancaria  
+    13.6. Histórico de Movimientos  
+    13.7. Chequeras y Gestión de Cheques
+
+14. **ACTIVOS**  
+    14.1. Gestión de Activos  
+    14.2. Depreciaciones  
+    14.3. Gastos Diferidos
+
+15. **PROCESOS SRI**  
+    15.1. Carga de Documentos Electrónicos  
+    15.2. XML Enviados al SRI  
+    15.3. Retenciones de Compra  
+    15.4. Retenciones de Venta  
+    15.5. Anexo Transaccional Simplificado (ATS)
+
+16. **CAJAS CHICAS**  
+    16.1. Configuración de Cajas Chicas  
+    16.2. Reposiciones de Caja Chica
+
+17. **REPORTES FINANCIEROS**  
+    17.1. Balance de Situación  
+    17.2. Estado de Pérdidas y Ganancias  
+    17.3. Estado de Flujos de Efectivo  
+    17.4. Resumen Ejecutivo  
+    17.5. Informes de Impuestos  
+    17.6. Libro Mayor  
+    17.7. Reportes por Cobrar/Pagar  
+    17.8. Reportes Financieros Ecuador  
+    17.9. Estados de Cuenta Cliente
+
+18. **GLOSARIO**
 
 ---
 
@@ -111,13 +145,22 @@ El acceso al sistema se realiza a través de la pantalla de inicio de sesión do
 
 ![Pantalla de login](odoo%2016%20módulos/1_login.png)
 
+Odoo es un ERP modular de código abierto que integra todas las áreas de una empresa en una única plataforma. La versión Community de Odoo 16 es gratuita y de código abierto, ofreciendo amplias funcionalidades empresariales sin costo de licenciamiento (aunque con algunas características avanzadas reservadas para la edición Enterprise).
+
+Para acceder al sistema:
+1. **Acceder a la pantalla de login**: Navegue a la URL de su instancia de Odoo 16 (por ejemplo, https://<su_dominio>/web/login). Allí verá el formulario de inicio de sesión.
+2. **Ingresar credenciales**: Escriba su dirección de correo electrónico de usuario y la contraseña en los campos correspondientes. Si su empresa ha habilitado autenticación de dos factores, deberá proporcionar el código de verificación generado en su aplicación autenticadora.
+3. **Iniciar sesión**: Haga clic en el botón "Iniciar sesión". Si las credenciales son correctas (y se pasa la verificación de dos pasos en caso de estar activa), el sistema lo autenticará.
+
 Una vez autenticado, accederá a la bandeja principal del sistema.
 
 ![Bandeja principal](odoo%2016%20módulos/2_bandeja.png)
 
-Desde la bandeja principal, podrá acceder a todos los módulos del sistema a través del menú principal.
+Tras un login exitoso, Odoo muestra el tablero principal o menú de aplicaciones. Desde allí podrá ver los iconos de los módulos disponibles y acceder a ellos según sus permisos de usuario. Cada icono representa un módulo (Ventas, Inventario, Contabilidad, etc.). Al hacer clic en uno, ingresará a la aplicación correspondiente.
 
 ![Menús](odoo%2016%20módulos/3_menús.png)
+
+La interfaz de Odoo 16 se caracteriza por su facilidad de uso e integración total de las aplicaciones. En la parte superior encontrará la barra de búsqueda universal y accesos rápidos, y en cada módulo podrá navegar mediante menús desplegables a las distintas funciones.
 
 ---
 
@@ -211,6 +254,22 @@ En esta sección puede configurar:
 - Códigos de impuestos según normativa SRI
 - Porcentajes de retención vigentes
 - Parámetros para generación del ATS
+
+### Información ampliada
+
+En Odoo 16 Community existen ciertas funciones transversales y opciones de configuración generales que conviene conocer, ya que están disponibles en prácticamente todos los módulos. Estas características estándar facilitan la navegación, la personalización básica y la adaptación del sistema a las necesidades de la empresa. A continuación, se describen las más importantes:
+Búsqueda y filtrado: En la parte superior de cada vista de listado, Odoo ofrece una barra de búsqueda potente para localizar registros rápidamente. Puede usarse para buscar por cualquier campo específico y aplicar filtros sobre la marcha. “Puede usar el campo de búsqueda para buscar valores específicos con rapidez y agregarlos como filtro.”
+. Al escribir texto, el sistema sugiere campos sobre los cuales filtrar; por ejemplo, en una lista de contactos, escribir “San Francisco” y elegir Ciudad filtrará todos los contactos en esa ciudad. Además, están disponibles los menús desplegables de Filtros, Agrupar y Favoritos: con Filtros se pueden añadir condiciones personalizadas (ej. Agregar filtro personalizado: campo = Estado, valor = Borrador)
+; con Agrupar se agrupan registros por categorías (p.ej. por Vendedor, por Etiqueta); y Favoritos permite guardar búsquedas frecuentes para reutilizarlas. Esta funcionalidad estándar de búsqueda y filtrado agiliza enormemente la localización de información en bases de datos extensas y es uniforme en todos los módulos (ventas, inventario, etc.).
+Importación y exportación de datos: Odoo 16 Community permite exportar listas de datos a formatos como CSV o Excel, y también importar datos en masa desde archivos, lo cual es muy útil durante la carga inicial de información o para actualizaciones masivas. Por ejemplo, es posible exportar la lista completa de productos con sus campos, editar precios en Excel, y reimportar para actualizar. Al exportar, el usuario escoge qué campos incluir; al importar, Odoo proporciona plantillas y validaciones para asegurar la correcta carga de datos
+. “En la herramienta de importación se proporcionan las plantillas para importar los datos más comunes (contactos, productos, estados de cuenta bancarios, etc.). Puede abrirlas con cualquier software de hojas de cálculo...”
+. Es importante mapear correctamente las columnas del archivo con los campos de Odoo. La importación masiva agiliza la migración desde otros sistemas o la creación de registros de forma rápida (por ejemplo, cargar 500 contactos nuevos desde un CSV en lugar de uno por uno). Esta función estándar se accede mediante el botón Importar o Exportar que aparece en las vistas de listado, al lado de Crear, y está sujeto a permisos (normalmente solo administradores o usuarios con permiso pueden importar para evitar errores).
+Informes y vistas personalizables: En todos los módulos, Odoo ofrece múltiples vistas de los datos: lista, kanban, formulario, calendario, gráfico y pivote, cuando aplican. Por ejemplo, en Facturación puede ver las facturas en formato de lista o también un gráfico de barras por estado (borrador, pagado, vencido). La vista pivote permite generar tablas dinámicas directamente en Odoo, sobre cualquier dato (útil para análisis ad-hoc sin exportar a Excel). Además, al abrir un registro, existe el botón Imprimir que genera informes en PDF con plantillas prediseñadas (facturas, pedidos, albaranes, etc.). Estos reportes pueden adaptarse mediante personalización (requiere estudio técnico o usar Odoo Studio en Enterprise). En Community, también está disponible la opción de Acciones en lote, que permite seleccionar varios registros y realizar acciones masivas (ej. validar múltiples facturas a la vez, borrar varios contactos, etc., según permisos). Finalmente, la interfaz soporta ciertas personalizaciones como agregar campos personalizados (vía modo desarrollador) o reordenar columnas en la vista list (arrastrando títulos) para cada usuario.
+Actividades programadas: Odoo cuenta con un sistema integrado de actividades para seguimiento de tareas pendientes. En cualquier modelo (una oportunidad de CRM, una tarea de proyecto, una factura, etc.) se puede programar una actividad futura: llamada, correo, reunión, tarea pendiente, etc., asignada a un usuario y con fecha límite. Estas actividades aparecen en la barra lateral del registro y también en el menú general Actividades (icono de reloj en la barra superior), listando las actividades de hoy, retrasadas y próximas para el usuario. Por ejemplo, un vendedor puede tener una actividad “Llamar para seguimiento” en una oportunidad X el día Y. Cuando llega la fecha, Odoo le recordará en su panel de Actividades. “Para visualizar todas las actividades de todos los usuarios, quite el filtro Mi flujo de la barra de búsqueda.”
+– es decir, un gerente podría ver actividades de su equipo. Marcar actividades como hechas o cancelarlas mantiene el flujo de trabajo ordenado. Este sistema estándar aumenta la productividad al no dejar pendientes olvidados en ningún proceso.
+Ajustes generales del sistema: La aplicación Ajustes (o Configuración) es accesible solo por el Administrador o usuarios con permisos técnicos. Desde Ajustes se configuran parámetros globales como: datos de la Compañía (nombre, logo, dirección, moneda, lenguaje), gestión de Usuarios y sus permisos, activación o desactivación de módulos adicionales, configuración de Email (servidor de correo saliente y entrante para integraciones), traducciones y zonas horarias, entre otros. Muchos módulos tienen secciones de configuración específicas dentro de esta app. Por ejemplo, bajo Ajustes > Ventas, se pueden habilitar opciones como Firma electrónica en cotizaciones, Múltiples unidades de medida, etc. Cualquier opción marcada aquí afecta el comportamiento de la aplicación correspondiente. Cabe destacar que algunos ajustes avanzados están ocultos hasta activar el modo desarrollador (lo cual en Odoo Community se logra añadiendo ?debug=1 en la URL, o a través del menú de desarrollador). En general, Ajustes le permite “gestionar la configuración de su proyecto”
+en Odoo: es donde se realizan las parametrizaciones iniciales después de la instalación y donde se administran las funcionalidades transversales del sistema.
+
 - Configuración de conexión con servicios web del SRI
 ## 3. VENTAS
 
@@ -273,6 +332,23 @@ En configuración puede definir:
 
 ---
 
+### Información ampliada
+
+Figura 1: Vista principal del módulo de Ventas en Odoo 16, mostrando el tablero de cotizaciones y clientes. La aplicación Ventas de Odoo permite gestionar todo el proceso comercial, desde la oferta hasta el pedido confirmado y la factura. En palabras de la documentación oficial: “La aplicación Ventas de Odoo es la que ejecuta su proceso de ventas (desde la cotización hasta la orden de venta) y entrega y factura lo que se vendió.”
+. En Odoo 16 Community, el módulo de Ventas incluye herramientas para crear cotizaciones, enviarlas a clientes, confirmar pedidos, administrar entregas y generar facturas de venta de forma integrada. Creación de cotizaciones: Para crear una nueva cotización de venta, navegue al menú Ventas > Pedidos > Cotizaciones y haga clic en el botón Nuevo. Se abrirá el formulario de cotización donde podrá seleccionar el cliente, productos, precios y condiciones de pago. “Para crear una cotización, abra Ventas y haga clic en el botón Nuevo ubicado en la esquina superior izquierda de la página del tablero principal de cotizaciones.”
+. En el formulario, es obligatorio indicar el Cliente y agregar al menos un producto con su cantidad y precio. Odoo completará automáticamente la dirección de facturación y entrega según los datos del contacto del cliente, y permitirá elegir plantillas de cotización predefinidas si existen
+. Una vez ingresados todos los datos necesarios, puede guardar la cotización y enviarla por correo electrónico al cliente directamente desde Odoo (usando la función de Enviar por email). Confirmación del pedido: Cuando el cliente acepta la oferta, el siguiente paso es confirmar la cotización para convertirla en un pedido de venta. Al hacer clic en Confirmar, Odoo cambia el estado de la cotización a Orden de Venta. “Al confirmarlas, estas se convierten en órdenes de venta que pueden ser facturadas y pagadas.”
+. En ese momento, si los productos vendidos son tipo stock, el sistema genera automáticamente una orden de entrega en el módulo de Inventario para preparar el envío al cliente. Asimismo, la orden de venta confirmada queda lista para ser facturada desde el módulo de Facturación/Contabilidad. (Si la empresa maneja pagos en línea, Odoo también permite solicitar pago al confirmar, integrando pasarelas de pago en la cotización). Finalmente, una vez entregados los productos y/o prestados los servicios, es posible crear la factura de cliente directamente desde la orden de venta. Odoo soporta facturación por cantidades entregadas o por cantidades pedidas según la configuración elegida
+. Gestión de clientes y pipeline: El módulo de Ventas trabaja estrechamente con Contactos (para el registro de clientes) y con CRM (gestión de oportunidades). Los clientes potenciales captados se gestionan en CRM, y al calificarlos pueden convertirse en cotizaciones en Ventas. El tablero de Ventas muestra indicadores clave y es posible analizar el desempeño de ventas mediante informes y gráficos (por vendedor, por ingresos, por productos más vendidos, etc.). Además, Odoo permite configurar listas de precios y descuentos por cliente, definir distintas unidades de medida de venta, manejar variantes de producto, y otras funcionalidades avanzadas de ventas
+. En resumen, Ventas es el módulo central para concretar ingresos: desde la primera oferta hasta el cobro, con un proceso integrado y automatizado dentro de Odoo 16.
+CRM
+El módulo CRM (Customer Relationship Management) se enfoca en la gestión del ciclo previo a la venta: seguimiento de leads (prospectos) y oportunidades comerciales, para convertirlos en clientes. Según la documentación de Odoo, “La aplicación CRM de Odoo le ayuda a organizar su actividad de ventas y le permite dar seguimiento a sus leads, cerrar oportunidades y obtener pronósticos precisos.”
+. En Odoo 16 Community, CRM está totalmente integrado con Ventas, de modo que una oportunidad ganada puede convertirse en una cotización de forma directa. Pipeline de ventas: La interfaz principal de CRM es un tablero kanban que muestra las oportunidades clasificadas por etapas (por ejemplo: Nueva, Calificando, Propuesta, Ganada). Este pipeline visual permite arrastrar y soltar tarjetas de oportunidad a lo largo de las etapas, reflejando su avance. Cada oportunidad registra información como el cliente potencial, importe esperado, probabilidad de cierre, próximas actividades programadas, etc. Odoo ofrece herramientas para organizar el flujo de ventas, incluyendo la asignación de vendedores, segmentación por equipos de ventas, y automatización de actividades de seguimiento. Por ejemplo, es posible configurar recordatorios y próximas acciones mediante el sistema de actividades (llamadas, reuniones, correos) directamente enlazado a cada oportunidad. Leads y oportunidades: CRM permite manejar un ciclo de ventas corto o largo según las necesidades. Se pueden registrar leads (simples contactos o interesados) que luego se convierten en oportunidades calificadas. El sistema puede obtener leads de formularios del sitio web, campañas de marketing u otras fuentes, y asignarlos automáticamente a vendedores mediante reglas (por zona, sector, etc.). La información de los leads se enriquece en Odoo (incluso existe integración con servicios para obtener datos de empresa automáticamente). Una vez convertidos en oportunidad, se inicia el seguimiento activo: “Organice sus oportunidades con ayuda del flujo (pipeline) y gestione sus actividades diarias con reuniones y próximas actividades.”
+. Cierre y conversión a ventas: Cuando una oportunidad se concreta (ganada), el usuario puede marcarla como Ganada en el pipeline de CRM. En ese punto, gracias a la integración, es posible crear directamente un presupuesto de venta (cotización) enlazado a esa oportunidad, saltando al módulo de Ventas con la información ya cargada del cliente potencial. Si la oportunidad no prospera, también es posible marcarla como Perdida indicando un motivo, lo que alimenta posteriormente informes de tasa de éxito y razones de pérdida para análisis comerciales
+. El CRM de Odoo incluye además reportes para pronosticar ventas (forecast), análisis de pipeline por etapa, por vendedor, duración de ciclo de venta, etc., dando a la gerencia herramientas para un pronóstico preciso (“obtener pronósticos precisos”
+) del desempeño comercial. En conjunto, CRM y Ventas cubren el ciclo completo de ventas: CRM gestiona la relación y la oportunidad antes del pedido, y Ventas gestiona la cotización, el pedido y la facturación una vez se cierra el trato. Esta integración garantiza un flujo continuo de información sin reingreso de datos, aumentando la eficiencia del proceso comercial en Odoo 16 Community.
+
+
 ## 4. COMPRAS
 
 ### 4.1. Requisiciones de Compra
@@ -326,6 +402,16 @@ El proceso de compra incluye la recepción de productos:
 
 ---
 
+### Información ampliada
+
+La aplicación Compras de Odoo permite gestionar todo el proceso de adquisición de bienes y servicios a proveedores. Su función es mantener un control de las cotizaciones de proveedores, órdenes de compra y recepción de mercancías de la empresa. En palabras de la documentación: “La aplicación Compra de Odoo le ayuda a mantener un registro de todos los acuerdos de compra, cotizaciones y órdenes de compra que realice.”
+. De este modo, Odoo Compras facilita desde la solicitud de cotización (RFQ) hasta la orden de compra confirmada, y su integración con Inventario para recepcionar productos, y con Facturación para las facturas de proveedor. Solicitudes de cotización y órdenes de compra: El flujo típico inicia creando una Solicitud de Cotización a uno o varios proveedores. Para ello, navegue a Compras > Pedidos > Solicitudes de presupuesto y cree un nuevo registro, indicando el proveedor, las líneas de productos a comprar, cantidades y precios esperados. Se puede enviar la solicitud al proveedor directamente por correo electrónico desde Odoo. Una vez recibido el presupuesto del proveedor y acordados los términos, simplemente se hace clic en Confirmar para convertir la solicitud en una Orden de Compra firme. Al confirmar la orden de compra, Odoo programa automáticamente una recepción en el módulo de Inventario, para que el almacén proceda a ingresar las mercancías cuando arriben. También se vuelve posible registrar la factura del proveedor correspondiente en el módulo de Facturación. Todo este proceso queda registrado y vinculado: la orden de compra enlaza a sus recepciones en almacén y a las facturas de proveedor, brindando una trazabilidad completa. Automatización de reabastecimiento: Odoo 16 Community incorpora funcionalidades para optimizar las compras recurrentes. Una de ellas son las reglas de reorden (reabastecimiento automático). Estas reglas permiten definir un punto de pedido mínimo en el inventario de cada producto, de modo que cuando el stock disponible cae por debajo del mínimo, Odoo genere automáticamente una orden de compra (o una solicitud) al proveedor designado para reponer existencias
+. Esto ayuda a evitar quiebres de stock y asegura el abastecimiento continuo. Adicionalmente, el sistema soporta pedidos abiertos y contratos de compra (compras programadas con un proveedor a lo largo del tiempo)
+, así como la gestión de múltiples cotizaciones a diferentes proveedores para un mismo requerimiento, pudiendo comparar precios y elegir la mejor oferta. Recepciones y control de calidad: Tras confirmar una compra, la integración con Inventario se encarga de la recepción. Los encargados de almacén verán un albarán de entrada pendiente por la cantidad ordenada. Cuando el proveedor entrega los productos, el usuario de inventario procede a validar la recepción registrando las cantidades recibidas. Odoo permite manejar cantidades recibidas parciales, backorders (pedidos pendientes), e incluso flujo de aprobaciones o controles de calidad si se configuran (por ejemplo, inspeccionar productos al recibir). Solo después de recibir físicamente, se suele procesar la factura del proveedor (según política: Odoo puede manejar facturación al pedir o al recibir mercancía
+). En resumen, el módulo Compras de Odoo 16 Community brinda un control completo sobre el ciclo de abastecimiento de la empresa, integrándose con Inventario y Contabilidad. Desde la negociación con proveedores hasta la entrada de stock y pago de facturas, todo el proceso queda centralizado: “Aprenda cómo monitorear una licitación de compra, automatizar el reabastecimiento y darle seguimiento a sus órdenes.”
+. Esto mejora la eficiencia en compras y la visibilidad de las obligaciones con proveedores en la organización.
+
+
 ## 5. INVENTARIO
 
 ### 5.1. Gestión de Inventario
@@ -372,6 +458,43 @@ El kardex permite visualizar todos los movimientos de un producto y su valoraci�
 - Reportes por producto, categoría o almacén
 
 ---
+
+### Información ampliada
+
+El módulo Inventario de Odoo es una poderosa herramienta de gestión de almacenes y existencias, encargada de registrar todos los movimientos de productos dentro de la empresa. Su alcance abarca recepciones de proveedor, entregas a clientes, transferencias internas, ajustes de inventario, control de ubicaciones y más. Tal como indica la documentación: “La aplicación Inventario de Odoo es tanto una aplicación de inventario como un sistema de gestión de inventario. La aplicación permite a los usuarios gestionar los tiempos de espera, automatizar el reabastecimiento, configurar rutas avanzadas y mucho más.”
+. Es decir, incluye funcionalidades básicas de almacén y también opciones avanzadas (multi-almacén, reglas automáticas, etc.) típicas de un WMS (Warehouse Management System). Almacenes y ubicaciones: En Odoo, un Almacén representa una instalación física o depósito de la empresa, y dentro de cada almacén se pueden definir múltiples Ubicaciones específicas (estantes, secciones, sub-almacenes) para mayor detalle. “En la aplicación Inventario de Odoo, los almacenes se encargan de gestionar y distribuir los productos entre distintas áreas físicas, mientras que las ubicaciones proporcionan un desglose más detallado dentro de cada almacén para gestionar los artículos con mayor eficiencia.”
+. Cada movimiento de inventario en Odoo ocurre entre dos ubicaciones (origen y destino). Por ejemplo, una Recepción desde proveedor mueve stock de la ubicación virtual Proveedor al almacén físico de la empresa; una Entrega a cliente mueve stock del almacén a la ubicación virtual Clientes (salida); una Transferencia interna mueve stock entre dos ubicaciones internas de la compañía. Esta estructura flexible permite reflejar con exactitud la organización real del inventario. Operaciones de inventario: Las operaciones principales gestionadas por el módulo incluyen:
+Recepciones de mercancía (entradas de compra o devoluciones de clientes).
+Entregas o despachos (salidas por ventas o envíos al cliente).
+Transferencias internas (movimientos entre almacenes o ubicaciones internas).
+Ajustes de inventario (recuentos físicos para corregir las cantidades en sistema).
+Odoo 16 Community brinda una interfaz clara para manejar estas operaciones. Por ejemplo, al recibir productos de una orden de compra confirmada, se genera un documento de Recepción correspondiente. El usuario de almacén puede validar la entrada indicando las cantidades efectivamente recibidas (soportando también series, lotes o fechas de caducidad si aplican al producto). Del mismo modo, las Entregas vinculadas a órdenes de venta aparecen listadas para su preparación y validación, incluyendo la posibilidad de imprimir albaranes o etiquetas si se requieren. Las transferencias internas permiten reubicar stock entre almacenes (Odoo soporta reglas push/pull y rutas predefinidas para automatizar movimientos internos, por ejemplo abastecimiento de una tienda desde un almacén central). Los ajustes de inventario se realizan iniciando un conteo (Odoo crea un inventario físico donde el usuario ingresa el conteo real de cierto conjunto de productos/ubicaciones), y al validar, el sistema ajusta las diferencias automáticamente. Otras funciones avanzadas: Inventario en Odoo 16 Community también incluye funcionalidades como: gestión de lotes y números de serie (para trazabilidad detallada de productos individuales
+), manejo de paquetes y embalajes, definiciones de rutas de almacenamiento (por ejemplo drop-shipping, cross-docking, manufactura, etc.), y soporte de múltiples unidades de medida con conversiones automáticas. Los informes de inventario permiten valorar el stock (usando métodos FIFO, costo promedio, etc.), conocer cantidades disponibles vs reservadas, rotación de productos, entre otros datos importantes. Cabe mencionar que, al ser Community, algunas características como el uso de códigos de barras mediante la app móvil o ciertos automatismos pueden estar limitados, pero los procesos esenciales de inventario están completamente cubiertos. En síntesis, el módulo Inventario garantiza un control riguroso de las existencias. Todas las transacciones quedan documentadas y enlazadas: por ejemplo, desde un pedido de venta se puede saltar a la entrega en almacén y de allí a la firma de recepción del cliente. Gracias a esta trazabilidad integral y a las opciones de automatización, Odoo 16 Community permite optimizar la gestión de stock, reducir errores y tener en todo momento visibilidad sobre qué hay en inventario, dónde está y en qué estado se encuentra.
+Fabricación
+El módulo Fabricación (Manufacturing) de Odoo está dirigido a empresas manufactureras para planificar, programar y controlar sus órdenes de producción. Permite definir las Listas de materiales (BOM) de cada producto, lanzar Órdenes de Fabricación, gestionar órdenes de trabajo en el taller, y hacer seguimiento del proceso productivo de principio a fin. Según la documentación oficial: “La aplicación Fabricación de Odoo le ayuda a los fabricantes a programar, planificar y procesar las órdenes de fabricación.”
+. En Odoo 16 Community, Manufacturing incluye funcionalidades robustas de MRP, aunque algunas avanzadas (como uso de Centro de Trabajo con tabletas IoT) son parte de la edición Enterprise. Aún así, la Community permite llevar un control eficaz de producción para pymes industriales. Listas de materiales y planificación: En primer lugar, para cada producto manufacturado se define su Lista de Materiales (LdM), que especifica los componentes requeridos y, opcionalmente, las operaciones a realizar. Una LdM puede incluir materia prima, mano de obra y también sub-ensambles (productos que a su vez se fabrican a partir de otras LdM). Con las LdM configuradas, cuando se necesita producir un artículo (por ventas o para stock), el usuario crea una Orden de Fabricación desde Fabricación > Operaciones > Órdenes de Fabricación, seleccionando el producto a fabricar y la cantidad. Odoo entonces enlistará automáticamente los componentes necesarios según la LdM. Es posible programar la orden para una fecha y, si se manejan centros de trabajo, asignarla a una línea o máquina específica. Ejecución de órdenes de fabricación: Al iniciar una orden de fabricación, el inventario de componentes se reserva para la producción. Si un componente está agotado, Odoo puede activar reglas de reabastecimiento (por ejemplo, generar automáticamente una orden de compra al proveedor o una fabricación de ese subcomponente, si así está configurado). Durante el proceso, el operario o responsable de producción puede marcar en Odoo el comienzo y fin de la fabricación, registrar consumos reales de material (si difieren de la LdM estándar), y reportar la cantidad producida y cualquier desecho. Cuando la orden está completa, se valida la producción, lo que descuenta los componentes del inventario y aumenta el stock del producto terminado. Todo queda documentado: Odoo genera un movimiento de stock de salida de materias primas y entrada del producto final en la ubicación designada (p. ej. almacén de productos terminados). Características adicionales: Odoo soporta diferentes estrategias de producción: fabricación para stock (make to stock) y fabricación bajo pedido (make to order). También permite manejar producciones multi-paso. Por ejemplo, puede configurar que la fabricación se haga en 3 etapas: Preparación -> Producción -> Control de Calidad, generando transferencias internas entre etapas de manera automática
+. Aunque la interfaz IoT para alertas en planta es Enterprise, en Community igualmente se puede registrar tiempos de trabajo, pausar órdenes, y cargar incidencias manualmente. El módulo de Mantenimiento (Enterprise) y Calidad (Enterprise) se integran con Fabricación para reportar paros de máquina o controles de calidad durante la producción; en Community no están disponibles esos submódulos, pero sí se puede reflejar manualmente si un producto no pasó control mediante ajustes de inventario o notificaciones en notas. En conclusión, Fabricación en Odoo 16 Community brinda las funciones esenciales de un sistema MRP: estructura de producto, planificación de órdenes y control de stock en producción. “Coloque tabletas en el taller para controlar todas las órdenes de trabajo en tiempo real mediante el panel de control del centro de trabajo...” – si bien esta parte corresponde a Enterprise IoT
+, la Community igualmente le permite a un fabricante conocer en tiempo real el estado de sus órdenes desde el sistema, con actualizaciones de cantidad producida, materiales consumidos y costo de producción (según el valor de componentes). Integrado con Ventas, Inventario y Compras, el módulo de Fabricación asegura que la cadena productiva esté coordinada con la demanda y el aprovisionamiento en Odoo.
+Proyecto
+El módulo Proyecto de Odoo se utiliza para planificar, organizar y hacer seguimiento a proyectos de la empresa, especialmente útil en industrias de servicios, desarrollo, consultoría, etc. Odoo permite crear proyectos, dividirlos en tareas, asignar responsables y fechas, y colaborar en su ejecución. La documentación define: “Proyecto de Odoo es una herramienta para gestionar sus proyectos activos. Planifique tareas, asigne actividades a sus compañeros de trabajo y manténgase al tanto del rendimiento de cada proyecto.”
+. En Odoo 16 Community, el módulo de Proyectos proporciona las funcionalidades clave de gestión de tareas y tiempos, aunque funciones como hojas de horas avanzadas o pronósticos pueden estar limitadas en Community. Estructura de proyectos y tareas: Al ingresar al módulo Proyecto, se presenta un tablero con todos los proyectos en curso (cada uno representado como un tablero tipo kanban, o lista, según preferencia). Dentro de cada proyecto, las Tareas son el elemento principal. Cada tarea puede tener asignado un usuario responsable, fechas límite, etiquetas, subtareas, y registro de progreso. Por ejemplo, en un proyecto de desarrollo de software, podría haber tareas como “Diseño UI”, “Implementación módulo X”, “Pruebas QA”, etc. Odoo facilita la creación rápida de tareas y su asignación al personal. Además, las tareas pueden organizarse por etapas (ToDo, En Proceso, Hecho, por ejemplo) y arrastrarse visualmente de una etapa a otra, similar al funcionamiento del CRM pero orientado a flujo de trabajo interno. Colaboración y seguimiento: Dentro de cada tarea, existe un chat/log (Chatter) donde los participantes pueden agregar notas, adjuntar documentos, o incluso hacer menciones a compañeros (usando @) para consultas. Esto mantiene la comunicación del equipo centralizada en el contexto de la tarea misma. Es posible programar actividades (llamadas, reuniones, correos) ligadas a la tarea, lo que ayuda a recordar acciones pendientes o automatizar seguimientos. El módulo de Proyecto también se integra con el módulo Hojas de horas (Timesheets, disponible en Community) de manera que los empleados pueden registrar el tiempo trabajado en cada tarea. Esto es particularmente útil para proyectos facturables: Odoo puede acumular las horas registradas y, si se usa junto con el módulo de Facturación, generar facturas a clientes basadas en tiempo y materiales invertidos en un proyecto. Control y entrega: Los gerentes de proyecto pueden monitorear el avance a través de vistas de Tabla o Calendario, filtrando por asignado, por vencimiento, etc. Odoo ofrece informes como gráficos de burndown, o productividad por empleado, para analizar la eficiencia. Al finalizar un proyecto o una tarea, simplemente se marca como realizada. En caso de proyectos complejos, es posible crear subproyectos o vincular tareas dependientes. Sin embargo, la versión Community no incluye la característica de tareas dependientes tipo diagrama de Gantt interactivo (esa es Enterprise), pero sí se puede ver un Gantt básico de tareas. Para la mayoría de las pymes, la vista kanban o lista combinada con fechas y prioridades suele ser suficiente para gestionar eficazmente los proyectos. En resumen, el módulo Proyecto de Odoo 16 Community ofrece un entorno colaborativo para asegurar que los proyectos avanzan según lo planificado y que todos los miembros del equipo conocen sus tareas y plazos. La integración con otras apps (por ejemplo, poder facturar directamente las horas de proyecto al cliente, o enlazar un ticket de Helpdesk a un entregable de proyecto en Enterprise) amplía las posibilidades, pero incluso usando únicamente Community se puede cubrir el ciclo básico: “Planifique tareas, asigne actividades a sus compañeros de trabajo y manténgase al tanto del rendimiento de cada proyecto.”
+. Esto mejora la transparencia y la eficiencia en la ejecución de proyectos internos y para clientes.
+Contactos
+El módulo Contactos es una aplicación fundamental (viene instalada por defecto en todas las bases de Odoo
+) que sirve como directorio central de todas las personas y empresas con las que la organización se relaciona: clientes, proveedores, socios y también empleados. Un contacto en Odoo actúa como un registro maestro de información de una persona o entidad, incluyendo direcciones, teléfonos, correos, datos fiscales, etc. “Los contactos se crean para cada persona con la que usted trabaja a través de Odoo, como sus clientes. Un contacto es un repositorio de información empresarial indispensable que le permite comunicarse y facilitar las transacciones empresariales.”
+. Creación y tipos de contacto: Para crear un nuevo contacto manualmente, basta ir a Contactos y pulsar Crear. Se abrirá un formulario donde seleccionar si es un Contacto Individual (persona) o una Empresa
+.
+Si es Empresa, el formulario pedirá el Nombre de la empresa y sus datos (dirección, teléfono, etc.).
+Si es Individual, se pedirá el Nombre de la persona y aparecerá un campo opcional de “Empresa” para vincular este individuo a una empresa existente (por ejemplo, un empleado de una compañía cliente)
+.
+A continuación se completan los campos de dirección (país, estado, ciudad, calle), contactos adicionales (teléfono, móvil, email, sitio web), posición (cargo), identificaciones fiscales (por ejemplo RUC, CIF, NIF, según país)
+, y cualquier otra nota relevante. Odoo permite también categorizar contactos usando etiquetas, lo cual es útil para segmentar (ejemplo: Proveedor, Cliente VIP, etc.)
+. Relaciones y jerarquías: La app Contactos soporta múltiples direcciones y contactos asociados. En la pestaña Contactos y direcciones de una ficha de Empresa, se pueden añadir subcontactos que representan, por ejemplo, sucursales (direcciones adicionales) o personas de contacto dentro de esa empresa
+. Un mismo individuo puede estar vinculado a una empresa (campo “Nombre de la empresa” en su ficha). Esto crea una jerarquía: verás en la ficha de la empresa listados los individuos asociados (ej. diferentes empleados de ese cliente corporativo). Además, las direcciones pueden clasificarse por tipo: Facturación, Envío, Contacto, Otro
+, lo que permite a Odoo elegir automáticamente la dirección correcta en documentos de ventas o compras (por ejemplo usar la dirección de entrega del contacto cuando se genera una orden de entrega). Usos en otras aplicaciones: El módulo de Contactos sirve de base de datos para todo Odoo. Cuando en Ventas seleccionamos un cliente para una cotización, estamos eligiendo un registro de Contactos. Lo mismo ocurre al asignar un proveedor en una orden de compra, o un empleado en una hoja de horas. Por ello, mantener actualizada la información en Contactos es importante. Desde Contactos también se puede: otorgar acceso al portal a un contacto (por ejemplo, invitar a un cliente a que acceda a su portal de cliente para ver sus pedidos y facturas)
+, registrar miembros (en caso de usar módulo de Membresías), entre otras acciones. En síntesis, Contactos funciona como una libreta de direcciones centralizada y compartida entre todos los módulos. Dado que viene instalada por defecto, es uno de los primeros lugares donde ingresaremos datos maestros (clientes, proveedores, etc.) al iniciar con Odoo 16. La interfaz es sencilla pero poderosa, permitiendo filtrar y buscar fácilmente contactos por cualquier criterio, y ampliable con campos personalizados si se requiere información adicional. Es la base para poder “comunicarse y facilitar las transacciones empresariales”
+en todas las aplicaciones de Odoo.
+
 
 ## 6. FACTURACIÓN
 
@@ -571,6 +694,15 @@ El módulo permite:
 - Contabilización por centros de costo
 
 ---
+
+### Información ampliada
+
+Odoo 16 Community ofrece potentes herramientas de Facturación y ciertos componentes de Contabilidad para gestionar las finanzas de la empresa. En la edición Community, el módulo de Facturación (Invoicing) está disponible con el cual se pueden crear facturas de clientes, registrar facturas de proveedores, gestionar pagos, impuestos básicos y reportes financieros esenciales. La Contabilidad completa (con contabilidad analítica, conciliación bancaria automática, etc.) es parte de Odoo Enterprise, pero la Community cubre muchos requerimientos estándar de facturación. Según la documentación: “La aplicación Facturación de Odoo es una aplicación autónoma para crear facturas, enviárselas a sus clientes y gestionar pagos. Contabilidad de Odoo es una aplicación con funciones de contabilidad completas...”
+. Veamos cómo se estructura en Community: Facturación (Ventas): El módulo de Facturación permite emitir Facturas de cliente por ventas de productos o servicios. Estas facturas pueden generarse manualmente o automáticamente a partir de órdenes de venta confirmadas en el módulo Ventas (incluso se pueden emitir facturas periódicas si se configuran suscripciones, en Enterprise). Para cada factura se selecciona el cliente, se detallan los conceptos facturados (productos, cantidades, precio, impuestos) y se establece la fecha de vencimiento según términos de pago. Odoo soporta múltiples impuestos aplicables por producto y por cliente, manejando casos de impuestos incluidos o excluidos según configuración de empresa. Una vez validada, una factura puede ser enviada al cliente en PDF (Odoo genera un PDF profesional con el formato de factura). Luego, al recibirse el pago, se registra en el sistema, pudiendo conciliar el pago contra la factura para marcarla como Pagada. En Community, la conciliación es manual (el usuario aplica el pago a la factura correspondiente). “En Odoo, una factura se considera pagada cuando el asiento contable asociado se ha conciliado con los asientos de pago.”
+– aunque la generación de asientos detallados es más propia de la Contabilidad completa, conceptualmente Community también refleja ese estado pagado al conciliar. Facturas de proveedor y pagos: De forma análoga, Odoo permite gestionar las Facturas de proveedor (o cuentas por pagar). Estas pueden capturarse manualmente o a partir de órdenes de compra. Se registra el proveedor, los productos o servicios que nos está facturando, importes, impuestos y fecha de vencimiento. Al validar, queda pendiente de pago. Cuando realizamos el pago (por transferencia, cheque, etc.), registramos ese pago en Odoo y marcamos la factura como pagada. Odoo puede manejar distintos métodos de pago y cuentas bancarias. En Community, la conciliación bancaria (igualar extractos del banco con las facturas pagadas) se realiza de forma semiautomática: el usuario carga los extractos (por importación de CSV, OFX) y luego empareja transacciones con facturas; la versión Enterprise añade herramientas de conciliación automática con inteligencia artificial y sincronización bancaria
+. No obstante, Community brinda lo básico para llevar un control de qué facturas están pagadas o pendientes, tanto de clientes como de proveedores. Funciones contables básicas: Aunque la contabilidad completa (módulo “Contabilidad”) es limitada en Community, aún se puede llevar cierta contabilidad general: Odoo Community permite definir un Plan de Cuentas local (por ejemplo, cuentas contables para activos, pasivos, ingresos, gastos) y genera asientos contables básicos de facturas y pagos. Así, uno podría extraer un libro mayor o balance simple. Sin embargo, características como informes financieros avanzados, partidas analíticas, activos fijos, etc., pueden requerir módulos adicionales o la versión Enterprise. Aún así, Odoo Community cubre aspectos esenciales: manejo de múltiples monedas (con sus tipos de cambio), aplicación de retenciones impositivas simples, y reportes como edad de deuda (Antigüedad de saldos de clientes). En localizaciones como la de Ecuador, existen módulos comunitarios adicionales para cumplir requisitos fiscales (ejemplo: emisión de comprobantes electrónicos, retenciones de IVA e ISR, etc.), integrándose con el núcleo de facturación. En conclusión, con Facturación Odoo 16 Community permite administrar toda la cuenta por cobrar (facturación y cobro a clientes) y cuenta por pagar (facturas y pagos a proveedores) de forma eficiente. Es una aplicación amigable e independiente: “Facturación de Odoo es una aplicación autónoma para crear facturas... y gestionar pagos.”
+. Para empresas pequeñas, estas funciones son suficientes para llevar un control financiero básico integrado con las ventas y compras. Para necesidades contables más complejas (como conciliaciones bancarias automáticas, informes legales avanzados, etc.), se puede considerar la instalación de módulos comunitarios adicionales o la migración a Enterprise. No obstante, el corazón del flujo financiero –facturar, registrar pagos, y obtener reportes esenciales de ingresos/gastos– está disponible en Odoo 16 Community de manera totalmente integrada con el resto de módulos.
+
 
 ## 7. CONTABILIDAD
 
@@ -855,6 +987,13 @@ El módulo permite:
 - Registro de permisos médicos
 - Ausencias no remuneradas
 - Calendario de ausencias por departamento
+
+### Información ampliada
+
+El módulo Empleados de Odoo (parte de las aplicaciones de Recursos Humanos) sirve para gestionar la información del personal de la empresa: datos personales, puesto, departamento, supervisores, contratos, etc. Es fundamental para centralizar la lista de empleados y sus detalles. De acuerdo a la documentación: “La aplicación Empleados de Odoo organiza los registros, contratos y departamentos de los empleados de una empresa.”
+. En Odoo 16 Community, el módulo de Empleados ofrece registro básico de empleados y estructuración de la empresa, mientras que funcionalidades avanzadas de RH (ausencias, evaluaciones, nómina) pueden no estar incluidas sin módulos adicionales. Ficha del empleado: Cada empleado en Odoo tiene su propia ficha accesible desde Empleados > Todos los Empleados. Al crear un empleado nuevo, se especifica su Nombre, y opcionalmente se puede vincular con un Usuario del sistema (para darle permisos de acceso). También se completan campos como el Cargo/Puesto, el Departamento al que pertenece, quién es su Manager o responsable, la dirección de trabajo (por defecto la compañía) y datos de contacto como teléfono particular, correo electrónico, etc. Si la empresa gestiona contratos, en la pestaña Contrato se puede indicar el tipo de contrato, fecha de inicio, salario, y demás términos (aunque la funcionalidad de contratos y nómina completas son típicamente parte de localizaciones o de Odoo Enterprise). Estructura organizativa: El módulo Empleados permite reflejar la estructura organizativa mediante Departamentos. Podemos crear departamentos (por ejemplo Ventas, Operaciones, TI, Recursos Humanos) y asignar cada empleado a su departamento correspondiente, incluso indicando jefaturas. Esto es útil ya que en otros módulos (p.ej. Aprobaciones de gastos, ausencias, etc.) se utilizan estas jerarquías. También se pueden definir Equipos de Empleados para ciertos flujos. En Community, la información es mayormente referencial, es decir, no hay un proceso de aprobación robusto nativo, pero es base para otras apps. Integración con otras funciones de RRHH: Varias aplicaciones de Recursos Humanos complementan a Empleados. Por ejemplo, el módulo de Ausencias (vacaciones) y Gastos requieren la lista de empleados para registrar solicitudes. En Odoo 16 Community, es posible gestionar ausencias y gastos mediante módulos abiertos (aunque la aprobación multi-nivel es Enterprise). Aun sin esos módulos, Empleados nos sirve para tener un directorio interno del personal, con fotografía, información de contacto y posición de cada uno. Además, a través de los usuarios vinculados, se controlan los accesos: cada empleado con cuenta de usuario tendrá roles y permisos según su posición. En resumen, Empleados proporciona la base de datos del capital humano de la empresa en Odoo. Es simple en apariencia pero esencial: centraliza quién es quién en la organización. Al estar integrado con el resto del sistema, permite por ejemplo que en un parte de horas de Proyecto se sepa qué empleado la registró, o que en un pedido de venta quede constancia de qué vendedor lo creó, etc. Con este módulo, Odoo 16 Community organiza la información del personal y departamentos de forma ordenada y accesible
+, sirviendo como punto de partida para cualquier funcionalidad relacionada con RR.HH.
+
 - Afectación automática en nómina
 ## 10. PROCESOS SRI
 
@@ -1265,3 +1404,34 @@ Reporte detallado de movimientos por cliente:
 **SRI**: Servicio de Rentas Internas. Organismo fiscal encargado de la recaudación de impuestos en Ecuador.
 
 **XML**: Formato estándar para documentos electrónicos utilizados en la facturación electrónica en Ecuador.
+
+
+## 14. FUNCIONALIDADES ESTÁNDAR
+
+Las funcionalidades estándar están disponibles a lo largo de todos los módulos de Odoo 16 Community y representan la base de la experiencia de usuario. A continuación se describen los principales aspectos:
+
+### 14.1. Interfaz de Usuario
+- **Tablero de aplicaciones**: Acceso rápido a los módulos instalados.  
+- **Barra superior**: Buscador global, actividades, mensajes, selector de empresa e idioma.  
+- **Chatter**: Historial de mensajes, notas y archivos adjuntos en cada registro.  
+- **Acciones en lote**: Selección múltiple en vistas de lista para validar, eliminar, exportar, etc.
+
+### 14.2. Búsqueda y Filtrado
+El buscador contextual permite localizar registros y aplicar filtros personalizados, agrupar resultados y guardar consultas favoritas.
+
+### 14.3. Vistas y Personalización
+- **Tipos de vista**: lista, kanban, calendario, Gantt, gráfico y pivote.  
+- **Columnas reordenables**: Arrastrar encabezados en vistas de lista.  
+- **Campos personalizados**: Añadir campos en modo desarrollador sin instalar módulos adicionales.  
+- **Informes PDF**: Botón **Imprimir** para generar documentos listos para enviar o archivar.
+
+### 14.4. Importación y Exportación
+Exportación a CSV/Excel o importación de datos desde cualquier vista de lista con validación y mapeo de columnas.
+
+### 14.5. Actividades y Comunicación
+- **Actividades programadas**: Planificar llamadas, correos y reuniones con recordatorios.  
+- **Menciones (@)**: Notificar a usuarios dentro del chatter.  
+- **Plantillas de correo**: Enviar documentos directamente desde Odoo registrando copia en el chatter.
+
+### 14.6. Ajustes del Sistema
+La aplicación **Ajustes** centraliza la configuración global: datos de la compañía, usuarios y permisos, correo saliente/entrante, idiomas y zonas horarias. Para acceder a parámetros avanzados active el modo desarrollador añadiendo `?debug=1` a la URL.
